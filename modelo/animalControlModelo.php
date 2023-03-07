@@ -4,17 +4,35 @@ include_once "../modelo/conexion.php";
 class mdlAnimal{
 
     public static function mdlListarBusquedaAnimal(){
-        $ListarProducto="";
+        $ListarEspecie="";
         try{
         $objRespuesta=conexion::conectar()->prepare("SELECT * FROM especie");
         $objRespuesta->execute();
-        $ListarProducto = $objRespuesta->fetchAll();
+        $ListarEspecie = $objRespuesta->fetchAll();
         $objRespuesta = null;
     
         }catch(Exception $e){
-            $ListarProducto = $e;
+            $ListarEspecie = $e;
         }
-    return $ListarProducto;
+    return $ListarEspecie;
+    }
+    
+}
+
+class ctrTiempoAnimal{
+
+    public static function listarTiempoAnimal(){
+        $listarTiempo="";
+        try{
+        $objRespuesta=conexion::conectar()->prepare("SELECT * FROM tiempo");
+        $objRespuesta->execute();
+        $listarTiempo = $objRespuesta->fetchAll();
+        $objRespuesta = null;
+    
+        }catch(Exception $e){
+            $listarTiempo = $e;
+        }
+    return $listarTiempo;
     }
     
 }

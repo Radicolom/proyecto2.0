@@ -79,14 +79,17 @@ $(function(){
 
     // TIEMPO
 
-    // listarTiempo();
+    listarTiempo();
 
     function listarTiempo(){
       document.getElementById("selectTiempo").innerHTML = "";
-      document.getElementById("listaBusquedaAnimal").innerHTML = "";
-        
+
+      const busquedaTiempo = document.getElementById('selectTiempo');
+      busquedaTiempo.innerHTML += `<option value="0" disabled>Seleccione cantidad de tiempo</option>`;
+                    
       var objData =new FormData();
-      objData.append("listarBusquedaAnimal","ok");
+
+      objData.append("listarTiempo","ok");
       $.ajax({
         url: "control/animalControl.php",
         type: "post",
@@ -96,7 +99,6 @@ $(function(){
         contentType: false,
         processData: false
       }).done(function(respuesta){
-          var dataSet = [];
   
           console.log(respuesta)
 
@@ -104,14 +106,8 @@ $(function(){
 
             function ListarBusqueda(item,index){
   
-                const busquedaEs = document.getElementById('listaBusqueda');
-                busquedaEs.innerHTML += `<option value="${item.nombreEspecie}">`;
-
-                const busquedaSelec = document.getElementById('listaBusquedaAnimal');
-                busquedaSelec.innerHTML += `<a class="dropdown-item" id="seleccionarBusqueda" value="${item.idEspecie}">${item.nombreEspecie}</a>`;
-
-                // const BTNdaSelec = document.getElementById('btnEspecieRaza');
-                // BTNdaSelec.innerHTML += `<a class="dropdown-item" val="${item.idEspecie}">${item.nombreEspecie}</a>`;
+                busquedaTiempo = document.getElementById('selectTiempo');
+                busquedaTiempo.innerHTML += `<option value="${item.IdTiempo}" disabled>${item.nombreTiempo}</option>`;
 
             } 
         })
@@ -144,14 +140,12 @@ $(function(){
 
             function ListarBusqueda(item,index){
   
+                alert(item.nombreEspecie)
                 const busquedaEs = document.getElementById('listaBusqueda');
                 busquedaEs.innerHTML += `<option value="${item.nombreEspecie}">`;
-
+                // idEspecie="${item.idEspecie}"
                 const busquedaSelec = document.getElementById('listaBusquedaAnimal');
                 busquedaSelec.innerHTML += `<a class="dropdown-item" id="seleccionarBusqueda" value="${item.idEspecie}">${item.nombreEspecie}</a>`;
-
-                // const BTNdaSelec = document.getElementById('btnEspecieRaza');
-                // BTNdaSelec.innerHTML += `<a class="dropdown-item" val="${item.idEspecie}">${item.nombreEspecie}</a>`;
 
             } 
         })

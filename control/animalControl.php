@@ -15,4 +15,16 @@ if(isset($_POST["listarBusquedaAnimal"]) == "ok"){
     $objProducto->listarBusquedaAnimal();
 }
 
+class ctrTiempoAnimal{
 
+    public function listarTiempoAnimal(){
+        $objRespuesta=mdlTiempoAnimal::mdlTiempoAnimal();
+        echo json_encode($objRespuesta);
+    }
+
+}
+
+if(isset($_POST["listarTiempo"]) == "ok"){
+    $objProducto = new ctrTiempoAnimal();
+    $objProducto->listarTiempoAnimal();
+}

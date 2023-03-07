@@ -179,9 +179,6 @@
                         <div class="mb-3 mt-3">
                             <label for="tiempo" class="form-label">Tiempo:</label>
                             <select class="form-select" id="selectTiempo">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>1</option>
                                 <!-- ARCHIVO -->
                             </select>     
                         </div>
