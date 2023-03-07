@@ -27,8 +27,8 @@ class ctrTiempoAnimal{
         echo json_encode($objRespuesta);
     }
 
-    public function listarEdadAnimalAño(){
-        $objRespuesta=mdlTiempoAnimal::mdlListarEdadAnimalAño($this->listarEdadAnimal);
+    public function listarEdadAnimalMenos(){
+        $objRespuesta=mdlTiempoAnimal::mdlListarEdadAnimalMenos($this->listarEdadAnimal);
         echo json_encode($objRespuesta);
     }
 
@@ -44,8 +44,8 @@ if(isset($_POST["listarEdadAnimal"]) == "ok"){
     $objAnimal->listarEdadAnimal();
 }
 
-if(isset($_POST["listarEdadAnimal"])){
+if(isset($_POST["listarEdadAnimal"]) != "ok"){
     $objAnimal = new ctrTiempoAnimal();
     $objAnimal->listarEdadAnimal = $_POST["listarEdadAnimal"];
-    $objAnimal->listarEdadAnimalAño();
+    $objAnimal->listarEdadAnimalMenos();
 }

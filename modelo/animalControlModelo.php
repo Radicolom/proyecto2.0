@@ -49,7 +49,7 @@ class mdlTiempoAnimal{
     return $listarTiempo;
     }
 
-    public static function mdlListarEdadAnimalAño($listarEdadAnimal){
+    public static function mdlListarEdadAnimalMenos($listarEdadAnimal){
         $listarTiempo="";
         try{
         $objRespuesta=conexion::conectar()->prepare("SELECT * FROM numeros WHERE :listarEdadAnimal>numero");

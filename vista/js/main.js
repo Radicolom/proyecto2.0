@@ -136,12 +136,17 @@ $(function(){
         var objData =new FormData();
         
         if(compararEdadAnimal == 1){
+            alert("ok")
             objData.append("listarEdadAnimal","ok");   
         }else{
             if(compararEdadAnimal == 2){
+            alert("mes")
+
                 edad = 13;
                 objData.append("listarEdadAnimal",edad);
             }else{
+            alert("añ")
+                
                 edad = 25;
                 objData.append("listarEdadAnimal",edad);
             }
