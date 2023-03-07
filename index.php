@@ -196,17 +196,19 @@
                     <div class="col">
                         <div class="mb-3 mt-3">
                             <label for="email" class="form-label">Especie:</label>
-                            <select class="form-select" placeholder="Seleccione el sexo">
+                            <input type="text" list="listaBusqueda" name="browser" class="form-control" placeholder="Escriba la especie">
+                            <datalist id="listaBusqueda">
                                 <!-- ARCHIVO -->
-                            </select>    
+                            </datalist>    
                         </div>
                     </div>
                     <div class="col">
                         <div class="mb-3 mt-3">
                             <label for="email" class="form-label">Raza:</label>
-                            <select class="form-select" placeholder="Seleccione el sexo">
+                            <input type="text" list="listaBusqueda" name="browser" class="form-control" placeholder="Escriba la raza">
+                            <datalist id="listaBusqueda">
                                 <!-- ARCHIVO -->
-                            </select>     
+                            </datalist>        
                         </div>
                     </div>
                 </div>

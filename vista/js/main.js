@@ -211,8 +211,14 @@ $(function(){
     listarBusquedaAnimal();
 
     function listarBusquedaAnimal(){
+        // BUSQUEDA
         document.getElementById("listaBusqueda").innerHTML = "";
         document.getElementById("listaBusquedaAnimal").innerHTML = "";
+
+        // REGISTRO DATOS ANIMAL
+        // document.getElementById("listaBusqueda").innerHTML = "";
+        // document.getElementById("listaBusqueda").innerHTML = "";
+
         
         var objData =new FormData();
       
@@ -233,13 +239,23 @@ $(function(){
           respuesta.forEach(ListarBusqueda);
 
             function ListarBusqueda(item,index){
-  
+                
+                // BUSQUEDA ANIMAL
                 // alert(item.nombreEspecie)
                 const busquedaEs = document.getElementById('listaBusqueda');
                 busquedaEs.innerHTML += `<option value="${item.nombreEspecie}">`;
+
                 // idEspecie="${item.idEspecie}"
                 const busquedaSelec = document.getElementById('listaBusquedaAnimal');
                 busquedaSelec.innerHTML += `<a class="dropdown-item" id="seleccionarBusqueda" value="${item.idEspecie}">${item.nombreEspecie}</a>`;
+
+                // REGISTRO DATOS ANIMAL
+                
+                // const datosEspecieAnimal = document.getElementById('listaBusqueda');
+                // datosAnimal.innerHTML += `<option value="${item.nombreEspecie}">`;
+
+                // const datosRazaAnimal = document.getElementById('listaBusqueda');
+                // datosAnimal.innerHTML += `<option value="${item.nombreEspecie}">`;
 
             } 
         })

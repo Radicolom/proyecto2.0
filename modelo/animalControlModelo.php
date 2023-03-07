@@ -6,7 +6,7 @@ class mdlAnimal{
     public static function mdlListarBusquedaAnimal(){
         $ListarEspecie="";
         try{
-        $objRespuesta=conexion::conectar()->prepare("SELECT * FROM especie");
+        $objRespuesta=conexion::conectar()->prepare("SELECT * FROM raza CROSS JOIN especie");
         $objRespuesta->execute();
         $ListarEspecie = $objRespuesta->fetchAll();
         $objRespuesta = null;
@@ -24,7 +24,7 @@ class mdlDatosAnimal{
     public static function mdlSexoAnimal(){
         $listarSexo="";
         try{
-        $objRespuesta=conexion::conectar()->prepare("SELECT * FROM sexo");
+        $objRespuesta=conexion::conectar()->prepare("SELECT * FROM sexo, especie");
         $objRespuesta->execute();
         $listarSexo = $objRespuesta->fetchAll();
         $objRespuesta = null;
