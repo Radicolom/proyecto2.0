@@ -1,7 +1,9 @@
 $(function(){
 
+    var tiempoRegistro = false;
     var inicio = false;
     var num = 0;
+    var compararEdadAnimal = 0;
 
     cargarPangtalla();
 
@@ -58,6 +60,14 @@ $(function(){
         $("#contenedorFormularioIngreso").fadeIn(1000);
     })
 
+    // TIEMPO REGISTRO
+
+    $("#selectTiempo").on("click", function(){
+        listarEdadAnimal();
+    })
+
+
+
     $("#ejecutar").on("click", function(){
         
         // document.getElementById("adopcionListas").innerHTML = "";
@@ -82,15 +92,15 @@ $(function(){
     listarTiempo();
 
     function listarTiempo(){
-      document.getElementById("selectTiempo").innerHTML = "";
+        document.getElementById("selectTiempo").innerHTML = "";
 
-      const busquedaTiempo = document.getElementById('selectTiempo');
-      busquedaTiempo.innerHTML += `<option value="0" disabled>Seleccione cantidad de tiempo</option>`;
+        const busquedaTiempo = document.getElementById('selectTiempo');
+        busquedaTiempo.innerHTML += `<option value="0" disabled>Seleccione cantidad de tiempo</option>`;
                     
-      var objData =new FormData();
+        var objData =new FormData();
 
-      objData.append("listarTiempo","ok");
-      $.ajax({
+        objData.append("listarTiempo","ok");
+        $.ajax({
         url: "control/animalControl.php",
         type: "post",
         dataType: "json",
@@ -106,24 +116,71 @@ $(function(){
 
             function ListarBusqueda(item,index){
   
-                // busquedaTiempo = document.getElementById('selectTiempo');
-                busquedaTiempo.innerHTML += `<option value="${item.IdTiempo}" disabled>${item.nombreTiempo}</option>`;
+                // busquedaTiempo = document.getElementById('selectTiempo');    
+                busquedaTiempo.innerHTML += `<option value="${item.IdTiempo}">${item.nombreTiempo}</option>`;
+
+            }
+    
+            listarEdadAnimal();
+
+        })
+    }
+
+
+    function listarEdadAnimal(){
+        
+        compararEdadAnimal = $("#selectTiempo").val();
+        document.getElementById("selectEdadAnimal").innerHTML = "";
+                    
+        var objData =new FormData();
+        
+        if(compararEdadAnimal == 1){
+            var edadMes = 12;
+            objData.append("listarEdadAnimal",edadMes);
+        }else{
+            if(compararEdadAnimal == 2){
+
+            }else{
+                objData.append("listarEdadAnimal","ok");   
+            }
+        }
+        $.ajax({
+        url: "control/animalControl.php",
+        type: "post",
+        dataType: "json",
+        data: objData,
+        cache: false,
+        contentType: false,
+        processData: false
+      }).done(function(respuesta){
+  
+          console.log(respuesta)
+
+          respuesta.forEach(ListarBusqueda);
+
+            function ListarBusqueda(item,index){
+  
+                busquedaTiempo = document.getElementById('selectEdadAnimal');    
+                busquedaTiempo.innerHTML += `<option value="${item.idNumero}">${item.numero}</option>`;
 
             } 
         })
     }
+
+    
 
     // ESPECIE
 
     listarBusquedaAnimal();
 
     function listarBusquedaAnimal(){
-      document.getElementById("listaBusqueda").innerHTML = "";
-      document.getElementById("listaBusquedaAnimal").innerHTML = "";
+        document.getElementById("listaBusqueda").innerHTML = "";
+        document.getElementById("listaBusquedaAnimal").innerHTML = "";
         
-      var objData =new FormData();
-      objData.append("listarBusquedaAnimal","ok");
-      $.ajax({
+        var objData =new FormData();
+      
+        objData.append("listarBusquedaAnimal","ok");
+        $.ajax({
         url: "control/animalControl.php",
         type: "post",
         dataType: "json",
@@ -140,11 +197,11 @@ $(function(){
 
             function ListarBusqueda(item,index){
   
-                alert(item.nombreEspecie)
-                // const busquedaEs = document.getElementById('listaBusqueda');
+                // alert(item.nombreEspecie)
+                const busquedaEs = document.getElementById('listaBusqueda');
                 busquedaEs.innerHTML += `<option value="${item.nombreEspecie}">`;
                 // idEspecie="${item.idEspecie}"
-                // const busquedaSelec = document.getElementById('listaBusquedaAnimal');
+                const busquedaSelec = document.getElementById('listaBusquedaAnimal');
                 busquedaSelec.innerHTML += `<a class="dropdown-item" id="seleccionarBusqueda" value="${item.idEspecie}">${item.nombreEspecie}</a>`;
 
             } 
@@ -155,6 +212,11 @@ $(function(){
         var val = $(this).attr("value");
         console.log(val);
         alert(val);
+        //   if(item.IdTiempo == 1){
+        //             tiempoRegistro = true;
+        //         }else{
+        //             tiempoRegistro = false;
+        //         }
     })
 
 

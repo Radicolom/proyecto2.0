@@ -11,8 +11,8 @@ class ctrAnimal{
 }
 
 if(isset($_POST["listarBusquedaAnimal"]) == "ok"){
-    $objProducto = new ctrAnimal();
-    $objProducto->listarBusquedaAnimal();
+    $objAnimal = new ctrAnimal();
+    $objAnimal->listarBusquedaAnimal();
 }
 
 class ctrTiempoAnimal{
@@ -22,9 +22,30 @@ class ctrTiempoAnimal{
         echo json_encode($objRespuesta);
     }
 
+    public function listarEdadAnimal(){
+        $objRespuesta=mdlTiempoAnimal::mdlListarEdadAnimal();
+        echo json_encode($objRespuesta);
+    }
+
+    public function listarEdadAnimalAño(){
+        $objRespuesta=mdlTiempoAnimal::mdlListarEdadAnimalAño($this->listarEdadAnimal);
+        echo json_encode($objRespuesta);
+    }
+
 }
 
 if(isset($_POST["listarTiempo"]) == "ok"){
-    $objProducto = new ctrTiempoAnimal();
-    $objProducto->listarTiempoAnimal();
+    $objAnimal = new ctrTiempoAnimal();
+    $objAnimal->listarTiempoAnimal();
+}
+
+if(isset($_POST["listarEdadAnimal"]) == "ok"){
+    $objAnimal = new ctrTiempoAnimal();
+    $objAnimal->listarEdadAnimal();
+}
+
+if(isset($_POST["listarEdadAnimal"])){
+    $objAnimal = new ctrTiempoAnimal();
+    $objAnimal->listarEdadAnimal = $_POST["listarEdadAnimal"];
+    $objAnimal->listarEdadAnimalAño();
 }

@@ -177,16 +177,16 @@
                     </div>
                     <div class="col">
                         <div class="mb-3 mt-3">
-                            <label for="tiempo" class="form-label">Tiempo:</label>
-                            <select class="form-select" id="selectTiempo">
+                            <label for="numeric" class="form-label">Edad:</label>
+                            <select class="form-select" id="selectEdadAnimal">
                                 <!-- ARCHIVO -->
                             </select>     
                         </div>
                     </div>
                     <div class="col">
                         <div class="mb-3 mt-3">
-                            <label for="numeric" class="form-label">Edad:</label>
-                            <select class="form-select" placeholder="Seleccione el sexo">
+                            <label for="tiempo" class="form-label">Tiempo:</label>
+                            <select class="form-select" id="selectTiempo">
                                 <!-- ARCHIVO -->
                             </select>     
                         </div>
@@ -232,8 +232,8 @@
     </div>
 
     <div class="container" id="contenedorFormularioIngreso" style="display: none;">
-    <br>
-    <br>
+        <br>
+        <br>
         <div class="row p-5">
             <div class="col">
                 <center>

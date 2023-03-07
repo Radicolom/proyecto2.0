@@ -19,9 +19,9 @@ class mdlAnimal{
     
 }
 
-class ctrTiempoAnimal{
+class mdlTiempoAnimal{
 
-    public static function listarTiempoAnimal(){
+    public static function mdlTiempoAnimal(){
         $listarTiempo="";
         try{
         $objRespuesta=conexion::conectar()->prepare("SELECT * FROM tiempo");
@@ -35,4 +35,32 @@ class ctrTiempoAnimal{
     return $listarTiempo;
     }
     
+    public static function mdlListarEdadAnimal(){
+        $listarTiempo="";
+        try{
+        $objRespuesta=conexion::conectar()->prepare("SELECT * FROM numeros");
+        $objRespuesta->execute();
+        $listarTiempo = $objRespuesta->fetchAll();
+        $objRespuesta = null;
+    
+        }catch(Exception $e){
+            $listarTiempo = $e;
+        }
+    return $listarTiempo;
+    }
+
+    public static function mdlListarEdadAnimalAño($listarEdadAnimal){
+        $listarTiempo="";
+        try{
+        $objRespuesta=conexion::conectar()->prepare("SELECT * FROM numeros WHERE :listarEdadAnimal>numero");
+        $objRespuesta->bindparam(":listarEdadAnimal",$listarEdadAnimal);
+        // $objRespuesta->execute();
+        // $listarTiempo = $objRespuesta->fetchAll();
+        // $objRespuesta = null;
+    
+        }catch(Exception $e){
+            $objRespuesta = $e;
+        }
+    return $objRespuesta;
+    }
 }
