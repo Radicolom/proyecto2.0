@@ -54,9 +54,9 @@ class mdlTiempoAnimal{
         try{
         $objRespuesta=conexion::conectar()->prepare("SELECT * FROM numeros WHERE :listarEdadAnimal>numero");
         $objRespuesta->bindparam(":listarEdadAnimal",$listarEdadAnimal);
-        // $objRespuesta->execute();
-        // $listarTiempo = $objRespuesta->fetchAll();
-        // $objRespuesta = null;
+        $objRespuesta->execute();
+        $listarTiempo = $objRespuesta->fetchAll();
+        $objRespuesta = null;
     
         }catch(Exception $e){
             $objRespuesta = $e;

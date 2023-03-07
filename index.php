@@ -177,7 +177,7 @@
                     </div>
                     <div class="col">
                         <div class="mb-3 mt-3">
-                            <label for="numeric" class="form-label">Edad:</label>
+                            <label for="text" class="form-label">Edad:</label>
                             <select class="form-select" id="selectEdadAnimal">
                                 <!-- ARCHIVO -->
                             </select>     
@@ -185,7 +185,7 @@
                     </div>
                     <div class="col">
                         <div class="mb-3 mt-3">
-                            <label for="tiempo" class="form-label">Tiempo:</label>
+                            <label for="text" class="form-label">Tiempo:</label>
                             <select class="form-select" id="selectTiempo">
                                 <!-- ARCHIVO -->
                             </select>     

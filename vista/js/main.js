@@ -128,20 +128,22 @@ $(function(){
 
 
     function listarEdadAnimal(){
-        
+        var edad = 0;
         compararEdadAnimal = $("#selectTiempo").val();
+
         document.getElementById("selectEdadAnimal").innerHTML = "";
                     
         var objData =new FormData();
         
         if(compararEdadAnimal == 1){
-            var edadMes = 12;
-            objData.append("listarEdadAnimal",edadMes);
+            objData.append("listarEdadAnimal","ok");   
         }else{
             if(compararEdadAnimal == 2){
-
+                edad = 13;
+                objData.append("listarEdadAnimal",edad);
             }else{
-                objData.append("listarEdadAnimal","ok");   
+                edad = 25;
+                objData.append("listarEdadAnimal",edad);
             }
         }
         $.ajax({
