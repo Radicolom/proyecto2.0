@@ -132,7 +132,7 @@ $(function(){
         contentType: false,
         processData: false
       }).done(function(respuesta){
-          var dataSet = [];
+        //   var dataSet = [];
   
           console.log(respuesta)
 
