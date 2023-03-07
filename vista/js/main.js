@@ -135,20 +135,16 @@ $(function(){
                     
         var objData =new FormData();
         
-        if(compararEdadAnimal == 1){
-            alert("ok")
-            objData.append("listarEdadAnimal","ok");   
+        if(compararEdadAnimal == 3){
+            edad = 25;
+            objData.append("listarEdadAnimalMenos",edad);
+            
         }else{
             if(compararEdadAnimal == 2){
-            alert("mes")
-
                 edad = 13;
-                objData.append("listarEdadAnimal",edad);
+                objData.append("listarEdadAnimalMenos",edad);
             }else{
-            alert("añ")
-                
-                edad = 25;
-                objData.append("listarEdadAnimal",edad);
+                objData.append("listarEdadAnimal","ok");   
             }
         }
         $.ajax({
@@ -174,7 +170,41 @@ $(function(){
         })
     }
 
+    // SEXO
+
+    listarSexo();
+
+    function listarSexo(){
+        document.getElementById("selectSexo").innerHTML = "";
+
+        const busquedaTiempo = document.getElementById('selectSexo');
+        busquedaTiempo.innerHTML += `<option value="0" disabled>Seleccione el Sexo</option>`;
+                    
+        var objData =new FormData();
+
+        objData.append("listarSexo","ok");
+        $.ajax({
+        url: "control/animalControl.php",
+        type: "post",
+        dataType: "json",
+        data: objData,
+        cache: false,
+        contentType: false,
+        processData: false
+        }).done(function(respuesta){
     
+            console.log(respuesta)
+
+            respuesta.forEach(ListarBusqueda);
+
+            function ListarBusqueda(item,index){
+    
+                // busquedaTiempo = document.getElementById('selectTiempo');    
+                busquedaTiempo.innerHTML += `<option value="${item.idSexo}">${item.nombreSexo}</option>`;
+
+            }
+        })
+    } 
 
     // ESPECIE
 

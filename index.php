@@ -170,7 +170,7 @@
                     <div class="col">
                         <div class="mb-3 mt-3">
                             <label for="text" class="form-label">Sexo:</label>
-                            <select class="form-select" placeholder="Seleccione el sexo">
+                            <select class="form-select"  id="selectSexo">
                                 <!-- ARCHIVO -->
                             </select>    
                         </div>
