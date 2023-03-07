@@ -164,12 +164,12 @@
             <form action="/action_page.php">
                 <div class="mb-3 mt-3">
                     <label for="email" class="form-label">Nombre:</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                    <input type="email" class="form-control" id="nombre" placeholder="Escriba el nombre" name="nombre">
                 </div>
                 <div class="row">
                     <div class="col">
                         <div class="mb-3 mt-3">
-                            <label for="email" class="form-label">Sexo:</label>
+                            <label for="text" class="form-label">Sexo:</label>
                             <select class="form-select" placeholder="Seleccione el sexo">
                                 <!-- ARCHIVO -->
                             </select>    
@@ -185,7 +185,7 @@
                     </div>
                     <div class="col">
                         <div class="mb-3 mt-3">
-                            <label for="email" class="form-label">Edad:</label>
+                            <label for="numeric" class="form-label">Edad:</label>
                             <select class="form-select" placeholder="Seleccione el sexo">
                                 <!-- ARCHIVO -->
                             </select>     
@@ -212,7 +212,7 @@
                 </div>
                 <div class="mb-3 mt-3">
                     <label for="email" class="form-label">Email:</label>
-                    <input type="text" list="listaBusqueda" name="browser" class="form-control" placeholder="Buscar">
+                    <input type="email" list="listaBusqueda" name="browser" class="form-control" placeholder="Buscar">
                         <datalist id="listaBusqueda">
                             <!-- ARCHIVO -->
                         </datalist>

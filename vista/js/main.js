@@ -106,7 +106,7 @@ $(function(){
 
             function ListarBusqueda(item,index){
   
-                busquedaTiempo = document.getElementById('selectTiempo');
+                // busquedaTiempo = document.getElementById('selectTiempo');
                 busquedaTiempo.innerHTML += `<option value="${item.IdTiempo}" disabled>${item.nombreTiempo}</option>`;
 
             } 
@@ -132,7 +132,7 @@ $(function(){
         contentType: false,
         processData: false
       }).done(function(respuesta){
-          var dataSet = [];
+        //   var dataSet = [];
   
           console.log(respuesta)
 
@@ -141,10 +141,10 @@ $(function(){
             function ListarBusqueda(item,index){
   
                 alert(item.nombreEspecie)
-                const busquedaEs = document.getElementById('listaBusqueda');
+                // const busquedaEs = document.getElementById('listaBusqueda');
                 busquedaEs.innerHTML += `<option value="${item.nombreEspecie}">`;
                 // idEspecie="${item.idEspecie}"
-                const busquedaSelec = document.getElementById('listaBusquedaAnimal');
+                // const busquedaSelec = document.getElementById('listaBusquedaAnimal');
                 busquedaSelec.innerHTML += `<a class="dropdown-item" id="seleccionarBusqueda" value="${item.idEspecie}">${item.nombreEspecie}</a>`;
 
             } 
