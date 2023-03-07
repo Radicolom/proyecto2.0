@@ -79,10 +79,10 @@ $(function(){
 
     // TIEMPO
 
-    listarTiempo();
+    // listarTiempo();
 
     function listarTiempo(){
-      document.getElementById("listaBusqueda").innerHTML = "";
+      document.getElementById("selectTiempo").innerHTML = "";
       document.getElementById("listaBusquedaAnimal").innerHTML = "";
         
       var objData =new FormData();
