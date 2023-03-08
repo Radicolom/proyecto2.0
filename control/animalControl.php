@@ -1,6 +1,20 @@
 <?php
 include_once "../modelo/animalControlModelo.php";
 
+class ctrListarAnimal{
+
+    public function ListarAnimal(){
+        $objRespuesta=mdlListarAnimal::mdlListarAnimal();
+        echo json_encode($objRespuesta);
+    }
+
+}
+
+if(isset($_POST["listarAnimal"]) == "ok"){
+    $objAnimal = new ctrListarAnimal();
+    $objAnimal->ListarAnimal();
+}
+
 class ctrAnimal{
 
     public function listarBusquedaAnimal(){

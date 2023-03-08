@@ -42,6 +42,7 @@ $(function(){
         $("#contenedorInicio").hide();
         $("#contenedorDarAdopcion").hide();
         $("#contenedorAdopta").fadeIn(1000);
+        listarAnimal();
     })
 
     $("#btnAdoptar").on("click", function(){
@@ -86,6 +87,45 @@ $(function(){
 
         // categoriasBuscador.innerHTML += '</div>'                
     })
+
+    function listarAnimal(){
+
+        document.getElementById("adopcionListas").innerHTML = "";
+                    
+        var objData =new FormData();
+
+        objData.append("listarAnimal","ok");
+        $.ajax({
+        url: "control/animalControl.php",
+        type: "post",
+        dataType: "json",
+        data: objData,
+        cache: false,
+        contentType: false,
+        processData: false
+      }).done(function(respuesta){
+  
+          console.log(respuesta)
+
+          respuesta.forEach(listaAnimal);
+
+            function listaAnimal(item,index){
+  
+                num += 1;
+                const listaAnimal = document.getElementById('adopcionListas');
+                
+
+                if(num == 6){
+                    listaAnimal.innerHTML += '<div class="row p-3"></div>'
+                    num = 1;
+                    }
+                    listaAnimal.innerHTML += '<div class="col"><div class="card" style="width: 200px;"><img src="vista/img/icono.png" class="img-thumbnail" alt="Cinque Terre" style="width: 250px;"><div class="card-body"><h4 class="card-title">NOMBRE:</h4><h4 class="card-title">' + item.nombreAnima + '</h4><p class="card-text">ESPECIE:</p><p class="card-text">' + item.nombreEspecie + '</p><p class="card-text">SEXO:</p><p class="card-text">' + item.nombreSexo + '</p><p class="card-text">EDAD:</p><p class="card-text">' + item.numero + ' ' + item.nombreTiempo + '</p><a href="#" class="btn btn-primary">See Profile</a></div></div></div>';
+            
+                
+            }
+
+        })
+    }
 
     // TIEMPO
 
@@ -266,7 +306,7 @@ $(function(){
 
                 // REGISTRO DATOS ANIMAL  
                 const datosRazaAnimal = document.getElementById('listaRegistroRaza');
-                datosRazaAnimal.innerHTML += `<option idRaza="${item.idRaza}" value="${item.nombreRaza}">`;      
+                datosRazaAnimal.innerHTML += `<option value="${item.nombreRaza}">`;      
             } 
 
         })

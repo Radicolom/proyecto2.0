@@ -2,6 +2,25 @@
 include_once "../modelo/conexion.php";
 
 // $objRespuesta=conexion::conectar()->prepare("SELECT DISTINCT * FROM raza UNION SELECT * FROM especie");
+// INSERT INTO `usua` (`idUsuario`, `nombre`, `apellido`, `direccion`, `tell`, `animal_Id_Usuario`) VALUES (NULL, 'prueva', '1', 'cualquiera', '45465', '1');
+
+class mdlListarAnimal{
+
+    public static function mdlListarAnimal(){
+        $ListarAnimal="";
+        try{
+        $objRespuesta=conexion::conectar()->prepare("SELECT * FROM animal, usua, raza, especie, tiempo, numeros, sexo WHERE animal_Id_Usuario = idAnimal AND sexo_Id_sexAnimal = idSexo AND especie_Id_Animal = idEspecie AND raza_Id_Animal = idRaza AND edad_Id_Animal = idNumero AND tipoFecha_Id_Animal = IdTiempo");
+        $objRespuesta->execute();
+        $ListarAnimal = $objRespuesta->fetchAll();
+        $objRespuesta = null;
+    
+        }catch(Exception $e){
+            $ListarAnimal = $e;
+        }
+    return $ListarAnimal;
+    }
+    
+}
 
 class mdlAnimal{
 
