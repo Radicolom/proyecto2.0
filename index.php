@@ -139,7 +139,13 @@
                 <div class="btn-group" id="btnEspecieRaza">
                     <div class="btn-group">
                         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Especie</button>
-                        <div class="dropdown-menu" id="listaBusquedaAnimal">
+                        <div class="dropdown-menu" id="listaBusquedaAnimalEspecie">
+                            <!-- ARCHIVO -->
+                        </div>
+                    </div>
+                    <div class="btn-group" id="btnSelecRaza" style="display: none;">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Raza</button>
+                        <div class="dropdown-menu" id="listaBusquedaAnimalRaza">
                             <!-- ARCHIVO -->
                         </div>
                     </div>
@@ -196,8 +202,8 @@
                     <div class="col">
                         <div class="mb-3 mt-3">
                             <label for="email" class="form-label">Especie:</label>
-                            <input type="text" list="listaBusqueda" name="browser" class="form-control" placeholder="Escriba la especie">
-                            <datalist id="listaBusqueda">
+                            <input type="text" list="listaRegistroEspecie" name="browser" class="form-control" placeholder="Escriba la especie">
+                            <datalist id="listaRegistroEspecie">
                                 <!-- ARCHIVO -->
                             </datalist>    
                         </div>
@@ -205,8 +211,8 @@
                     <div class="col">
                         <div class="mb-3 mt-3">
                             <label for="email" class="form-label">Raza:</label>
-                            <input type="text" list="listaBusqueda" name="browser" class="form-control" placeholder="Escriba la raza">
-                            <datalist id="listaBusqueda">
+                            <input type="text" list="listaRegistroRaza" name="browser" class="form-control" placeholder="Escriba la raza">
+                            <datalist id="listaRegistroRaza">
                                 <!-- ARCHIVO -->
                             </datalist>        
                         </div>

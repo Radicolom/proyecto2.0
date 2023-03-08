@@ -62,7 +62,7 @@ $(function(){
 
     // TIEMPO REGISTRO
 
-    $("#selectTiempo").on("click", function(){
+    $("#selectTiempo").on("change", function(){
         listarEdadAnimal();
     })
 
@@ -177,8 +177,8 @@ $(function(){
     function listarSexo(){
         document.getElementById("selectSexo").innerHTML = "";
 
-        const busquedaTiempo = document.getElementById('selectSexo');
-        busquedaTiempo.innerHTML += `<option value="0" disabled>Seleccione el Sexo</option>`;
+        const busquedaSex = document.getElementById('selectSexo');
+        busquedaSex.innerHTML += `<option value="0" disabled>Seleccione el Sexo</option>`;
                     
         var objData =new FormData();
 
@@ -199,8 +199,7 @@ $(function(){
 
             function ListarBusqueda(item,index){
     
-                // busquedaTiempo = document.getElementById('selectTiempo');    
-                busquedaTiempo.innerHTML += `<option value="${item.idSexo}">${item.nombreSexo}</option>`;
+                busquedaSex.innerHTML += `<option value="${item.idSexo}">${item.nombreSexo}</option>`;
 
             }
         })
@@ -213,11 +212,11 @@ $(function(){
     function listarBusquedaAnimal(){
         // BUSQUEDA
         document.getElementById("listaBusqueda").innerHTML = "";
-        document.getElementById("listaBusquedaAnimal").innerHTML = "";
+        document.getElementById("listaBusquedaAnimalEspecie").innerHTML = "";
 
         // REGISTRO DATOS ANIMAL
-        // document.getElementById("listaBusqueda").innerHTML = "";
-        // document.getElementById("listaBusqueda").innerHTML = "";
+        document.getElementById("listaRegistroEspecie").innerHTML = "";
+        document.getElementById("listaRegistroRaza").innerHTML = "";
 
         
         var objData =new FormData();
@@ -234,37 +233,52 @@ $(function(){
       }).done(function(respuesta){
         //   var dataSet = [];
   
-          console.log(respuesta)
+            console.log(respuesta)
 
-          respuesta.forEach(ListarBusqueda);
+            var BusquedaFiltro = respuesta.filter(item => item.nombreEspecie !== null);
+            var registroFiltro = respuesta.filter(item => item.nombreRaza !== null);
+
+            BusquedaFiltro.forEach(ListarBusqueda);
 
             function ListarBusqueda(item,index){
-                
+
                 // BUSQUEDA ANIMAL
-                // alert(item.nombreEspecie)
                 const busquedaEs = document.getElementById('listaBusqueda');
                 busquedaEs.innerHTML += `<option value="${item.nombreEspecie}">`;
 
-                // idEspecie="${item.idEspecie}"
-                const busquedaSelec = document.getElementById('listaBusquedaAnimal');
-                busquedaSelec.innerHTML += `<a class="dropdown-item" id="seleccionarBusqueda" value="${item.idEspecie}">${item.nombreEspecie}</a>`;
+                const busquedaSelec = document.getElementById('listaBusquedaAnimalEspecie');
+                busquedaSelec.innerHTML += `<a class="dropdown-item" id="selecCionarBusquedaEspecie" value="${item.idEspecie}">${item.nombreEspecie}</a>`;
 
                 // REGISTRO DATOS ANIMAL
                 
-                // const datosEspecieAnimal = document.getElementById('listaBusqueda');
-                // datosAnimal.innerHTML += `<option value="${item.nombreEspecie}">`;
-
-                // const datosRazaAnimal = document.getElementById('listaBusqueda');
-                // datosAnimal.innerHTML += `<option value="${item.nombreEspecie}">`;
+                const datosEspecieAnimal = document.getElementById('listaRegistroEspecie');
+                datosEspecieAnimal.innerHTML += `<option value="${item.nombreEspecie}">`;
 
             } 
+
+            registroFiltro.forEach(listarRegistross);
+
+            function listarRegistross(item,index){
+
+                // BUSQUEDA ANIMAL
+                const busquedaSelec = document.getElementById('listaBusquedaAnimalRaza');
+                busquedaSelec.innerHTML += `<a class="dropdown-item" id="seleccionarBusquedaRaza" value="${item.idRaza}">${item.nombreRaza}</a>`;
+
+                // REGISTRO DATOS ANIMAL  
+                const datosRazaAnimal = document.getElementById('listaRegistroRaza');
+                datosRazaAnimal.innerHTML += `<option idRaza="${item.idRaza}" value="${item.nombreRaza}">`;      
+            } 
+
         })
     }
 
-    $("#listaBusquedaAnimal").on("click", "#seleccionarBusqueda", function(){
+    $("#listaBusquedaAnimalEspecie").on("click", "#selecCionarBusquedaEspecie", function(){
+        $("#btnSelecRaza").fadeIn(1000);
+       
         var val = $(this).attr("value");
         console.log(val);
         alert(val);
+
         //   if(item.IdTiempo == 1){
         //             tiempoRegistro = true;
         //         }else{

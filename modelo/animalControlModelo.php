@@ -1,12 +1,16 @@
 <?php
 include_once "../modelo/conexion.php";
 
+// $objRespuesta=conexion::conectar()->prepare("SELECT DISTINCT * FROM raza UNION SELECT * FROM especie");
+
 class mdlAnimal{
 
     public static function mdlListarBusquedaAnimal(){
         $ListarEspecie="";
         try{
-        $objRespuesta=conexion::conectar()->prepare("SELECT * FROM raza CROSS JOIN especie");
+        $objRespuesta=conexion::conectar()->prepare("SELECT idRaza AS idRaza, nombreRaza AS nombreRaza, NULL AS idEspecie, NULL AS nombreEspecie FROM raza
+                                                    UNION 
+                                                    SELECT NULL AS idRaza, NULL AS nombreRaza, idEspecie AS idEspecie, nombreEspecie AS nombreEspecie FROM especie;");
         $objRespuesta->execute();
         $ListarEspecie = $objRespuesta->fetchAll();
         $objRespuesta = null;
@@ -24,7 +28,7 @@ class mdlDatosAnimal{
     public static function mdlSexoAnimal(){
         $listarSexo="";
         try{
-        $objRespuesta=conexion::conectar()->prepare("SELECT * FROM sexo, especie");
+        $objRespuesta=conexion::conectar()->prepare("SELECT * FROM sexo");
         $objRespuesta->execute();
         $listarSexo = $objRespuesta->fetchAll();
         $objRespuesta = null;
