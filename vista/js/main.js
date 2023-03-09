@@ -83,7 +83,7 @@ $(function(){
         categoriasBuscador.innerHTML += '<div class="row p-3"></div>'
         num = 1;
     }
-        categoriasBuscador.innerHTML += '<div class="col"><div class="card" style="width: 200px;"><img src="vista/img/icono.png" class="img-thumbnail" alt="Cinque Terre" style="width: 250px;"><div class="card-body"><h4 class="card-title">John Doe</h4><p class="card-text">Some example text.</p><a href="#" class="btn btn-primary">See Profile</a></div></div></div>'
+        categoriasBuscador.innerHTML += '<div class="col"><div class="card" style="width: 200px;"><img src="control/imagen.php?id=1" alt="Mi foto"><div class="card-body"><h4 class="card-title">John Doe</h4><p class="card-text">Some example text.</p><a href="#" class="btn btn-primary">See Profile</a></div></div></div>'
 
         // categoriasBuscador.innerHTML += '</div>'                
     })
@@ -119,8 +119,8 @@ $(function(){
                     listaAnimal.innerHTML += '<div class="row p-3"></div>'
                     num = 1;
                     }
-                    listaAnimal.innerHTML += '<div class="col"><div class="card" style="width: 200px;"><img src="vista/img/icono.png" class="img-thumbnail" alt="Cinque Terre" style="width: 250px;"><div class="card-body"><h4 class="card-title">NOMBRE:</h4><h4 class="card-title">' + item.nombreAnima + '</h4><p class="card-text">ESPECIE:</p><p class="card-text">' + item.nombreEspecie + '</p><p class="card-text">SEXO:</p><p class="card-text">' + item.nombreSexo + '</p><p class="card-text">EDAD:</p><p class="card-text">' + item.numero + ' ' + item.nombreTiempo + '</p><a href="#" class="btn btn-primary">See Profile</a></div></div></div>';
-            
+                    listaAnimal.innerHTML += '<div class="col"><div class="card" style="width: 200px;"><img src="control/imagen.php?id=1" alt="Mi foto"><div class="card-body"><h4 class="card-title">NOMBRE:</h4><h4 class="card-title">' + item.nombreAnima + '</h4><h5>ESPECIE:</h5><h5 class="card-text">' + item.nombreEspecie + '</h5><h5 class="card-text">SEXO:</h5><h5 class="card-text">' + item.nombreSexo + '</h5><h5 class="card-text">EDAD:</h5><h5 class="card-text">' + item.numero + ' ' + item.nombreTiempo + '</h5><a href="#" class="btn btn-primary">See Profile</a></div></div></div>';
+                    // <img src="control/mostrar_imagen.php?id=1" class="img-thumbnail" alt="Cinque Terre" style="width: 250px;">
                 
             }
 

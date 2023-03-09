@@ -73,3 +73,5 @@ if(isset($_POST["listarSexo"]) == "ok"){
     $objAnimal = new ctrDatosAnimal();
     $objAnimal->listarSexo();
 }
+
+?>

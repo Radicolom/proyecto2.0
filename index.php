@@ -32,11 +32,20 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <link rel='stylesheet' type="text/css" media="screen" href='vista/css/main.css'>
-    
+
     <script src='vista/js/main.js'></script>
+
  
 </head>
 <body>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!-- <img src="control/base64.php?id=1" > -->
 
 
     <nav class="navbar navbar-expand-sm fixed-top" id="imagenTitulo">
