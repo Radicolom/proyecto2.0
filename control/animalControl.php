@@ -5,6 +5,7 @@ class ctrListarAnimal{
 
     public function ListarAnimal(){
         $objRespuesta=mdlListarAnimal::mdlListarAnimal();
+        
         echo json_encode($objRespuesta);
     }
 

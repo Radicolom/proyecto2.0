@@ -39,12 +39,6 @@
 </head>
 <body>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <!-- <img src="control/base64.php?id=1" > -->
 <!-- <div class="col"><div class="card" style="width: 200px;"><img src="control/imagen.php?id=1" alt="Mi foto"><div class="card-body"><h4 class="card-title">NOMBRE:</h4><h4 class="card-title">' + item.nombreAnima + '</h4><h5>ESPECIE:</h5><h5 class="card-text">' + item.nombreEspecie + '</h5><h5 class="card-text">SEXO:</h5><h5 class="card-text">' + item.nombreSexo + '</h5><h5 class="card-text">EDAD:</h5><h5 class="card-text">' + item.numero + ' ' + item.nombreTiempo + '</h5><a href="#" class="btn btn-primary">See Profile</a></div></div></div>; -->
 
@@ -68,21 +62,17 @@
         </div>
     </nav>
         
-    <div class="row" id="contenedorInicio" style="display: none;">
+    <div class="mt-5 row" id="contenedorInicio" style="display: none;">
         <div id="imagenFondoInicio">
             <div class="row p-5">
             </div>
-            <div class="row p-2">
+            <div class="row p-2 mb-5">
                 <div class="col-5">
                     <h3>“El mundo sería un lugar más agradable si todos tuvieran la capacidad de amar tan incondicionalmente como un perro”</h3>
                     <h4>M.K. Clinton</h4>
                 </div>
             </div>
-            <div class="row p-5">
-            </div>
-            <div class="row p-5">
-            </div>
-            <div class="container sm-12 sticky-top">
+            <div class="mt-5 mb-5 container">
                 <br>
                 <br>
                 <div class="row">
@@ -121,9 +111,7 @@
         </div>
     </div>
 
-    <div class="container" id="contenedorAdopta" style="display: none;">
-        <br>
-        <br>
+    <div class="mt-5 container" id="contenedorAdopta" style="display: none;">
         <br>
         <br>
         <div class="row">
@@ -171,8 +159,7 @@
         </div>
     </div>
 
-    <div class="container" id="contenedorDarAdopcion" style="display: none;">
-    <br>
+    <div class="mt-5 container" id="contenedorDarAdopcion" style="display: none;">
     <br>
     <br>
         <div class="card text-white" style="width: 400px; background-color:#b46743a1;" >
@@ -180,6 +167,10 @@
                 <div class="mb-3 mt-3">
                     <label for="email" class="form-label">Nombre:</label>
                     <input type="email" class="form-control" id="nombre" placeholder="Escriba el nombre" name="nombre">
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="form-label" class="form-label">FOTO:</label>
+                    <input class="form-control" type="file" name="imagenAnimal">
                 </div>
                 <div class="row">
                     <div class="col">
@@ -227,13 +218,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="mb-3 mt-3">
-                    <label for="email" class="form-label">Email:</label>
-                    <input type="email" list="listaBusqueda" name="browser" class="form-control" placeholder="Buscar">
-                        <datalist id="listaBusqueda">
-                            <!-- ARCHIVO -->
-                        </datalist>
-                </div>
                 <label for="comment">Description:</label>
                 <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
 
@@ -248,8 +232,7 @@
         </div>
     </div>
 
-    <div class="container" id="contenedorFormularioIngreso" style="display: none;">
-        <br>
+    <div class="mt-5 container" id="contenedorFormularioIngreso" style="display: none;">
         <br>
         <div class="row p-5">
             <div class="col">

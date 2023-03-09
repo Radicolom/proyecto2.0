@@ -73,25 +73,26 @@ $(function(){
         
         // document.getElementById("adopcionListas").innerHTML = "";
 
-        num += 1;
+        listarAnimal()
 
-        const categoriasBuscador = document.getElementById('adopcionListas');
+        // num += 1;
+
+    //     const categoriasBuscador = document.getElementById('adopcionListas');
 
         
-        // categoriasBuscador.innerHTML +=     '<div class="row" id="adopcionListas">'
-    if(num == 6){
-        categoriasBuscador.innerHTML += '<div class="row p-3"></div>'
-        num = 1;
-    }
-        // categoriasBuscador.innerHTML += '<div class="col"><div class="card" style="width: 200px;"><img src="control/imagen.php?id=1" alt="Mi foto"><div class="card-body"><h4 class="card-title">John Doe</h4><p class="card-text">Some example text.</p><a href="#" class="btn btn-primary">See Profile</a></div></div></div>'
+    // if(num == 6){
+    //     categoriasBuscador.innerHTML += '<div class="row p-3"></div>'
+    //     num = 1;
+    // }
+    //     categoriasBuscador.innerHTML += '<div class="col"><div class="card" style="width: 200px;"><img src="control/imagen.php?id=1" alt="Mi foto"><div class="card-body"><h4 class="card-title">John Doe</h4><p class="card-text">Some example text.</p><a href="#" class="btn btn-primary">See Profile</a></div></div></div>'
 
-        // categoriasBuscador.innerHTML += '</div>'                
     })
 
     function listarAnimal(){
 
         document.getElementById("adopcionListas").innerHTML = "";
-                    
+
+        
         var objData =new FormData();
 
         objData.append("listarAnimal","ok");
@@ -105,23 +106,28 @@ $(function(){
         processData: false
       }).done(function(respuesta){
   
-          console.log(respuesta)
+        alert(respuesta);
 
-          respuesta.forEach(listaAnimal);
+        //   respuesta.forEach(listaAnimal);
 
-            function listaAnimal(item,index){
+
+        //     function listaAnimal(item,index){
   
-                num += 1;
-                const listaAnimal = document.getElementById('adopcionListas');
+        //         num += 1;
+        //         const listaAnimal = document.getElementById('adopcionListas');
                 
-                if(num == 6){
-                    listaAnimal.innerHTML += '<div class="row p-3"></div>'
-                    num = 1;
-                    }
-                    listaAnimal.innerHTML += '<div class="col"><div class="card" style="width: 200px;"><img src="control/imagen.php?id=1" alt="Mi foto"><div class="card-body"><h4 class="card-title">NOMBRE:</h4><h4 class="card-title">' + item.nombreAnima + '</h4><h5>ESPECIE:</h5><h5 class="card-text">' + item.nombreEspecie + '</h5><h5 class="card-text">SEXO:</h5><h5 class="card-text">' + item.nombreSexo + '</h5><h5 class="card-text">EDAD:</h5><h5 class="card-text">' + item.numero + ' ' + item.nombreTiempo + '</h5><a href="#" class="btn btn-primary">See Profile</a></div></div></div>'
+        //         if(num == 6){
+                    
+        //             listaAnimal.innerHTML += '<div class="row p-3"></div>'
+        //             num = 1;
 
-                    // <img src="control/mostrar_imagen.php?id=1" class="img-thumbnail" alt="Cinque Terre" style="width: 250px;">  
-            }
+        //             }
+        //                 // listaAnimal.innerHTML += '<img src="control/mostrar_imagen.php?id=1" class="img-thumbnail" alt="Cinque Terre" style="width: 250px;"> '
+
+        //             listaAnimal.innerHTML += '<div class="col"><div class="card" style="width: 200px;"><img src="data:image/jpg;base64,' + item.imagenAnimal + '" alt="Mi foto"/><div class="card-body"><h4 class="card-title">NOMBRE:</h4><h4 class="card-title">' + item.nombreAnima + '</h4><h5>ESPECIE:</h5><h5 class="card-text">' + item.nombreEspecie + '</h5><h5 class="card-text">SEXO:</h5><h5 class="card-text">' + item.nombreSexo + '</h5><h5 class="card-text">EDAD:</h5><h5 class="card-text">' + item.numero + ' ' + item.nombreTiempo + '</h5><a href="#" class="btn btn-primary">See Profile</a></div></div></div>'
+
+                    
+        //     }
 
         })
     }
