@@ -16,7 +16,7 @@ class mdlListarAnimal{
             INNER JOIN usua ON usua.animal_Id_Usuario = animal.idAnimal 
             INNER JOIN sexo ON animal.sexo_Id_sexAnimal = sexo.idSexo 
             INNER JOIN especie ON animal.especie_Id_Animal = especie.idEspecie 
-            INNER JOIN raza ON animal.raza_Id_Animal = raza.idRaza 
+            INNER JOIN raza ON animal.raza = raza.idRaza 
             INNER JOIN numeros ON animal.edad_Id_Animal = numeros.idNumero 
             INNER JOIN tiempo ON animal.tipoFecha_Id_Animal = tiempo. IdTiempo");
             $objRespuesta->execute();

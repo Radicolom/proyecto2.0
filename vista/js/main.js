@@ -4,6 +4,30 @@ $(function(){
     var num = 0;
     var compararEdadAnimal = 0;
 
+    const inputEmail = document.getElementById("emailIngreso");
+    const errorEmail = document.getElementById("errorCorreo");
+
+    const inputPassword = document.getElementById("pwdIngreso");
+    const errorPassword = document.getElementById("errorPassword");
+
+    
+    
+    inputEmail.addEventListener("input", function() {
+      if (inputEmail.value === "") {
+        errorEmail.style.display = "inline";
+      } else {
+        errorEmail.style.display = "none";
+      }
+    });
+    
+    inputPassword.addEventListener("input", function() {
+      if (inputPassword.value === "") {
+        errorPassword.style.display = "inline";
+      } else {
+        errorPassword.style.display = "none";
+      }
+    });
+
     cargarPangtalla();
 
     function cargarPangtalla(){
@@ -25,8 +49,6 @@ $(function(){
     // INICIARSE BTNS
 
     $("#btnSelectIniciarSesion").on("click", INICIARSE_BTNS)
-
-
 
     function INICIO(){
         $("#contenedorFormularioIngreso").hide();
@@ -143,7 +165,6 @@ $(function(){
 
             function ListarBusqueda(item,index){
   
-                // busquedaTiempo = document.getElementById('selectTiempo');    
                 busquedaTiempo.innerHTML += `<option value="${item.IdTiempo}">${item.nombreTiempo}</option>`;
 
             }
