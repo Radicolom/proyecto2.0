@@ -8,7 +8,7 @@ class ctrListarAnimal{
         $objRespuesta=mdlListarAnimal::mdlListarAnimal();
         $respuesta = array();
 
-        oreach ($objRespuesta as $animal) {
+        foreach ($objRespuesta as $animal) {
             // Convertir la imagen a base64
             $imagen = base64_encode($animal['imagenAnimal']);
             // Agregar la imagen y los demás datos a la respuesta
@@ -28,10 +28,10 @@ class ctrListarAnimal{
 
 }
 
-// if(isset($_POST["listarAnimal"]) == "ok"){
-//     $objAnimal = new ctrListarAnimal();
-//     $objAnimal->ListarAnimal();
-// }
+if(isset($_POST["listarAnimal"]) == "ok"){
+    $objAnimal = new ctrListarAnimal();
+    $objAnimal->ListarAnimal();
+}
 
 class ctrAnimal{
 

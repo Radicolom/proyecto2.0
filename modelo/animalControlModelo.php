@@ -11,14 +11,14 @@ class mdlListarAnimal{
         try{
             $objConexion = conexion::conectar();
             $objRespuesta = $objConexion->prepare("SELECT animal.imagenAnimal, animal.nombreAnimal, especie.nombreEspecie, raza.nombreRaza, 
-             numeros.numero, tiempo.nombreTiempo, sexo.nombreSexo 
-             FROM animal 
-             INNER JOIN usua ON animal.animal_Id_Usuario = usua.idAnimal 
-             INNER JOIN sexo ON animal.sexo_Id_sexAnimal = sexo.idSexo 
-             INNER JOIN especie ON animal.especie_Id_Animal = especie.idEspecie 
-             INNER JOIN raza ON animal.raza_Id_Animal = raza.idRaza 
-             INNER JOIN numeros ON animal.edad_Id_Animal = numeros.idNumero 
-             INNER JOIN tiempo ON animal.tipoFecha_Id_Animal = tiempo. IdTiempo");
+            numeros.numero, tiempo.nombreTiempo, sexo.nombreSexo 
+            FROM animal 
+            INNER JOIN usua ON usua.animal_Id_Usuario = animal.idAnimal 
+            INNER JOIN sexo ON animal.sexo_Id_sexAnimal = sexo.idSexo 
+            INNER JOIN especie ON animal.especie_Id_Animal = especie.idEspecie 
+            INNER JOIN raza ON animal.raza_Id_Animal = raza.idRaza 
+            INNER JOIN numeros ON animal.edad_Id_Animal = numeros.idNumero 
+            INNER JOIN tiempo ON animal.tipoFecha_Id_Animal = tiempo. IdTiempo");
             $objRespuesta->execute();
             $ListarAnimal = $objRespuesta->fetchAll(PDO::FETCH_ASSOC);
             $objRespuesta = null;

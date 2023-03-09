@@ -1,7 +1,6 @@
 $(function(){
 
     var tiempoRegistro = false;
-    var foto = 'control/imagen.php?id=1';
     var num = 0;
     var compararEdadAnimal = 0;
 
@@ -70,22 +69,7 @@ $(function(){
 
 
     $("#ejecutar").on("click", function(){
-        
-        // document.getElementById("adopcionListas").innerHTML = "";
-
         listarAnimal()
-
-        // num += 1;
-
-    //     const categoriasBuscador = document.getElementById('adopcionListas');
-
-        
-    // if(num == 6){
-    //     categoriasBuscador.innerHTML += '<div class="row p-3"></div>'
-    //     num = 1;
-    // }
-    //     categoriasBuscador.innerHTML += '<div class="col"><div class="card" style="width: 200px;"><img src="control/imagen.php?id=1" alt="Mi foto"><div class="card-body"><h4 class="card-title">John Doe</h4><p class="card-text">Some example text.</p><a href="#" class="btn btn-primary">See Profile</a></div></div></div>'
-
     })
 
     function listarAnimal(){
@@ -93,20 +77,45 @@ $(function(){
         document.getElementById("adopcionListas").innerHTML = "";
 
         var objData =new FormData();
-// alert("ok")
         objData.append("listarAnimal","ok");
         $.ajax({
-        url: "control/animalControl.php",
-        type: "post",
-        dataType: "json",
-        data: objData,
-        cache: false,
-        contentType: false,
-        processData: false
-      }).done(function(respuesta){
+            url: "control/animalControl.php",
+            type: "post",
+            dataType: "json",
+            data: objData,
+            cache: false,
+            contentType: false,
+            processData: false
+        }).done(function(respuesta){
 
-        console.log(respuesta);
+            console.log(respuesta);
 
+            respuesta.forEach(listaAnimal);
+
+            function listaAnimal(item, index) {
+                num += 1;
+                const listaAnimal = document.getElementById("adopcionListas");
+
+                if (num == 6) {
+                listaAnimal.innerHTML += '<div class="row p-3"></div>';
+                num = 1;
+                }
+
+                listaAnimal.innerHTML +=
+                '<div class="col"><div class="card" style="width: 200px;"><img src="data:image/jpg;base64,' +
+                item.imagen +
+                '" alt="Mi foto"><div class="card-body"><h4 class="card-title">NOMBRE:</h4><h4 class="card-title">' +
+                item.nombre +
+                '</h4><h5>ESPECIE:</h5><h5 class="card-text">' +
+                item.especie +
+                '</h5><h5 class="card-text">SEXO:</h5><h5 class="card-text">' +
+                item.sexo +
+                '</h5><h5 class="card-text">EDAD:</h5><h5 class="card-text">' +
+                item.numero +
+                " " +
+                item.tiempo +
+                '</h5><a href="#" class="btn btn-primary">See Profile</a></div></div></div>';
+            }
         })
     }
 
