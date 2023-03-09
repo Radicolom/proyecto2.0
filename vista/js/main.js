@@ -10,63 +10,58 @@ $(function(){
         $("#contenedorInicio").fadeIn(1000);
     }
 
-    $("#btnSelectInicio").on("click", function(){
+    $("#btnSelectInicio").on("click", INICIO)
+
+    // Dar Adopcion BTNS
+
+    $("#btnSelectDarAdopcion").on("click", Dar_Adopcion_BTNS)
+    $("#btnSelectDarAdopcion2").on("click", Dar_Adopcion_BTNS)
+
+    // ADOPCION BTNS
+
+    $("#btnSelectAdopta").on("click", ADOPCION_BTNS)
+    $("#btnAdoptar").on("click", ADOPCION_BTNS)
+
+    // INICIARSE BTNS
+
+    $("#btnSelectIniciarSesion").on("click", INICIARSE_BTNS)
+
+
+
+    function INICIO(){
         $("#contenedorFormularioIngreso").hide();
         $("#contenedorAdopta").hide();
         $("#contenedorDarAdopcion").hide();
         $("#contenedorInicio").fadeIn(1000);
-    })
+    }
 
-    // Dar Adopcion BTNS
-
-    $("#btnSelectDarAdopcion").on("click", function(){
+    function Dar_Adopcion_BTNS(){
         $("#contenedorFormularioIngreso").hide();
         $("#contenedorAdopta").hide();
         $("#contenedorInicio").hide();
-        $("#contenedorDarAdopcion").fadeIn(1000);
-    })
+        $("#contenedorDarAdopcion").fadeIn(1000);  
+    }
 
-    
-    $("#btnSelectDarAdopcion2").on("click", function(){
-        $("#contenedorFormularioIngreso").hide();
-        $("#contenedorAdopta").hide();
-        $("#contenedorInicio").hide();
-        $("#contenedorDarAdopcion").fadeIn(1000);
-    })
-
-    // ADOPCION BTNS
-
-    $("#btnSelectAdopta").on("click", function(){
+    function ADOPCION_BTNS(){
         $("#contenedorFormularioIngreso").hide();
         $("#contenedorInicio").hide();
         $("#contenedorDarAdopcion").hide();
         $("#contenedorAdopta").fadeIn(1000);
         listarAnimal();
-    })
+    }
 
-    $("#btnAdoptar").on("click", function(){
-        $("#contenedorFormularioIngreso").hide();
-        $("#contenedorInicio").hide();
-        $("#contenedorDarAdopcion").hide();
-        $("#contenedorAdopta").fadeIn(1000);
-    })
-
-    // INICIO BTNS
-
-    $("#btnSelectIniciarSesion").on("click", function(){
+    function INICIARSE_BTNS(){
         $("#contenedorInicio").hide();
         $("#contenedorAdopta").hide();
         $("#contenedorDarAdopcion").hide();
         $("#contenedorFormularioIngreso").fadeIn(1000);
-    })
+    }
 
     // TIEMPO REGISTRO
 
     $("#selectTiempo").on("change", function(){
         listarEdadAnimal();
     })
-
-
 
     $("#ejecutar").on("click", function(){
         listarAnimal()
