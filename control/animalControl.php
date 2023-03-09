@@ -3,18 +3,35 @@ include_once "../modelo/animalControlModelo.php";
 
 class ctrListarAnimal{
 
+
     public function ListarAnimal(){
         $objRespuesta=mdlListarAnimal::mdlListarAnimal();
-        
-        echo json_encode($objRespuesta);
+        $respuesta = array();
+
+        oreach ($objRespuesta as $animal) {
+            // Convertir la imagen a base64
+            $imagen = base64_encode($animal['imagenAnimal']);
+            // Agregar la imagen y los demás datos a la respuesta
+            $respuesta[] = array(
+                'imagen' => $imagen,
+                'nombre' => $animal['nombreAnimal'],
+                'especie' => $animal['nombreEspecie'],
+                'raza' => $animal['nombreRaza'],
+                'numero' => $animal['numero'],
+                'tiempo' => $animal['nombreTiempo'],
+                'sexo' => $animal['nombreSexo']
+            );
+        }
+        // Enviar la respuesta al frontend en formato JSON
+        echo json_encode($respuesta);
     }
 
 }
 
-if(isset($_POST["listarAnimal"]) == "ok"){
-    $objAnimal = new ctrListarAnimal();
-    $objAnimal->ListarAnimal();
-}
+// if(isset($_POST["listarAnimal"]) == "ok"){
+//     $objAnimal = new ctrListarAnimal();
+//     $objAnimal->ListarAnimal();
+// }
 
 class ctrAnimal{
 
