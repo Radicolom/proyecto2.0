@@ -13,7 +13,7 @@ class mdlListarAnimal{
             $objRespuesta = $objConexion->prepare("SELECT animal.imagenAnimal, animal.nombreAnimal, especie.nombreEspecie, raza.nombreRaza, 
             numeros.numero, tiempo.nombreTiempo, sexo.nombreSexo 
             FROM animal 
-            INNER JOIN usua ON usua.animal_Id_Usuario = animal.idAnimal 
+            INNER JOIN usua 
             INNER JOIN sexo ON animal.sexo_Id_sexAnimal = sexo.idSexo 
             INNER JOIN especie ON animal.especie_Id_Animal = especie.idEspecie 
             INNER JOIN raza ON animal.raza = raza.idRaza 

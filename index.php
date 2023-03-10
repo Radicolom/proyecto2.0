@@ -98,15 +98,36 @@
             </div>
         </div>
         <div class="row p-5">
-            <div class="col-6" style="background-color:#fffffd5b;">
-                <h1 id="textoInicio">¡Hola!<h3>
-                <h3 id="textoInicio">Si estas considerando adoptar una mascota ¡te felicito por tomar esta decisión! Adoptar un animal es una de las cosas más gratificantes que puedes hacer en la vida. No solo estarás dándole un lugar amoroso a un animal necesitado, sino que también estarás mejorando tu propia vida al tener un compañero peludo y cariñoso en tu hogar</h3>
+            <div class="col-6">
+                <center>
+                    <h1 id=" textoInicio">¡Hola!</h1>
+                    <h3 id="textoInicio">Si estas considerando adoptar una mascota ¡te felicito por tomar esta decisión! Adoptar un animal es una de las cosas más gratificantes que puedes hacer en la vida. No solo estarás dándole un lugar amoroso a un animal necesitado, sino que también estarás mejorando tu propia vida al tener un compañero peludo y cariñoso en tu hogar</h3>
+                    <h3 id="textoInicio">Así que adelante, toma la decisión de adoptar una mascota y comienza a disfrutar de todo lo que te ofrece tener un compañero animal en tu vida con animal welfare </h3>
+                    <h3>Animate!</h3>
+                </center>
             </div>
             <div class="col-5">
-            <br>
-            <center>
-                <img src="https://media4.giphy.com/media/J546wv1ja2LkrAwRBm/giphy.gif?cid=ecf05e47gpactdkuek8jpeopjxaoqtxr2u4l7v5zotvqq5u4&rid=giphy.gif&ct=g" alt="" style="height: 250px; width: 250px;">
-            </center>
+                <br>
+                <center>
+                    <img id="imagenLista" src="vista/img/lista.png" alt="" style="height: 350px; width: 350px;">
+                </center>
+            </div>
+        </div>
+        <div class="row p-5">
+            <div class="col-5">
+                <br>
+                <center>
+                    <img src="https://media4.giphy.com/media/J546wv1ja2LkrAwRBm/giphy.gif?cid=ecf05e47gpactdkuek8jpeopjxaoqtxr2u4l7v5zotvqq5u4&rid=giphy.gif&ct=g" alt="" style="height: 300px; width: 300px;">
+                </center>
+            </div>
+            <div class="col-6">
+                <center>
+                    <h1 id=" textoInicio">Razones por las que debes adoptar un peludito</h1><br>
+                    <h3 id="textoInicio">🐾 Estas salvando una vida <br></h3>
+                    <h3 id="textoInicio">Amor incondicional 🐾<br></h3>
+                    <h3 id="textoInicio">🐾 Te enseña sobre la responsabilidad<br></h3>
+                    <h3 id="textoInicio">Dile adios a la soledad 🐾<br></h3>
+                </center>
             </div>
         </div>
     </div>
@@ -232,107 +253,75 @@
 
     <div class="mt-5 container" id="contenedorFormulariosUsuarios" style="display: none;">
         <div class="row p-5">
-            <div class="col" id="contenedorFormularioIngreso" style="display: none;">
+            <div class="col" id="contenedorFormularioIngreso" style="margin: auto; display: none;">
                 <center>
                     <h1>LOGIN</h1>
-                </center>
-                <div class="card text-white" style="width: 400px; background-color:#b46743a1;">
+                </center>        
+                <div class="card text-white" style="margin: auto; width: 400px; background-color:#b46743a1;">
                     <div class="card-body">
-                        <div class="mb-3 mt-3">
-                            <label for="tex" class="form-label">Email:</label>
-                            <input type="email" class="form-control" id="emailIngreso" placeholder="Enter email" required>
-                            <span id="errorCorreo" style="color:red; display:none;">Este campo es obligatorio.</span>
-                        </div>
-                        <div class="mb-3">
-                            <label for="pwd" class="form-label">Password:</label>
-                            <input type="password" class="form-control" id="pwdIngreso" placeholder="Enter password" name="pswd">
-                            <span id="errorPassword" style="color:red; display:none;">Este campo es obligatorio.</span>
-                        </div>
-                        <div class="form-check mb-3">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" name="remember"> Remember me
-                            </label>
-                        </div>
-                        <button type="submit" style="color:aliceblue;" class="btn">Ingresar</button>
-                        <button  type="button" id="modalRegistroBtn" Style="color:aliceblue;" class="btn">Registrar me</button>
-
+                        <form id="formularioIngreso">
+                            <div class="mb-3 mt-3">
+                                <label for="tex" class="form-label">Email:</label>
+                                <input type="email" class="form-control" id="emailIngreso" placeholder="Enter email" required>
+                                <span id="errorCorreo" style="color:red; display:none;">Este campo es obligatorio.</span>
+                            </div>
+                            <div class="mb-3">
+                                <label for="pwd" class="form-label">Password:</label>
+                                <input type="password" class="form-control" id="pwdIngreso" placeholder="Enter password" name="pswd">
+                                <span id="errorPassword" style="color:red; display:none;">Este campo es obligatorio.</span>
+                            </div>
+                            <div class="form-check mb-3">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                                </label>
+                            </div>
+                            <button type="submit" style="color:aliceblue;" class="btn">Ingresar</button>
+                            <button  type="button" id="modalRegistroBtn" Style="color:aliceblue;" class="btn">Registrar me</button>
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="col">
+                <br>
+                <div id="demo" class="carousel_slide-imagen" data-bs-ride="carousel">
+                   <div id="contenedorFormulariosUsuariosFotos" class="carousel-inner">
+                        <!-- ARCHIVO -->
+                   </div>          
+                </div>          
             </div>          
             <div class="col" id="contenedorFormularioRegistro" style="display: none;">
                 <center>
                     <h1>REGISTRO</h1>
                 </center>
-                <div class="card text-white" style="width: 400px; background-color:#b46743a1;" >
+                <div class="card text-white" style="margin: auto; width: 400px; background-color:#b46743a1;" >
                     <div class="card-body">
-                        <div class="mb-3 mt-3">
-                            <label for="text" class="form-label">Nombre:</label>
-                            <input type="text" class="form-control" id="nombre" placeholder="Escriba el nombre" name="nombre">
-                        <div class="mb-3 mt-3">
-                            <label for="text" class="form-label">Apellido:</label>
-                            <input type="text" class="form-control" id="nombre" placeholder="Escriba el nombre" name="nombre">
-                        </div>
                         <div class="mb-3 mt-3">
                             <label for="form-label" class="form-label">FOTO:</label>
                             <input class="form-control" type="file" name="imagenAnimal">
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="mb-3 mt-3">
-                                    <label for="text" class="form-label">Sexo:</label>
-                                    <select class="form-select"  id="selectSexo">
-                                        <!-- ARCHIVO -->
-                                    </select>    
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="mb-3 mt-3">
-                                    <label for="text" class="form-label">Edad:</label>
-                                    <select class="form-select" id="selectEdadAnimal">
-                                        <!-- ARCHIVO -->
-                                    </select>     
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="mb-3 mt-3">
-                                    <label for="text" class="form-label">Tiempo:</label>
-                                    <select class="form-select" id="selectTiempo">
-                                        <!-- ARCHIVO -->
-                                    </select>     
-                                </div>
-                            </div>
+                        <div class="mb-3 mt-3">
+                            <label for="text" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="Escriba su nombre" name="nombre">
+                        <div class="mb-3 mt-3">
+                            <label for="text" class="form-label">Apellido:</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="Escriba su apellido" name="nombre">
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="mb-3 mt-3">
-                                    <label for="email" class="form-label">Especie:</label>
-                                    <input type="text" list="listaRegistroEspecie" name="browser" class="form-control" placeholder="Escriba la especie">
-                                    <datalist id="listaRegistroEspecie">
-                                        <!-- ARCHIVO -->
-                                    </datalist>    
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="mb-3 mt-3">
-                                    <label for="email" class="form-label">Raza:</label>
-                                    <input type="text" list="listaRegistroRaza" name="browser" class="form-control" placeholder="Escriba la raza">
-                                    <datalist id="listaRegistroRaza">
-                                        <!-- ARCHIVO -->
-                                    </datalist>        
-                                </div>
-                            </div>
+                        <div class="mb-3 mt-3">
+                            <label for="text" class="form-label">Direccion:</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="Escriba direccion" name="nombre">
                         </div>
-                        <label for="comment">Description:</label>
-                        <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
-
-                        <div class="form-check mb-3">
-                            <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="remember"> Remember me
-                            </label>
+                        <div class="mb-3 mt-3">
+                            <label for="number" class="form-label">Telefono:</label>
+                            <input type="nymber" class="form-control" id="nombre" placeholder="Escriba un numero de telefono" name="nombre">
                         </div>
-                    
+                        <div class="mb-3 mt-3">
+                            <label for="email" class="form-label">Correo:</label>
+                            <input type="email" class="form-control" id="nombre" placeholder="Escriba un correo" name="nombre">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="pasword" class="form-label">Contraseña:</label>
+                            <input type="pasword" class="form-control" id="nombre" placeholder="Escriba la contraseña" name="nombre">
+                        </div>             
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
