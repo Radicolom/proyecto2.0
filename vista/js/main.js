@@ -250,7 +250,7 @@ $(function(){
                 }
 
                 listaAnimal.innerHTML +=
-                '<div class="col"><button type="button" class="btn"><div class="card" style="width: 200px; background-color:#ffc273;"><br><img style="width: 170px; height: 170px; margin: auto;" src="data:image/jpg;base64,' +
+                '<div class="col"><button id="btnAnimal" type="button" class="btn" idEspecie="'+ item.idAnimal +'"><div class="card" style="width: 200px; background-color:#ffc273;"><br><img style="width: 170px; height: 170px; margin: auto;" src="data:image/jpg;base64,' +
                 item.imagen +
                 '" alt="Mi foto" ><div class="card-body"><h4 class="card-title">NOMBRE:</h4><h4 class="card-title">' +
                 item.nombre +
@@ -452,6 +452,8 @@ $(function(){
         })
     }
 
+    // COMANDOS
+    
     $("#listaBusquedaAnimalEspecie").on("click", "#selecCionarBusquedaEspecie", function(){
         $("#btnSelecRaza").fadeIn(1000);
        
@@ -464,6 +466,11 @@ $(function(){
         //         }else{
         //             tiempoRegistro = false;
         //         }
+    })
+
+    $("#adopcionListas").on("click",'#btnAnimal', function(){
+        var correo = $(this).attr("idEspecie");
+        alert(correo);
     })
 
 

@@ -39,6 +39,7 @@ class ctrAnimal{
             // Agregar la imagen y los demás datos a la respuesta
             $respuesta[] = array(
                 'imagen' => $imagen,
+                'idAnimal' => $animal['idAnimal'],
                 'nombre' => $animal['nombreAnimal'],
                 'especie' => $animal['nombreEspecie'],
                 'raza' => $animal['nombreRaza'],
