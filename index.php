@@ -257,7 +257,7 @@
                                     <input class="form-check-input" type="checkbox" name="remember"> Remember me
                                 </label>
                             </div>
-                            <button type="submit" class="btn btn-primary">Ingresar</button>
+                            <button type="submit" style="color:aliceblue;" class="btn">Ingresar</button>
                         </div>
                     </form>
                 </div>
