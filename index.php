@@ -268,74 +268,73 @@
                 <div class="card text-white" style="width: 400px; background-color:#b46743a1;" >
                     <div class="card-body">
                         <div class="mb-3 mt-3">
-                        <label for="text" class="form-label">Nombre:</label>
-                        <input type="text" class="form-control" id="nombre" placeholder="Escriba el nombre" name="nombre">
-                    </div>
-                    <div class="card-body">
+                            <label for="text" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="Escriba el nombre" name="nombre">
                         <div class="mb-3 mt-3">
-                        <label for="text" class="form-label">Apellido:</label>
-                        <input type="text" class="form-control" id="nombre" placeholder="Escriba el nombre" name="nombre">
-                    </div>
-                    <div class="mb-3 mt-3">
-                        <label for="form-label" class="form-label">FOTO:</label>
-                        <input class="form-control" type="file" name="imagenAnimal">
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="mb-3 mt-3">
-                                <label for="text" class="form-label">Sexo:</label>
-                                <select class="form-select"  id="selectSexo">
-                                    <!-- ARCHIVO -->
-                                </select>    
+                            <label for="text" class="form-label">Apellido:</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="Escriba el nombre" name="nombre">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="form-label" class="form-label">FOTO:</label>
+                            <input class="form-control" type="file" name="imagenAnimal">
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3 mt-3">
+                                    <label for="text" class="form-label">Sexo:</label>
+                                    <select class="form-select"  id="selectSexo">
+                                        <!-- ARCHIVO -->
+                                    </select>    
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3 mt-3">
+                                    <label for="text" class="form-label">Edad:</label>
+                                    <select class="form-select" id="selectEdadAnimal">
+                                        <!-- ARCHIVO -->
+                                    </select>     
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3 mt-3">
+                                    <label for="text" class="form-label">Tiempo:</label>
+                                    <select class="form-select" id="selectTiempo">
+                                        <!-- ARCHIVO -->
+                                    </select>     
+                                </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="mb-3 mt-3">
-                                <label for="text" class="form-label">Edad:</label>
-                                <select class="form-select" id="selectEdadAnimal">
-                                    <!-- ARCHIVO -->
-                                </select>     
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3 mt-3">
+                                    <label for="email" class="form-label">Especie:</label>
+                                    <input type="text" list="listaRegistroEspecie" name="browser" class="form-control" placeholder="Escriba la especie">
+                                    <datalist id="listaRegistroEspecie">
+                                        <!-- ARCHIVO -->
+                                    </datalist>    
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3 mt-3">
+                                    <label for="email" class="form-label">Raza:</label>
+                                    <input type="text" list="listaRegistroRaza" name="browser" class="form-control" placeholder="Escriba la raza">
+                                    <datalist id="listaRegistroRaza">
+                                        <!-- ARCHIVO -->
+                                    </datalist>        
+                                </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="mb-3 mt-3">
-                                <label for="text" class="form-label">Tiempo:</label>
-                                <select class="form-select" id="selectTiempo">
-                                    <!-- ARCHIVO -->
-                                </select>     
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="mb-3 mt-3">
-                                <label for="email" class="form-label">Especie:</label>
-                                <input type="text" list="listaRegistroEspecie" name="browser" class="form-control" placeholder="Escriba la especie">
-                                <datalist id="listaRegistroEspecie">
-                                    <!-- ARCHIVO -->
-                                </datalist>    
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="mb-3 mt-3">
-                                <label for="email" class="form-label">Raza:</label>
-                                <input type="text" list="listaRegistroRaza" name="browser" class="form-control" placeholder="Escriba la raza">
-                                <datalist id="listaRegistroRaza">
-                                    <!-- ARCHIVO -->
-                                </datalist>        
-                            </div>
-                        </div>
-                    </div>
-                    <label for="comment">Description:</label>
-                    <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+                        <label for="comment">Description:</label>
+                        <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
 
-                    <div class="form-check mb-3">
-                        <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="remember"> Remember me
-                        </label>
-                    </div>
+                        <div class="form-check mb-3">
+                            <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                            </label>
+                        </div>
                     
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
                 </div>
             </div>
         </div>
