@@ -1,11 +1,36 @@
 <?php
 include_once "../modelo/animalControlModelo.php";
 
-class ctrListarAnimal{
+// USUARIO
+
+class ctrUsuario{
+
+    public function ctrValidarUsuario(){
+        $objRespuesta=mdlUsuario::mdlValidarUsuario($this->correoUsuario,$this->passwordUsuario);
+        echo json_encode($objRespuesta);
+    }
+
+}
+
+if(isset($_POST["correoIngreso"],$_POST["passwordIngreso"])){
+    $objUsuario = new ctrUsuario();
+    $objUsuario->correoUsuario = $_POST["correoIngreso"];
+    $objUsuario->passwordUsuario = $_POST["passwordIngreso"];
+    $objUsuario->ctrValidarUsuario();
+}
 
 
-    public function ListarAnimal(){
-        $objRespuesta=mdlListarAnimal::mdlListarAnimal();
+// ANIMAL 
+
+class ctrAnimal{
+
+    public function ctrListarBusquedaAnimal(){
+        $objRespuesta=mdlAnimal::mdlListarBusquedaAnimal();
+        echo json_encode($objRespuesta);
+    }
+
+    public function ctrListarAnimal(){
+        $objRespuesta=mdlAnimal::mdlListarAnimal();
         $respuesta = array();
 
         foreach ($objRespuesta as $animal) {
@@ -28,43 +53,35 @@ class ctrListarAnimal{
 
 }
 
-if(isset($_POST["listarAnimal"]) == "ok"){
-    $objAnimal = new ctrListarAnimal();
-    $objAnimal->ListarAnimal();
-}
-
-class ctrAnimal{
-
-    public function listarBusquedaAnimal(){
-        $objRespuesta=mdlAnimal::mdlListarBusquedaAnimal();
-        echo json_encode($objRespuesta);
-    }
-
-}
-
 if(isset($_POST["listarBusquedaAnimal"]) == "ok"){
     $objAnimal = new ctrAnimal();
-    $objAnimal->listarBusquedaAnimal();
+    $objAnimal->ctrListarBusquedaAnimal();
 }
+
+if(isset($_POST["listarAnimal"]) == "ok"){
+    $objAnimal = new ctrAnimal();
+    $objAnimal->ctrListarAnimal();
+}
+
 
 class ctrDatosAnimal{
 
-    public function listarSexo(){
+    public function ctrListarSexo(){
         $objRespuesta=mdlDatosAnimal::mdlSexoAnimal();
         echo json_encode($objRespuesta);
     }
 
-    public function listarTiempo(){
+    public function ctrListarTiempo(){
         $objRespuesta=mdlDatosAnimal::mdlTiempoAnimal();
         echo json_encode($objRespuesta);
     }
 
-    public function listarEdadAnimal(){
+    public function ctrListarEdadAnimal(){
         $objRespuesta=mdlDatosAnimal::mdlListarEdadAnimal();
         echo json_encode($objRespuesta);
     }
 
-    public function listarEdadAnimalMenos(){
+    public function ctrListarEdadAnimalMenos(){
         $objRespuesta=mdlDatosAnimal::mdlListarEdadAnimalMenos($this->listarEdadAnimal);
         echo json_encode($objRespuesta);
     }
@@ -73,23 +90,23 @@ class ctrDatosAnimal{
 
 if(isset($_POST["listarTiempo"]) == "ok"){
     $objAnimal = new ctrDatosAnimal();
-    $objAnimal->listarTiempo();
+    $objAnimal->ctrListarTiempo();
 }
 
 if(isset($_POST["listarEdadAnimal"]) == "ok"){
     $objAnimal = new ctrDatosAnimal();
-    $objAnimal->listarEdadAnimal();
+    $objAnimal->ctrListarEdadAnimal();
 }
 
 if(isset($_POST["listarEdadAnimalMenos"])){
     $objAnimal = new ctrDatosAnimal();
     $objAnimal->listarEdadAnimal = $_POST["listarEdadAnimalMenos"];
-    $objAnimal->listarEdadAnimalMenos();
+    $objAnimal->ctrListarEdadAnimalMenos();
 }
 
-if(isset($_POST["listarSexo"]) == "ok"){
+ if(isset($_POST["listarSexo"]) == "ok"){
     $objAnimal = new ctrDatosAnimal();
-    $objAnimal->listarSexo();
+    $objAnimal->ctrListarSexo();
 }
 
 ?>

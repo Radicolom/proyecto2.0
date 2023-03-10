@@ -281,6 +281,37 @@
                     </div>
                 </div>
             </div>
+            <div class="col" id="contenedorDatosUsuario" style="margin: auto; display: none;">
+                <center>
+                    <h1>USUARIO</h1>
+                </center>        
+                <div class="card text-white" style="margin: auto; width: 400px; background-color:#b46743a1;">
+                    <div class="mb-3 mt-3">
+                            <label for="text" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="Escriba su nombre" name="nombre">
+                        <div class="mb-3 mt-3">
+                            <label for="text" class="form-label">Apellido:</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="Escriba su apellido" name="nombre">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="text" class="form-label">Direccion:</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="Escriba direccion" name="nombre">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="number" class="form-label">Telefono:</label>
+                            <input type="nymber" class="form-control" id="nombre" placeholder="Escriba un numero de telefono" name="nombre">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="email" class="form-label">Correo:</label>
+                            <input type="email" class="form-control" id="nombre" placeholder="Escriba un correo" name="nombre">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="pasword" class="form-label">Contraseña:</label>
+                            <input type="pasword" class="form-control" id="nombre" placeholder="Escriba la contraseña" name="nombre">
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col">
                 <br>
                 <div id="demo" class="carousel_slide-imagen" data-bs-ride="carousel">

@@ -4,7 +4,45 @@ include_once "../modelo/conexion.php";
 // $objRespuesta=conexion::conectar()->prepare("SELECT DISTINCT * FROM raza UNION SELECT * FROM especie");
 // INSERT INTO `usua` (`idUsuario`, `nombre`, `apellido`, `direccion`, `tell`, `animal_Id_Usuario`) VALUES (NULL, 'prueva', '1', 'cualquiera', '45465', '1');
 
-class mdlListarAnimal{
+class mdlUsuario{
+
+    public static function mdlValidarUsuario($correoUsuario,$passwordUsuario){
+        $validar="";
+        try{
+        $objRespuesta=conexion::conectar()->prepare("SELECT * FROM usua WHERE correo = :correoUsuario AND contraseña = :passwordUsuario");
+        $objRespuesta->bindparam(":correoUsuario",$correoUsuario);
+        $objRespuesta->bindparam(":passwordUsuario",$passwordUsuario);
+        $objRespuesta->execute();
+        $validar = $objRespuesta->fetchAll();
+        $objRespuesta = null;
+    
+        }catch(Exception $e){
+            $validar = $e;
+        }
+    return $validar;
+    }
+}
+
+
+// ANIMAL
+
+class mdlAnimal{
+
+    public static function mdlListarBusquedaAnimal(){
+        $ListarEspecie="";
+        try{
+            $objRespuesta=conexion::conectar()->prepare("SELECT idRaza AS idRaza, nombreRaza AS nombreRaza, NULL AS idEspecie, NULL AS nombreEspecie FROM raza
+                                                        UNION 
+                                                        SELECT NULL AS idRaza, NULL AS nombreRaza, idEspecie AS idEspecie, nombreEspecie AS nombreEspecie FROM especie;");
+            $objRespuesta->execute();
+            $ListarEspecie = $objRespuesta->fetchAll();
+            $objRespuesta = null;
+    
+        }catch(Exception $e){
+            $ListarEspecie = $e;
+        }
+    return $ListarEspecie;
+    }
 
     public static function mdlListarAnimal(){
         $ListarAnimal=[];
@@ -28,27 +66,6 @@ class mdlListarAnimal{
         }
     return $ListarAnimal;
     }
-    
-}
-
-class mdlAnimal{
-
-    public static function mdlListarBusquedaAnimal(){
-        $ListarEspecie="";
-        try{
-            $objRespuesta=conexion::conectar()->prepare("SELECT idRaza AS idRaza, nombreRaza AS nombreRaza, NULL AS idEspecie, NULL AS nombreEspecie FROM raza
-                                                        UNION 
-                                                        SELECT NULL AS idRaza, NULL AS nombreRaza, idEspecie AS idEspecie, nombreEspecie AS nombreEspecie FROM especie;");
-            $objRespuesta->execute();
-            $ListarEspecie = $objRespuesta->fetchAll();
-            $objRespuesta = null;
-    
-        }catch(Exception $e){
-            $ListarEspecie = $e;
-        }
-    return $ListarEspecie;
-    }
-    
 }
 
 class mdlDatosAnimal{

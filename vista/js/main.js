@@ -1,16 +1,17 @@
 $(function(){
 
     var tiempoRegistro = false;
+    var ingress = false;
     var num = 0;
     var compararEdadAnimal = 0;
+
+    var btnAdopta = document.getElementById("btnSelectAdopta");
 
     const inputEmail = document.getElementById("emailIngreso");
     const errorEmail = document.getElementById("errorCorreo");
 
     const inputPassword = document.getElementById("pwdIngreso");
     const errorPassword = document.getElementById("errorPassword");
-
-    
     
     inputEmail.addEventListener("input", function() {
       if (inputEmail.value === "") {
@@ -67,11 +68,17 @@ $(function(){
     // INICIARSE BTNS
 
     $("#btnSelectIniciarSesion").on("click", INICIARSE_BTNS)
+
     $("#modalRegistroBtn").on("click", REGISTRARSE_BTNS)
 
+    // FORMULARIO INGRESO BTN 
+
+    const formularioIngreso = document.getElementById("formularioIngreso");
+    formularioIngreso.addEventListener("submit", validarFormularioIngreso);
 
 
     function INICIO(){
+        btnAdopta.removeAttribute("disabled");
         $("#contenedorFormulariosUsuarios").hide();
         $("#contenedorAdopta").hide();
         $("#contenedorDarAdopcion").hide();
@@ -79,13 +86,20 @@ $(function(){
     }
 
     function Dar_Adopcion_BTNS(){
+        btnAdopta.removeAttribute("disabled");
         $("#contenedorFormulariosUsuarios").hide();
         $("#contenedorAdopta").hide();
         $("#contenedorInicio").hide();
-        $("#contenedorDarAdopcion").fadeIn(1000);  
+        $("#contenedorDarAdopcion").fadeIn(1000);
+        if(ingress === false){
+            Swal.fire({
+               
+            })
+        }
     }
 
     function ADOPCION_BTNS(){
+        btnAdopta.setAttribute("disabled", "true");
         listarAnimal();
         $("#contenedorFormulariosUsuarios").hide();
         $("#contenedorInicio").hide();
@@ -94,14 +108,22 @@ $(function(){
     }
 
     function INICIARSE_BTNS(){
-        listarAnimal()
-        $("#contenedorInicio").hide();
-        $("#contenedorAdopta").hide();
-        $("#contenedorDarAdopcion").hide();
-        $("#contenedorFormularioRegistro").hide();
-        $("#contenedorFormulariosUsuarios").fadeIn(1000);
-        $("#contenedorFormularioIngreso").fadeIn(1000);
-        
+        btnAdopta.removeAttribute("disabled");
+        if(ingress === false){
+            listarAnimal()
+            $("#contenedorInicio").hide();
+            $("#contenedorAdopta").hide();
+            $("#contenedorDarAdopcion").hide();
+            $("#contenedorFormularioRegistro").hide();
+            $("#contenedorFormulariosUsuarios").fadeIn(1000);
+            $("#contenedorFormularioIngreso").fadeIn(1000);
+        }else{
+            $("#contenedorInicio").hide();
+            $("#contenedorAdopta").hide();
+            $("#contenedorDarAdopcion").hide();
+            $("#contenedorFormularioRegistro").hide();
+            $("#contenedorFormulariosUsuarios").fadeIn(1000);
+        }
     }
 
     function REGISTRARSE_BTNS(){
@@ -120,19 +142,66 @@ $(function(){
     })
 
     // FORMULARIOS
-    const formularioIngreso = document.getElementById("formularioIngreso");
-    formularioIngreso.addEventListener("submit", validarFormularioIngreso);
+
+
+
     function validarFormularioIngreso(){
         event.preventDefault();
+            
+        var correo = $("#emailIngreso").val();
+        var password = $("#pwdIngreso").val();
 
-        const correo = document.getElementById("emailIngreso").value;
-        const password = document.getElementById("pwdIngreso").value;
-        if (correo === "" || password === "") {
-            alert("Por favor, complete todos los campos");
-            return false; // Evita que el formulario se envíe
-          }
+        var objData =new FormData();
+        objData.append("correoIngreso",correo);
+        objData.append("passwordIngreso",password);
+        $.ajax({
+            url: "control/animalControl.php",
+            type: "post",
+            dataType: "json",
+            data: objData,
+            cache: false,
+            contentType: false,
+            processData: false
+        }).done(function(respuesta){
 
-          return true;
+            if (respuesta == "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Usuario o contaseña incorrectos',
+                    showConfirmButton: false,
+                    timer: 2000
+                })
+                return false; // Evita que el formulario se envíe
+            }else{
+                ingress = true;
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                      toast.addEventListener('mouseenter', Swal.stopTimer)
+                      toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                  })
+                  
+                  Toast.fire({
+                    icon: 'success',
+                    title: 'Ha iniciado sesión correctamente'
+                  })
+                $("#contenedorFormularioIngreso").hide();
+                $("#demo").hide();
+                $("#contenedorDatosUsuario").fadeIn(1000);    
+            // respuesta.forEach(listaAnimal);
+
+            // function listaAnimal(item, index) {
+                
+            // }
+            }
+
+        })
+        return true;
     }
 
     function listarAnimal(){
