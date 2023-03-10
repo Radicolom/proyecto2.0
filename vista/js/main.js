@@ -68,6 +68,12 @@ $(function(){
     // INICIARSE BTNS
 
     $("#btnSelectIniciarSesion").on("click", INICIARSE_BTNS)
+    $("#cerrarSecionBtn").on("click",function(){
+        ingress = false
+        $("#carousel").fadeIn(1000);
+        INICIARSE_BTNS()
+    })
+
 
     $("#modalRegistroBtn").on("click", REGISTRARSE_BTNS)
 
@@ -114,6 +120,7 @@ $(function(){
             $("#contenedorAdopta").hide();
             $("#contenedorDarAdopcion").hide();
             $("#contenedorFormularioRegistro").hide();
+            $("#contenedorDatosUsuario").hide();
             $("#contenedorFormulariosUsuarios").fadeIn(1000);
             $("#contenedorFormularioIngreso").fadeIn(1000);
         }else{
@@ -191,7 +198,7 @@ $(function(){
                 })
 
                 $("#contenedorFormularioIngreso").hide();
-                $("#demo").hide();
+                $("#carousel").hide();
                 $("#contenedorDatosUsuario").fadeIn(1000);    
                 respuesta.forEach(listaAnimal);
 

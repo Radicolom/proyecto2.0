@@ -310,13 +310,15 @@
                                 <label for="pasword" class="form-label">Contraseña:</label>
                                 <input type="pasword" class="form-control" id="nombre" placeholder="Escriba la contraseña" name="nombre">
                             </div> -->
+                            <button  type="button" id="cerrarSecionBtn" Style="color:aliceblue;" class="btn">Cerrar secion</button>
+
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <br>
-                <div id="demo" class="carousel_slide-imagen" data-bs-ride="carousel">
+                <div id="carousel" class="carousel_slide-imagen" data-bs-ride="carousel">
                    <div id="contenedorFormulariosUsuariosFotos" class="carousel-inner">
                         <!-- ARCHIVO -->
                    </div>          
