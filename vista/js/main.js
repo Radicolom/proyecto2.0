@@ -250,13 +250,13 @@ $(function(){
                 }
 
                 listaAnimal.innerHTML +=
-                '<div class="col"><div class="card" style="width: 200px;"><br><img style="width: 170px; height: 170px; margin: auto;" src="data:image/jpg;base64,' +
+                '<div class="col"><button type="button" class="btn"><div class="card" style="width: 200px; background-color:#ffc273;"><br><img style="width: 170px; height: 170px; margin: auto;" src="data:image/jpg;base64,' +
                 item.imagen +
                 '" alt="Mi foto" ><div class="card-body"><h4 class="card-title">NOMBRE:</h4><h4 class="card-title">' +
                 item.nombre +
                 '</h4><h5>ESPECIE:</h5><h5 class="card-text">' +
                 item.especie +
-                '</h5></div></div></div>';
+                '</h5></div></div></button></div>';
                 // <h5 class="card-text">SEXO:</h5><h5 class="card-text">;' +
                 // item.sexo +
                 // '</h5><h5 class="card-text">EDAD:</h5><h5 class="card-text">' +
