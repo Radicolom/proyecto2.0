@@ -71,21 +71,21 @@ $(function(){
     $("#modalRegistroBtn").on("click", REGISTRARSE_BTNS)
 
     function INICIO(){
-        $("#contenedorFormularioIngreso").hide();
+        $("#contenedorFormulariosUsuarios").hide();
         $("#contenedorAdopta").hide();
         $("#contenedorDarAdopcion").hide();
         $("#contenedorInicio").fadeIn(1000);
     }
 
     function Dar_Adopcion_BTNS(){
-        $("#contenedorFormularioIngreso").hide();
+        $("#contenedorFormulariosUsuarios").hide();
         $("#contenedorAdopta").hide();
         $("#contenedorInicio").hide();
         $("#contenedorDarAdopcion").fadeIn(1000);  
     }
 
     function ADOPCION_BTNS(){
-        $("#contenedorFormularioIngreso").hide();
+        $("#contenedorFormulariosUsuarios").hide();
         $("#contenedorInicio").hide();
         $("#contenedorDarAdopcion").hide();
         $("#contenedorAdopta").fadeIn(1000);
