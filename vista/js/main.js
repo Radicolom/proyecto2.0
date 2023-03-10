@@ -183,20 +183,25 @@ $(function(){
                       toast.addEventListener('mouseenter', Swal.stopTimer)
                       toast.addEventListener('mouseleave', Swal.resumeTimer)
                     }
-                  })
+                })
                   
-                  Toast.fire({
-                    icon: 'success',
-                    title: 'Ha iniciado sesión correctamente'
-                  })
+                Toast.fire({
+                icon: 'success',
+                title: 'Ha iniciado sesión correctamente'
+                })
+
                 $("#contenedorFormularioIngreso").hide();
                 $("#demo").hide();
                 $("#contenedorDatosUsuario").fadeIn(1000);    
-            // respuesta.forEach(listaAnimal);
+                respuesta.forEach(listaAnimal);
 
-            // function listaAnimal(item, index) {
-                
-            // }
+                function listaAnimal(item, index) {
+                    $("#nombreUsuario").val(item.nombre);
+                    $("#apellidoUsuario").val(item.apellido);
+                    $("#correoUsuario").val(item.correo);
+                    $("#direccionUsuario").val(item.direccion);
+                    $("#telefonoUsuario").val(item.tell);
+                }
             }
 
         })
