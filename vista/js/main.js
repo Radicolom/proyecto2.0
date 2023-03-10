@@ -78,7 +78,7 @@ $(function(){
 
 
     function INICIO(){
-        btnAdopta.removeAttribute("disabled");
+        // btnAdopta.removeAttribute("disabled");
         $("#contenedorFormulariosUsuarios").hide();
         $("#contenedorAdopta").hide();
         $("#contenedorDarAdopcion").hide();
@@ -86,7 +86,7 @@ $(function(){
     }
 
     function Dar_Adopcion_BTNS(){
-        btnAdopta.removeAttribute("disabled");
+        // btnAdopta.removeAttribute("disabled");
         $("#contenedorFormulariosUsuarios").hide();
         $("#contenedorAdopta").hide();
         $("#contenedorInicio").hide();
@@ -99,8 +99,7 @@ $(function(){
     }
 
     function ADOPCION_BTNS(){
-        btnAdopta.setAttribute("disabled", "true");
-        listarAnimal();
+        // btnAdopta.setAttribute("disabled", "true");
         $("#contenedorFormulariosUsuarios").hide();
         $("#contenedorInicio").hide();
         $("#contenedorDarAdopcion").hide();
@@ -108,9 +107,9 @@ $(function(){
     }
 
     function INICIARSE_BTNS(){
-        btnAdopta.removeAttribute("disabled");
+        // btnAdopta.removeAttribute("disabled");
         if(ingress === false){
-            listarAnimal()
+            // listarAnimal()
             $("#contenedorInicio").hide();
             $("#contenedorAdopta").hide();
             $("#contenedorDarAdopcion").hide();
@@ -203,6 +202,8 @@ $(function(){
         })
         return true;
     }
+
+    listarAnimal();
 
     function listarAnimal(){
 
