@@ -127,9 +127,6 @@
                 </div>
             </div>
             <div class="col sm-4">
-                <button type="button" id="ejecutar">
-                    prueba
-                </button>
             </div>
             <div class="col sm-2" id="BtnEspecie">
                 <center>
@@ -232,14 +229,13 @@
         </div>
     </div>
 
-    <div class="mt-5 container" id="contenedorFormularioIngreso" style="display: none;">
-        <br>
+    <div class="mt-5 container" id="contenedorFormulariosUsuarios" style="display: none;">
         <div class="row p-5">
-            <div class="col">
+            <div class="col" id="contenedorFormularioIngreso" style="display: none;">
                 <center>
                     <h1>LOGIN</h1>
                 </center>
-            <div class="card text-white" style="width: 400px; background-color:#b46743a1;" >
+            <div class="card text-white" style="width: 400px; background-color:#b46743a1; " >
                     <form action="/action_page.php">
                         <div class="card-body">
                             <div class="mb-3 mt-3">
@@ -258,13 +254,15 @@
                                 </label>
                             </div>
                             <button type="submit" style="color:aliceblue;" class="btn">Ingresar</button>
+                            <button  type="button" id="modalRegistroBtn" Style="color:aliceblue;" class="btn">Registrar me</button>
+
                         </div>
                     </form>
                 </div>
             </div>
             <div class="col">
             </div>          
-            <div class="col">
+            <div class="col" id="contenedorFormularioRegistro" style="display: none;">
                 <center>
                     <button type="submit" class="btn btn-primary">Registrar me</button>
                 </center>

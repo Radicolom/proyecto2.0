@@ -68,6 +68,8 @@ $(function(){
 
     $("#btnSelectIniciarSesion").on("click", INICIARSE_BTNS)
 
+    $("#modalRegistroBtn").on("click", REGISTRARSE_BTNS)
+
     function INICIO(){
         $("#contenedorFormularioIngreso").hide();
         $("#contenedorAdopta").hide();
@@ -94,7 +96,15 @@ $(function(){
         $("#contenedorInicio").hide();
         $("#contenedorAdopta").hide();
         $("#contenedorDarAdopcion").hide();
+        $("#contenedorFormularioRegistro").hide();
+        $("#contenedorFormulariosUsuarios").fadeIn(1000);
         $("#contenedorFormularioIngreso").fadeIn(1000);
+        
+    }
+
+    function REGISTRARSE_BTNS(){
+        $("#contenedorFormularioIngreso").hide();
+        $("#contenedorFormularioRegistro").fadeIn(1000);
     }
 
     // TIEMPO REGISTRO
@@ -103,7 +113,7 @@ $(function(){
         listarEdadAnimal();
     })
 
-    $("#ejecutar").on("click", function(){
+    $("#modalRegistroBtn").on("click", function(){
         listarAnimal()
     })
 
