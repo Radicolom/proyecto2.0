@@ -54,7 +54,7 @@ class mdlAnimal{
             INNER JOIN usua
             INNER JOIN sexo ON animal.sexo_Id_sexAnimal = sexo.idSexo 
             INNER JOIN especie ON animal.especie_Id_Animal = especie.idEspecie 
-            INNER JOIN raza ON animal.raza = raza.idRaza 
+            INNER JOIN raza
             INNER JOIN numeros ON animal.edad_Id_Animal = numeros.idNumero 
             INNER JOIN tiempo ON animal.tipoFecha_Id_Animal = tiempo. IdTiempo");
             $objRespuesta->execute();
@@ -127,5 +127,15 @@ class mdlDatosAnimal{
     return $listarTiempo;
     }
 }
+
+// $objRespuesta = $objConexion->prepare("SELECT animal.idAnimal, animal.imagenAnimal, animal.nombreAnimal, especie.nombreEspecie, raza.nombreRaza, 
+//             numeros.numero, tiempo.nombreTiempo, sexo.nombreSexo 
+//             FROM animal 
+//             INNER JOIN usua
+//             INNER JOIN sexo ON animal.sexo_Id_sexAnimal = sexo.idSexo 
+//             INNER JOIN especie ON animal.especie_Id_Animal = especie.idEspecie 
+//             INNER JOIN raza ON animal.raza = raza.idRaza 
+//             INNER JOIN numeros ON animal.edad_Id_Animal = numeros.idNumero 
+//             INNER JOIN tiempo ON animal.tipoFecha_Id_Animal = tiempo. IdTiempo");
 
 ?>

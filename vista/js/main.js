@@ -316,7 +316,7 @@ $(function(){
         var objData =new FormData();
         
         if(compararEdadAnimal == 3){
-            edad = 25;
+            edad = 21;
             objData.append("listarEdadAnimalMenos",edad);
             
         }else{
@@ -455,6 +455,20 @@ $(function(){
     // COMANDOS
     
     $("#listaBusquedaAnimalEspecie").on("click", "#selecCionarBusquedaEspecie", function(){
+        $("#btnSelecRaza").fadeIn(1000);
+       
+        var val = $(this).attr("value");
+        console.log(val);
+        alert(val);
+
+        //   if(item.IdTiempo == 1){
+        //             tiempoRegistro = true;
+        //         }else{
+        //             tiempoRegistro = false;
+        //         }
+    })
+
+    $("#listaBusquedaAnimalRaza").on("click", "#seleccionarBusquedaRaza", function(){
         $("#btnSelecRaza").fadeIn(1000);
        
         var val = $(this).attr("value");
