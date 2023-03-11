@@ -126,7 +126,48 @@ class mdlDatosAnimal{
         }
     return $listarTiempo;
     }
+
 }
+
+
+class mdlGuardarAnimal{
+
+    public static function mdlGuardarAnimal($nombreAnimal, $imagenAnimal, $SexoAnimal, $EdadAnimal, $selectTiempo, $especieRegistro, $razaRegistro, $descripcionRegistro){
+        $guardarAnimal="";
+        
+        try{
+            $objRespuesta=conexion::conectar()->prepare("INSERT INTO raza (nombreRaza) SELECT :razaRegistro 
+            WHERE NOT EXISTS (SELECT nombreRaza FROM raza WHERE LOWER(nombreRaza) = LOWER(:razaRegistro) AND nombreRaza REGEXP '^[^0-9]*$') AND :razaRegistro IS NOT NULL")
+            $objRespuesta->bindparam(":razaRegistro",$razaRegistro);
+            $objRespuesta->execute();
+        }catch(Exception $e){
+            $objRespuesta = $e;
+            return $objRespuesta;
+        }
+        
+        try{
+            $objRespuesta=conexion::conectar()->prepare("INSERT INTO raza (nombreRaza) SELECT :especieRegistro 
+            WHERE NOT EXISTS (SELECT nombreRaza FROM raza WHERE LOWER(nombreRaza) = LOWER(:especieRegistro) AND nombreRaza REGEXP '^[^0-9]*$') AND :especieRegistro IS NOT NULL")
+            $objRespuesta->bindparam(":especieRegistro",$especieRegistro);
+            $objRespuesta->execute();
+        }catch(Exception $e){
+            $objRespuesta = $e;
+            return $objRespuesta;
+        }
+
+        try{
+            $objRespuesta=conexion::conectar()->prepare("INSERT INTO raza (nombreRaza) SELECT :especieRegistro 
+            WHERE NOT EXISTS (SELECT nombreRaza FROM raza WHERE LOWER(nombreRaza) = LOWER(:especieRegistro) AND nombreRaza REGEXP '^[^0-9]*$') AND :especieRegistro IS NOT NULL")
+            $objRespuesta->bindparam(":especieRegistro",$especieRegistro);
+            $objRespuesta->execute();
+            }catch(Exception $e){
+                $objRespuesta = $e;
+                return $objRespuesta;
+            }
+
+    }
+}
+
 
 // $objRespuesta = $objConexion->prepare("SELECT animal.idAnimal, animal.imagenAnimal, animal.nombreAnimal, especie.nombreEspecie, raza.nombreRaza, 
 //             numeros.numero, tiempo.nombreTiempo, sexo.nombreSexo 

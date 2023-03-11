@@ -1,11 +1,15 @@
 $(function(){
 
+    var imagenAnimal; 
+
     $("#btnSelectDarAdopcion").on("click", Dar_Adopcion_BTNS)
     $("#btnSelectDarAdopcion2").on("click", Dar_Adopcion_BTNS)
 
     $("#selectTiempo").on("change", function(){
         listarEdadAnimal();
     })
+
+    $("#btnRegistrarAnimal").on("click", guardarAnimal)
 
     function Dar_Adopcion_BTNS(){
         listarTiempo();
@@ -125,24 +129,129 @@ $(function(){
         })
     }
 
-        // ESPECIE
+    // ESPECIE
 
-        listarBusquedaAnimal();
+    listarBusquedaAnimal();
 
-        function listarBusquedaAnimal(){
-            // BUSQUEDA
-            document.getElementById("listaBusqueda").innerHTML = "";
-            document.getElementById("listaBusquedaAnimalEspecie").innerHTML = "";
+    function listarBusquedaAnimal(){
+        // BUSQUEDA
+        document.getElementById("listaBusqueda").innerHTML = "";
+        document.getElementById("listaBusquedaAnimalEspecie").innerHTML = "";
+
+        // REGISTRO DATOS ANIMAL
+        document.getElementById("listaRegistroEspecie").innerHTML = "";
+        document.getElementById("listaRegistroRaza").innerHTML = "";
+
+        
+        var objData =new FormData();
+        
+        objData.append("listarBusquedaAnimal","ok");
+        $.ajax({
+        url: "control/animalControl.php",
+        type: "post",
+        dataType: "json",
+        data: objData,
+        cache: false,
+        contentType: false,
+        processData: false
+        }).done(function(respuesta){
+        //   var dataSet = [];
     
-            // REGISTRO DATOS ANIMAL
-            document.getElementById("listaRegistroEspecie").innerHTML = "";
-            document.getElementById("listaRegistroRaza").innerHTML = "";
+            console.log(respuesta)
+
+            var BusquedaFiltro = respuesta.filter(item => item.nombreEspecie !== null);
+            var registroFiltro = respuesta.filter(item => item.nombreRaza !== null);
+
+            BusquedaFiltro.forEach(ListarBusqueda);
+
+            function ListarBusqueda(item,index){
+
+                // BUSQUEDA ANIMAL
+                const busquedaEs = document.getElementById('listaBusqueda');
+                busquedaEs.innerHTML += `<option value="${item.nombreEspecie}">`;
+
+                const busquedaSelec = document.getElementById('listaBusquedaAnimalEspecie');
+                busquedaSelec.innerHTML += `<a class="dropdown-item" id="selecCionarBusquedaEspecie" value="${item.idEspecie}">${item.nombreEspecie}</a>`;
+
+                // REGISTRO DATOS ANIMAL
+                
+                const datosEspecieAnimal = document.getElementById('listaRegistroEspecie');
+                datosEspecieAnimal.innerHTML += `<option value="${item.nombreEspecie}">`;
+
+            } 
+
+            registroFiltro.forEach(listarRegistross);
+
+            function listarRegistross(item,index){
+
+                // BUSQUEDA ANIMAL
+                const busquedaSelec = document.getElementById('listaBusquedaAnimalRaza');
+                busquedaSelec.innerHTML += `<a class="dropdown-item" id="seleccionarBusquedaRaza" value="${item.idRaza}">${item.nombreRaza}</a>`;
+
+                // REGISTRO DATOS ANIMAL  
+                const datosRazaAnimal = document.getElementById('listaRegistroRaza');
+                datosRazaAnimal.innerHTML += `<option value="${item.nombreRaza}">`;      
+            } 
+
+        })
+    }
+
+    //GUARDAR DATOS ANIMAL
     
-            
-            var objData =new FormData();
+    $(document).ready(function() {
+        $('#imagenAnimal').on('change', function() {
+            // Obtener la información del archivo seleccionado
+            imagenAnimal = this.files[0];
           
-            objData.append("listarBusquedaAnimal","ok");
-            $.ajax({
+            if (imagenAnimal.type !== "image/jpeg") {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'El formato de la imagen debe ser JPEG.',
+                    showConfirmButton: false,
+                    timer: 2500
+                })
+                $("#imagenAnimal").val("");
+                return;
+            }else{
+                if (imagenAnimal.size > 65535) { 
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'El archivo seleccionado es demasiado grande, debe ser menor a 65 KB.',
+                        showConfirmButton: false,
+                        timer: 2500
+                    })
+                    $("#imagenAnimal").val("");
+                    return;
+                }else{
+                    var urlImagen = URL.createObjectURL(imagenAnimal);
+                    $('#preview').attr('src', urlImagen).show();
+                }
+            }
+        });
+      });
+
+    function guardarAnimal(){
+
+        var nombreRegistro = $("#nombreAnimal").val();
+        var imagenAnimalRegistro = $("#imagenAnimal")[0].files[0];
+        var sexoRegistro = $("#selectSexo").val();
+        var edadRegistro = $("#selectEdadAnimal").val();
+        var tiempoRegistro = $("#selectTiempo").val();
+        var especieRegistro = $("#especieRegistro").val();
+        var razaRegistro = $("#razaRegistro").val();
+        var descripcionRegistro = $("#descripcionRegistro").val();
+        
+        
+        var objData =new FormData();
+        objData.append("nombreAnimal",nombreRegistro);
+        objData.append("imagenAnimal",imagenAnimalRegistro);
+        objData.append("SexoAnimal",sexoRegistro);
+        objData.append("EdadAnimal",edadRegistro);
+        objData.append("selectTiempo",tiempoRegistro);
+        objData.append("especieRegistro",especieRegistro);
+        objData.append("razaRegistro",razaRegistro);
+        objData.append("descripcionRegistro",descripcionRegistro);
+        $.ajax({
             url: "control/animalControl.php",
             type: "post",
             dataType: "json",
@@ -150,46 +259,38 @@ $(function(){
             cache: false,
             contentType: false,
             processData: false
-          }).done(function(respuesta){
-            //   var dataSet = [];
-      
-                console.log(respuesta)
-    
-                var BusquedaFiltro = respuesta.filter(item => item.nombreEspecie !== null);
-                var registroFiltro = respuesta.filter(item => item.nombreRaza !== null);
-    
-                BusquedaFiltro.forEach(ListarBusqueda);
-    
-                function ListarBusqueda(item,index){
-    
-                    // BUSQUEDA ANIMAL
-                    const busquedaEs = document.getElementById('listaBusqueda');
-                    busquedaEs.innerHTML += `<option value="${item.nombreEspecie}">`;
-    
-                    const busquedaSelec = document.getElementById('listaBusquedaAnimalEspecie');
-                    busquedaSelec.innerHTML += `<a class="dropdown-item" id="selecCionarBusquedaEspecie" value="${item.idEspecie}">${item.nombreEspecie}</a>`;
-    
-                    // REGISTRO DATOS ANIMAL
-                    
-                    const datosEspecieAnimal = document.getElementById('listaRegistroEspecie');
-                    datosEspecieAnimal.innerHTML += `<option value="${item.nombreEspecie}">`;
-    
-                } 
-    
-                registroFiltro.forEach(listarRegistross);
-    
-                function listarRegistross(item,index){
-    
-                    // BUSQUEDA ANIMAL
-                    const busquedaSelec = document.getElementById('listaBusquedaAnimalRaza');
-                    busquedaSelec.innerHTML += `<a class="dropdown-item" id="seleccionarBusquedaRaza" value="${item.idRaza}">${item.nombreRaza}</a>`;
-    
-                    // REGISTRO DATOS ANIMAL  
-                    const datosRazaAnimal = document.getElementById('listaRegistroRaza');
-                    datosRazaAnimal.innerHTML += `<option value="${item.nombreRaza}">`;      
-                } 
-    
-            })
-        }
+        }).done(function(respuesta){
+        //     ingress = true;
+        //     const Toast = Swal.mixin({
+        //         toast: true,
+        //         position: 'top-end',
+        //         showConfirmButton: false,
+        //         timer: 3000,
+        //         timerProgressBar: true,
+        //         didOpen: (toast) => {
+        //             toast.addEventListener('mouseenter', Swal.stopTimer)
+        //             toast.addEventListener('mouseleave', Swal.resumeTimer)
+        //         }
+        //     })
+                
+        //     Toast.fire({
+        //     icon: 'success',
+        //     title: 'Ha iniciado sesión correctamente'
+        //     })
 
+        //     $("#contenedorFormularioIngreso").hide();
+        //     $("#carousel").hide();
+        //     $("#contenedorDatosUsuario").fadeIn(1000);    
+        //     respuesta.forEach(listaAnimal);
+
+        //     function listaAnimal(item, index) {
+        //         $("#nombreUsuario").val(item.nombre);
+        //         $("#apellidoUsuario").val(item.apellido);
+        //         $("#correoUsuario").val(item.correo);
+        //         $("#direccionUsuario").val(item.direccion);
+        //         $("#telefonoUsuario").val(item.tell);
+        //     }
+        })
+    }
+    
 })

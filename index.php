@@ -182,13 +182,16 @@
         <br>
         <div class="card text-white" style="width: 400px; background-color:#b46743a1;" >
             <div class="card-body">
+                <center>
+                    <img id="preview" src="#" alt="Vista previa de la foto" class="rounded-circle" style="display: none; ">
+                </center>
                 <div class="mb-3 mt-3">
                     <label for="text" class="form-label">Nombre:</label>
                     <input type="text" class="form-control" id="nombreAnimal" placeholder="Escriba el nombre" name="nombre">
                 </div>
                 <div class="mb-3 mt-3">
-                    <label for="form-label" class="form-label">Foto:</label>
-                    <input class="form-control" type="file" name="imagenAnimal">
+                    <label for="imagenAnimal" class="form-label">Foto:</label>
+                    <input type="file" class="form-control" id="imagenAnimal" name="imagenAnimal" accept="image/jpeg" size="65536">
                 </div>
                 <div class="row">
                     <div class="col">
@@ -244,7 +247,7 @@
                     <input class="form-check-input" type="checkbox" name="remember"> Remember me
                     </label>
                 </div>
-                <button type="button" class="btn btn-primary" id="btnRegistrarAnimal">Registrar peludito</button>
+                <button type="button" class="btn btn-primary" id="btnRegistrarAnimal">Registrar peludito🙈</button>
             </div>
         </div>
     </div>

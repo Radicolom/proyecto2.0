@@ -1,7 +1,6 @@
 $(function(){
 
     var tiempoRegistro = false;
-    var num = 0;
 
     cargarPangtalla();
 

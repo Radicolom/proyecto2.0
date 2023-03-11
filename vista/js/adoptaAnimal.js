@@ -1,5 +1,7 @@
 $(function(){
 
+    var num = 0;
+
     $("#btnSelectAdopta").on("click", ADOPCION_BTNS)
     $("#btnAdoptar").on("click", ADOPCION_BTNS)
 

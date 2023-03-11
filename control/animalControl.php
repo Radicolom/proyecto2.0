@@ -5,6 +5,8 @@ include_once "../modelo/animalControlModelo.php";
 
 class ctrUsuario{
 
+    public $objRespuesta;
+
     public function ctrValidarUsuario(){
         $objRespuesta=mdlUsuario::mdlValidarUsuario($this->correoUsuario,$this->passwordUsuario);
         echo json_encode($objRespuesta);
@@ -23,6 +25,8 @@ if(isset($_POST["correoIngreso"],$_POST["passwordIngreso"])){
 // ANIMAL 
 
 class ctrAnimal{
+
+    public $objRespuesta;
 
     public function ctrListarBusquedaAnimal(){
         $objRespuesta=mdlAnimal::mdlListarBusquedaAnimal();
@@ -67,6 +71,8 @@ if(isset($_POST["listarAnimal"]) == "ok"){
 
 class ctrDatosAnimal{
 
+    public $objRespuesta;
+
     public function ctrListarSexo(){
         $objRespuesta=mdlDatosAnimal::mdlSexoAnimal();
         echo json_encode($objRespuesta);
@@ -105,9 +111,54 @@ if(isset($_POST["listarEdadAnimalMenos"])){
     $objAnimal->ctrListarEdadAnimalMenos();
 }
 
- if(isset($_POST["listarSexo"]) == "ok"){
+if(isset($_POST["listarSexo"]) == "ok"){
     $objAnimal = new ctrDatosAnimal();
     $objAnimal->ctrListarSexo();
+}
+
+class ctrGuardarDatosAnimal{
+
+    public $objRespuesta;
+    
+    // public function ctrGuardarEspecie(){
+    //     $objRespuesta=mdlDatosAnimal::mdlGuardarEspecie($this->especieRegistro);    
+    // }
+
+    // public function ctrGuardarRaza(){
+    //     $objRespuesta=mdlDatosAnimal::mdlGuardarRaza($this->razaRegistro);    
+    // }
+
+    public function ctrGuardarAnimal(){
+        $objRespuesta=mdlDatosAnimal::mdlGuardarAnimal($this->nombreAnimal, $this->imagenAnimal, $this->SexoAnimal, $this->EdadAnimal, $this->selectTiempo, $this->especieRegistro, $this->razaRegistro, $this->descripcionRegistro);
+        echo json_encode($objRespuesta);
+    }
+}
+
+// if(isset($_POST["especieRegistro"])){
+//     $objRespuesta = new ctrGuardarDatosAnimal();
+//     $objRespuesta->especieRegistro = $_POST["especieRegistro"];
+//     $objRespuesta->ctrGuardarEspecie();
+// }
+
+// if(isset($_POST["especieRegistro"])){
+//     $objRespuesta = new ctrGuardarDatosAnimal();
+//     $objRespuesta->razaRegistro = $_POST["razaRegistro"];
+//     $objRespuesta->ctrGuardarRaza();
+// }
+
+
+
+if(isset($_POST["nombreAnimal"],$_FILES["imagenAnimal"],$_POST["SexoAnimal"],$_POST["EdadAnimal"],$_POST["selectTiempo"],$_POST["especieRegistro"],$_POST["razaRegistro"],$_POST["descripcionRegistro"])){
+    $objRespuesta = new ctrGuardarDatosAnimal();
+    $objRespuesta->nombreAnimal = $_POST["nombreAnimal"];
+    $objRespuesta->imagenAnimal = $_FILES["imagenAnimal"];
+    $objRespuesta->SexoAnimal = $_POST["SexoAnimal"];
+    $objRespuesta->EdadAnimal = $_POST["EdadAnimal"];
+    $objRespuesta->selectTiempo = $_POST["selectTiempo"];
+    $objRespuesta->especieRegistro = $_POST["especieRegistro"];
+    $objRespuesta->razaRegistro = $_POST["razaRegistro"];
+    $objRespuesta->descripcionRegistro = $_POST["descripcionRegistro"];
+    $objRespuesta->ctrGuardarAnimal();
 }
 
 ?>
