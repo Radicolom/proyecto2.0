@@ -155,15 +155,15 @@ class mdlGuardarAnimal{
             return $objRespuesta;
         }
 
-        try{
-            $objRespuesta=conexion::conectar()->prepare("INSERT INTO raza (nombreRaza) SELECT :especieRegistro 
-            WHERE NOT EXISTS (SELECT nombreRaza FROM raza WHERE LOWER(nombreRaza) = LOWER(:especieRegistro) AND nombreRaza REGEXP '^[^0-9]*$') AND :especieRegistro IS NOT NULL")
-            $objRespuesta->bindparam(":especieRegistro",$especieRegistro);
-            $objRespuesta->execute();
-            }catch(Exception $e){
-                $objRespuesta = $e;
-                return $objRespuesta;
-            }
+        // try{
+        //     $objRespuesta=conexion::conectar()->prepare("INSERT INTO raza (nombreRaza) SELECT :especieRegistro 
+        //     WHERE NOT EXISTS (SELECT nombreRaza FROM raza WHERE LOWER(nombreRaza) = LOWER(:especieRegistro) AND nombreRaza REGEXP '^[^0-9]*$') AND :especieRegistro IS NOT NULL")
+        //     $objRespuesta->bindparam(":especieRegistro",$especieRegistro);
+        //     $objRespuesta->execute();
+        //     }catch(Exception $e){
+        //         $objRespuesta = $e;
+        //         return $objRespuesta;
+        //     }
 
     }
 }
