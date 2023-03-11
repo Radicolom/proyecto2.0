@@ -184,10 +184,10 @@
             <div class="card-body">
                 <div class="mb-3 mt-3">
                     <label for="text" class="form-label">Nombre:</label>
-                    <input type="text" class="form-control" id="nombre" placeholder="Escriba el nombre" name="nombre">
+                    <input type="text" class="form-control" id="nombreAnimal" placeholder="Escriba el nombre" name="nombre">
                 </div>
                 <div class="mb-3 mt-3">
-                    <label for="form-label" class="form-label">FOTO:</label>
+                    <label for="form-label" class="form-label">Foto:</label>
                     <input class="form-control" type="file" name="imagenAnimal">
                 </div>
                 <div class="row">
@@ -220,7 +220,7 @@
                     <div class="col">
                         <div class="mb-3 mt-3">
                             <label for="email" class="form-label">Especie:</label>
-                            <input type="text" list="listaRegistroEspecie" name="browser" class="form-control" placeholder="Escriba la especie">
+                            <input type="text" list="listaRegistroEspecie" name="browser" class="form-control" placeholder="Escriba la especie" id="especieRegistro">
                             <datalist id="listaRegistroEspecie">
                                 <!-- ARCHIVO -->
                             </datalist>    
@@ -229,7 +229,7 @@
                     <div class="col">
                         <div class="mb-3 mt-3">
                             <label for="email" class="form-label">Raza:</label>
-                            <input type="text" list="listaRegistroRaza" name="browser" class="form-control" placeholder="Escriba la raza">
+                            <input type="text" list="listaRegistroRaza" name="browser" class="form-control" placeholder="Escriba la raza" id="razaRegistro">
                             <datalist id="listaRegistroRaza">
                                 <!-- ARCHIVO -->
                             </datalist>        
@@ -237,16 +237,14 @@
                     </div>
                 </div>
                 <label for="comment">Description:</label>
-                <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
-
+                <textarea class="form-control" rows="5" id="comment" name="text" id="descripcionRegistro"></textarea>
+                
                 <div class="form-check mb-3">
                     <label class="form-check-label">
                     <input class="form-check-input" type="checkbox" name="remember"> Remember me
                     </label>
                 </div>
-                
-                <button type="button" class="btn btn-primary" id="btnRegistrarAnimal">Registrar</button>
-        
+                <button type="button" class="btn btn-primary" id="btnRegistrarAnimal">Registrar peludito</button>
             </div>
         </div>
     </div>
@@ -276,7 +274,7 @@
                                 </label>
                             </div>
                             <button type="submit" style="color:aliceblue;" class="btn">Ingresar</button>
-                            <button  type="button" id="modalRegistroBtn" Style="color:aliceblue;" class="btn">Registrar me</button>
+                            <button  type="button" id="modalRegistroBtn" Style="color:aliceblue;" class="btn">registrarme</button>
                         </form>
                     </div>
                 </div>

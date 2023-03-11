@@ -1,5 +1,15 @@
 $(function(){
 
+    $("#btnSelectAdopta").on("click", ADOPCION_BTNS)
+    $("#btnAdoptar").on("click", ADOPCION_BTNS)
+
+    function ADOPCION_BTNS(){
+        $("#contenedorFormulariosUsuarios").hide();
+        $("#contenedorInicio").hide();
+        $("#contenedorDarAdopcion").hide();
+        $("#contenedorAdopta").fadeIn(1000);
+    }
+
     $("#btnRegistrarAnimal").on("click", function(){
         listarAnimal()
     })
