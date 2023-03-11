@@ -34,13 +34,13 @@
     <link rel='stylesheet' type="text/css" media="screen" href='vista/css/main.css'>
 
     <script src='vista/js/main.js'></script>
+    <script src='vista/js/adoptaAnimal.js'></script>
+    <script src='vista/js/darAdopcion.js'></script>
+    <script src='vista/js/ingreso.js'></script>
 
  
 </head>
 <body>
-
-<!-- <img src="control/base64.php?id=1" > -->
-<!-- <div class="col"><div class="card" style="width: 200px;"><img src="control/imagen.php?id=1" alt="Mi foto"><div class="card-body"><h4 class="card-title">NOMBRE:</h4><h4 class="card-title">' + item.nombreAnima + '</h4><h5>ESPECIE:</h5><h5 class="card-text">' + item.nombreEspecie + '</h5><h5 class="card-text">SEXO:</h5><h5 class="card-text">' + item.nombreSexo + '</h5><h5 class="card-text">EDAD:</h5><h5 class="card-text">' + item.numero + ' ' + item.nombreTiempo + '</h5><a href="#" class="btn btn-primary">See Profile</a></div></div></div>; -->
 
     <nav class="navbar navbar-expand-sm fixed-top" id="imagenTitulo">
         <div class="container-fluid mb-1 text-center" >
@@ -245,7 +245,7 @@
                     </label>
                 </div>
                 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-primary" id="btnRegistrarAnimal">Registrar</button>
         
             </div>
         </div>
