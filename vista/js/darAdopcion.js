@@ -9,8 +9,6 @@ $(function(){
         listarEdadAnimal();
     })
 
-    $("#btnRegistrarAnimal").on("click", guardarAnimal)
-
     function Dar_Adopcion_BTNS(){
         listarTiempo();
         $("#contenedorFormulariosUsuarios").hide();
@@ -230,6 +228,10 @@ $(function(){
         });
       });
 
+    $("#btnRegistrarAnimal").on("click", function(){        
+        guardarAnimal();
+    })
+
     function guardarAnimal(){
 
         var nombreRegistro = $("#nombreAnimal").val();
@@ -239,8 +241,7 @@ $(function(){
         var tiempoRegistro = $("#selectTiempo").val();
         var especieRegistro = $("#especieRegistro").val();
         var razaRegistro = $("#razaRegistro").val();
-        var descripcionRegistro = $("#descripcionRegistro").val();
-        
+        var descripcionRegistro = $("#descripcionRegistro").val();        
         
         var objData =new FormData();
         objData.append("nombreAnimal",nombreRegistro);

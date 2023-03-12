@@ -51,10 +51,10 @@ class mdlAnimal{
             $objRespuesta = $objConexion->prepare("SELECT animal.idAnimal, animal.imagenAnimal, animal.nombreAnimal, especie.nombreEspecie, raza.nombreRaza, 
             numeros.numero, tiempo.nombreTiempo, sexo.nombreSexo 
             FROM animal 
-            INNER JOIN usua
+            INNER JOIN usua 
             INNER JOIN sexo ON animal.sexo_Id_sexAnimal = sexo.idSexo 
             INNER JOIN especie ON animal.especie_Id_Animal = especie.idEspecie 
-            INNER JOIN raza
+            INNER JOIN raza ON animal.raza = raza.idRaza 
             INNER JOIN numeros ON animal.edad_Id_Animal = numeros.idNumero 
             INNER JOIN tiempo ON animal.tipoFecha_Id_Animal = tiempo. IdTiempo");
             $objRespuesta->execute();
@@ -134,37 +134,35 @@ class mdlGuardarAnimal{
 
     public static function mdlGuardarAnimal($nombreAnimal, $imagenAnimal, $SexoAnimal, $EdadAnimal, $selectTiempo, $especieRegistro, $razaRegistro, $descripcionRegistro){
         $guardarAnimal="";
-        
+
         try{
             $objRespuesta=conexion::conectar()->prepare("INSERT INTO raza (nombreRaza) SELECT :razaRegistro 
-            WHERE NOT EXISTS (SELECT nombreRaza FROM raza WHERE LOWER(nombreRaza) = LOWER(:razaRegistro) AND nombreRaza REGEXP '^[^0-9]*$') AND :razaRegistro IS NOT NULL")
+            WHERE NOT EXISTS (SELECT nombreRaza FROM raza WHERE LOWER(nombreRaza) = LOWER(:razaRegistro) AND nombreRaza REGEXP '^[^0-9]*$') AND :razaRegistro IS NOT NULL");
             $objRespuesta->bindparam(":razaRegistro",$razaRegistro);
             $objRespuesta->execute();
-        }catch(Exception $e){
-            $objRespuesta = $e;
-            return $objRespuesta;
-        }
+            $guardarAnimal = $objRespuesta->fetchAll();
+            $objRespuesta = null;
+    
+            }catch(Exception $e){
+                $guardarAnimal = $e;
+                return $guardarAnimal;
+            }
         
         try{
-            $objRespuesta=conexion::conectar()->prepare("INSERT INTO raza (nombreRaza) SELECT :especieRegistro 
-            WHERE NOT EXISTS (SELECT nombreRaza FROM raza WHERE LOWER(nombreRaza) = LOWER(:especieRegistro) AND nombreRaza REGEXP '^[^0-9]*$') AND :especieRegistro IS NOT NULL")
+            $objRespuesta=conexion::conectar()->prepare("INSERT INTO especie (nombreEspecie) SELECT :especieRegistro 
+            WHERE NOT EXISTS (SELECT nombreEspecie FROM especie WHERE LOWER(nombreEspecie) = LOWER(:especieRegistro) AND nombreEspecie REGEXP '^[^0-9]*$') AND :especieRegistro IS NOT NULL");
             $objRespuesta->bindparam(":especieRegistro",$especieRegistro);
             $objRespuesta->execute();
-        }catch(Exception $e){
-            $objRespuesta = $e;
-            return $objRespuesta;
-        }
+            $guardarAnimal = $objRespuesta->fetchAll();
+            $objRespuesta = null;
+        
+            }catch(Exception $e){
+                $guardarAnimal = $e;
+                return $guardarAnimal;
+            }
+        
 
-        // try{
-        //     $objRespuesta=conexion::conectar()->prepare("INSERT INTO raza (nombreRaza) SELECT :especieRegistro 
-        //     WHERE NOT EXISTS (SELECT nombreRaza FROM raza WHERE LOWER(nombreRaza) = LOWER(:especieRegistro) AND nombreRaza REGEXP '^[^0-9]*$') AND :especieRegistro IS NOT NULL")
-        //     $objRespuesta->bindparam(":especieRegistro",$especieRegistro);
-        //     $objRespuesta->execute();
-        //     }catch(Exception $e){
-        //         $objRespuesta = $e;
-        //         return $objRespuesta;
-        //     }
-
+            
     }
 }
 

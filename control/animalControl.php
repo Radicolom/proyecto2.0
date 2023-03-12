@@ -129,7 +129,7 @@ class ctrGuardarDatosAnimal{
     // }
 
     public function ctrGuardarAnimal(){
-        $objRespuesta=mdlDatosAnimal::mdlGuardarAnimal($this->nombreAnimal, $this->imagenAnimal, $this->SexoAnimal, $this->EdadAnimal, $this->selectTiempo, $this->especieRegistro, $this->razaRegistro, $this->descripcionRegistro);
+        $objRespuesta=mdlGuardarAnimal::mdlGuardarAnimal($this->nombreAnimal, $this->imagenAnimal, $this->SexoAnimal, $this->EdadAnimal, $this->selectTiempo, $this->especieRegistro, $this->razaRegistro, $this->descripcionRegistro);
         echo json_encode($objRespuesta);
     }
 }
