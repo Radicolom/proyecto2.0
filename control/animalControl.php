@@ -45,6 +45,7 @@ class ctrAnimal{
                 'imagen' => $imagen,
                 'idAnimal' => $animal['idAnimal'],
                 'nombre' => $animal['nombreAnimal'],
+                'descripcion' => $animal['descripcion'],
                 'especie' => $animal['nombreEspecie'],
                 'raza' => $animal['nombreRaza'],
                 'numero' => $animal['numero'],

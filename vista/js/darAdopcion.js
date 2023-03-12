@@ -190,10 +190,6 @@ $(function(){
     $(document).ready(function() {
         $('#imagenAnimal').on('change', function() {
             imagenAnimal = this.files[0];
-          
-            if (imagenAnimal === "") {
-                alert("Debe seleccionar una imagen");
-            }
 
             if (imagenAnimal.type !== "image/jpeg") {
                 Swal.fire({
@@ -270,9 +266,7 @@ $(function(){
             $("#especieRegistro").val("");
             $("#razaRegistro").val("");
             $("#descripcionRegistrar").val("");
-            
-            listarAnimal();
-
+        
             Toast.fire({
             icon: 'success',
             title: 'Ha iniciado sesión correctamente'

@@ -10,13 +10,8 @@ $(function(){
         $("#contenedorInicio").hide();
         $("#contenedorDarAdopcion").hide();
         $("#contenedorAdopta").fadeIn(1000);
+        listarAnimal();
     }
-    
-    $("#contenedorAdopta").on("focus", function() {
-        alert("ds") 
-    })
-    
-    listarAnimal();
 
     function listarAnimal(){
 
@@ -51,7 +46,15 @@ $(function(){
                 // }
 
                 listaAnimal.innerHTML +=
-                '<div class="col"><button id="btnAnimal" type="button" class="btn" idEspecie="'+ item.idAnimal +'"><div class="card" style="width: 200px; background-color:#ffc273;"><br><img style="width: 170px; height: 170px; margin: auto;" src="data:image/jpg;base64,' +
+                '<div class="col"><button id="btnAnimal" type="button" class="btn" idEspecie=' + item.idAnimal + 
+                ' imagenAnimal='+ item.imagen + 
+                ' nombreAnimal=' + item.nombre + 
+                ' sexoAnimal=' + item.sexo + 
+                ' edadAnimal="' + item.numero + ' ' + item.tiempo + 
+                '" especie=' + item.especie + 
+                ' raza=' + item.raza + 
+                ' descripcion=' + item.descripcion + 
+                '><div class="card" style="width: 200px; background-color:#ffc273;"><br><img style="width: 170px; height: 170px; margin: auto;" src="data:image/jpg;base64,' +
                 item.imagen +
                 '" alt="Mi foto" ><div class="card-body"><h4 class="card-title">NOMBRE:</h4><h4 class="card-title">' +
                 item.nombre +
@@ -99,9 +102,32 @@ $(function(){
     })
 
     $("#adopcionListas").on("click",'#btnAnimal', function(){
-        var correo = $(this).attr("idEspecie");
-        alert(correo);
-    })
+
+        var imagenBase64 = $(this).attr("imagenAnimal");
+        var imagenSrc = "data:image/png;base64," + imagenBase64;
+        $("#fotoAnimal").attr("src", imagenSrc);
+        
+        var idEspecieDatos = $(this).attr("idEspecie");
+        
+
+        var nombreAnimalDatos = $(this).attr("nombreAnimal");
+        var sexoAnimalDatos = $(this).attr("sexoAnimal");
+        var edadAnimalDatos = $(this).attr("edadAnimal");
+        var especieDatos = $(this).attr("especie");
+        var razaDatos = $(this).attr("raza");
+        var descripcionDatos = $(this).attr("descripcion");
+
+        $("#contenedorAdopta").hide();
+        $("#contenedorDatosAnimal").fadeIn(1000);
+
+        $("#nombreAnimalDatos").val(nombreAnimalDatos);
+        $("#sexoAnimalDatos").val(sexoAnimalDatos);
+        $("#edadAnimalDatos").val(edadAnimalDatos);
+        $("#especieDatos").val(especieDatos);
+        $("#razaDatos").val(razaDatos);
+        $("#descripcionDatos").val(descripcionDatos);
+
+    })  
 
     //GUARDAR DATOS ANIMAL
 

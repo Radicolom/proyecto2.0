@@ -177,6 +177,92 @@
         </div>
     </div>
 
+    <div class="mt-5 container" id="contenedorDatosAnimal" style="display: none;">
+        <div class="col">
+            <center>
+                <h1>ANIMAL</h1>
+            </center>        
+            <div class="card text-white" style="width: 400px; background-color:#b46743a1;" >
+                <div class="card-body">
+                    <center>
+                        <img id="fotoAnimal" src="#" alt="Vista previa de la foto" class="rounded-circle" style="width: 170px; height: 170px;">
+                    </center>
+                    <div class="mb-3 mt-3">
+                        <label for="text" class="form-label">Nombre:</label>
+                        <input type="text" class="form-control" id="nombreAnimalDatos" placeholder="Escriba el nombre" name="nombre">
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                    <div class="mb-3 mt-3">
+                        <label for="text" class="form-label">Sexo:</label>
+                        <input type="text" class="form-control" id="sexoAnimalDatos" placeholder="Escriba el nombre" name="nombre">
+                    </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3 mt-3">
+                                <label for="text" class="form-label">Edad:</label>
+                                <input type="text" class="form-control" id="edadAnimalDatos" placeholder="Escriba el nombre" name="nombre">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3 mt-3">
+                                <label for="text" class="form-label">Especie:</label>
+                                <input type="text" class="form-control" id="especieDatos" placeholder="Escriba el nombre" name="nombre">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3 mt-3">
+                                <label for="text" class="form-label">Raza:</label>
+                                <input type="text" class="form-control" id="razaDatos" placeholder="Escriba el nombre" name="nombre">
+                            </div>
+                        </div>
+                    </div>
+                    <label for="comment">Descripcion:</label>
+                    <textarea class="form-control" rows="5" name="text" id="descripcionDatos"></textarea>
+                    
+                    <button type="button" class="btn btn-primary" id="btnRegistrarAnimal">Registrar peludito🙈</button>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <center>
+                <h1>USUARIO</h1>
+            </center>        
+            <div class="card text-white" style="margin: auto; width: 400px; background-color:#b46743a1;">
+                <div class="card-body">
+                    <div class="mb-3 mt-3">
+                            <label for="text" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nombreUsuario" placeholder="Escriba su nombre" name="nombre" disabled>
+                        <div class="mb-3 mt-3">
+                            <label for="text" class="form-label">Apellido:</label>
+                            <input type="text" class="form-control" id="apellidoUsuario" placeholder="Escriba su apellido" name="nombre" disabled>
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="email" class="form-label">Correo:</label>
+                            <input type="email" class="form-control" id="correoUsuario" placeholder="Escriba un correo" name="nombre" disabled>
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="text" class="form-label">Direccion:</label>
+                            <input type="text" class="form-control" id="direccionUsuario" placeholder="Escriba direccion" name="nombre" disabled>
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="number" class="form-label">Telefono:</label>
+                            <input type="nymber" class="form-control" id="telefonoUsuario" placeholder="Escriba un numero de telefono" name="nombre" disabled>
+                        </div>
+                        <!-- <div class="mb-3 mt-3">
+                            <label for="pasword" class="form-label">Contraseña:</label>
+                            <input type="pasword" class="form-control" id="nombre" placeholder="Escriba la contraseña" name="nombre">
+                        </div> -->
+                        <button  type="button" id="cerrarSecionBtn" Style="color:aliceblue;" class="btn">Cerrar secion</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="mt-5 container" id="contenedorDarAdopcion" style="display: none;">
         <br>
         <br>
@@ -365,5 +451,6 @@
         </div>
     </div>
     
+   
 </body>
 </html>
