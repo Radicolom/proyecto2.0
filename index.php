@@ -183,7 +183,7 @@
         <div class="card text-white" style="width: 400px; background-color:#b46743a1;" >
             <div class="card-body">
                 <center>
-                    <img id="preview" src="#" alt="Vista previa de la foto" class="rounded-circle" style="display: none; ">
+                    <img id="preview" src="#" alt="Vista previa de la foto" class="rounded-circle" style="width: 170px; height: 170px; display: none; ">
                 </center>
                 <div class="mb-3 mt-3">
                     <label for="text" class="form-label">Nombre:</label>
@@ -240,7 +240,7 @@
                     </div>
                 </div>
                 <label for="comment">Description:</label>
-                <textarea class="form-control" rows="5" id="comment" name="text" id="descripcionRegistro"></textarea>
+                <textarea class="form-control" rows="5" name="text" id="descripcionRegistrar"></textarea>
                 
                 <div class="form-check mb-3">
                     <label class="form-check-label">

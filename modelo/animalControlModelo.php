@@ -129,9 +129,9 @@ class mdlDatosAnimal{
 
 }
 
-
 class mdlGuardarAnimal{
 
+    
     public static function mdlGuardarAnimal($nombreAnimal, $imagenAnimal, $SexoAnimal, $EdadAnimal, $selectTiempo, $especieRegistro, $razaRegistro, $descripcionRegistro){
         $guardarAnimal="";
 
@@ -160,9 +160,33 @@ class mdlGuardarAnimal{
                 $guardarAnimal = $e;
                 return $guardarAnimal;
             }
-        
-
             
+        try{
+            $objRespuesta=conexion::conectar()->prepare("INSERT INTO animal (imagenAnimal, nombreAnimal, descripcion, especie_Id_Animal, raza, edad_Id_Animal, tipoFecha_Id_Animal, sexo_Id_sexAnimal)
+            SELECT :imagenAnimal, :nombreAnimal, :descripcionRegistro, e.idEspecie, r.idRaza, :EdadAnimal, :selectTiempo, :SexoAnimal
+            FROM especie e
+            JOIN raza r ON r.nombreRaza = LOWER(:razaRegistro)
+            WHERE e.nombreEspecie = LOWER(:especieRegistro)");
+            $objRespuesta->bindparam(":nombreAnimal",$nombreAnimal);
+            $objRespuesta->bindparam(":imagenAnimal",$imagenAnimal, PDO::PARAM_LOB);
+            $objRespuesta->bindparam(":SexoAnimal",$SexoAnimal);
+            $objRespuesta->bindparam(":EdadAnimal",$EdadAnimal);
+            $objRespuesta->bindparam(":selectTiempo",$selectTiempo);
+            $objRespuesta->bindparam(":especieRegistro",$especieRegistro);
+            $objRespuesta->bindparam(":razaRegistro",$razaRegistro);
+            $objRespuesta->bindparam(":descripcionRegistro",$descripcionRegistro);
+
+            if ($objRespuesta->execute()){
+                $mensaje= "ok";
+
+            }else{
+                $mensaje= "erro al registrar datos";
+            }
+
+        }catch(Exception $e){
+            $mensaje = $e;
+        }
+    return $mensaje;
     }
 }
 

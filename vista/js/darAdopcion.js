@@ -36,8 +36,6 @@ $(function(){
         processData: false
       }).done(function(respuesta){
   
-          console.log(respuesta)
-
           respuesta.forEach(ListarBusqueda);
 
             function ListarBusqueda(item,index){
@@ -79,14 +77,12 @@ $(function(){
         cache: false,
         contentType: false,
         processData: false
-      }).done(function(respuesta){
-  
-          console.log(respuesta)
+        }).done(function(respuesta){   
 
-          respuesta.forEach(ListarBusqueda);
+        respuesta.forEach(ListarBusqueda);
 
             function ListarBusqueda(item,index){
-  
+
                 busquedaTiempo = document.getElementById('selectEdadAnimal');    
                 busquedaTiempo.innerHTML += `<option value="${item.idNumero}">${item.numero}</option>`;
 
@@ -115,8 +111,6 @@ $(function(){
         processData: false
         }).done(function(respuesta){
     
-            console.log(respuesta)
-
             respuesta.forEach(ListarBusqueda);
 
             function ListarBusqueda(item,index){
@@ -153,10 +147,7 @@ $(function(){
         contentType: false,
         processData: false
         }).done(function(respuesta){
-        //   var dataSet = [];
     
-            console.log(respuesta)
-
             var BusquedaFiltro = respuesta.filter(item => item.nombreEspecie !== null);
             var registroFiltro = respuesta.filter(item => item.nombreRaza !== null);
 
@@ -198,7 +189,6 @@ $(function(){
     
     $(document).ready(function() {
         $('#imagenAnimal').on('change', function() {
-            // Obtener la información del archivo seleccionado
             imagenAnimal = this.files[0];
           
             if (imagenAnimal.type !== "image/jpeg") {
@@ -241,8 +231,8 @@ $(function(){
         var tiempoRegistro = $("#selectTiempo").val();
         var especieRegistro = $("#especieRegistro").val();
         var razaRegistro = $("#razaRegistro").val();
-        var descripcionRegistro = $("#descripcionRegistro").val();        
-        
+        var descripcionRegistro = $("#descripcionRegistrar").val();
+    
         var objData =new FormData();
         objData.append("nombreAnimal",nombreRegistro);
         objData.append("imagenAnimal",imagenAnimalRegistro);
@@ -261,23 +251,26 @@ $(function(){
             contentType: false,
             processData: false
         }).done(function(respuesta){
-        //     ingress = true;
-        //     const Toast = Swal.mixin({
-        //         toast: true,
-        //         position: 'top-end',
-        //         showConfirmButton: false,
-        //         timer: 3000,
-        //         timerProgressBar: true,
-        //         didOpen: (toast) => {
-        //             toast.addEventListener('mouseenter', Swal.stopTimer)
-        //             toast.addEventListener('mouseleave', Swal.resumeTimer)
-        //         }
-        //     })
-                
-        //     Toast.fire({
-        //     icon: 'success',
-        //     title: 'Ha iniciado sesión correctamente'
-        //     })
+
+            if (respuesta !== "ok") {
+                console.log(respuesta);
+            } else {
+
+            $("#nombreAnimal").val("");
+            $("#imagenAnimal").val("")
+            $("#selectSexo").val("");
+            $("#selectEdadAnimal").val("");
+            $("#selectTiempo").val("");
+            $("#especieRegistro").val("");
+            $("#razaRegistro").val("");
+            $("#descripcionRegistrar").val("");
+            
+            listarAnimal();
+
+            Toast.fire({
+            icon: 'success',
+            title: 'Ha iniciado sesión correctamente'
+            })
 
         //     $("#contenedorFormularioIngreso").hide();
         //     $("#carousel").hide();
@@ -290,7 +283,7 @@ $(function(){
         //         $("#correoUsuario").val(item.correo);
         //         $("#direccionUsuario").val(item.direccion);
         //         $("#telefonoUsuario").val(item.tell);
-        //     }
+            }
         })
     }
     

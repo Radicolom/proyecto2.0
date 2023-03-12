@@ -12,9 +12,9 @@ $(function(){
         $("#contenedorAdopta").fadeIn(1000);
     }
 
-    $("#btnRegistrarAnimal").on("click", function(){
-        listarAnimal()
-    })
+    // $("#btnRegistrarAnimal").on("click", function(){
+    //     listarAnimal()
+    // })
 
     listarAnimal();
 
@@ -45,10 +45,10 @@ $(function(){
                 '<div class="carousel-item active"><img style="width: 100px; height: 300px; margin: auto;" src="data:image/jpg;base64,' +
                 item.imagen +
                 '" alt="Mi foto" class=" d-block w-100 rounded-circle img-thumbnail"></div>';
-                if (num == 6) {
-                listaAnimal.innerHTML += '<div class="row p-3"></div>';
-                num = 1;
-                }
+                // if (num == 6) {
+                // listaAnimal.innerHTML += '<div class="row p-3"></div>';
+                // num = 1;
+                // }
 
                 listaAnimal.innerHTML +=
                 '<div class="col"><button id="btnAnimal" type="button" class="btn" idEspecie="'+ item.idAnimal +'"><div class="card" style="width: 200px; background-color:#ffc273;"><br><img style="width: 170px; height: 170px; margin: auto;" src="data:image/jpg;base64,' +

@@ -118,47 +118,23 @@ if(isset($_POST["listarSexo"]) == "ok"){
 
 class ctrGuardarDatosAnimal{
 
-    public $objRespuesta;
-    
-    // public function ctrGuardarEspecie(){
-    //     $objRespuesta=mdlDatosAnimal::mdlGuardarEspecie($this->especieRegistro);    
-    // }
-
-    // public function ctrGuardarRaza(){
-    //     $objRespuesta=mdlDatosAnimal::mdlGuardarRaza($this->razaRegistro);    
-    // }
-
     public function ctrGuardarAnimal(){
         $objRespuesta=mdlGuardarAnimal::mdlGuardarAnimal($this->nombreAnimal, $this->imagenAnimal, $this->SexoAnimal, $this->EdadAnimal, $this->selectTiempo, $this->especieRegistro, $this->razaRegistro, $this->descripcionRegistro);
         echo json_encode($objRespuesta);
     }
 }
 
-// if(isset($_POST["especieRegistro"])){
-//     $objRespuesta = new ctrGuardarDatosAnimal();
-//     $objRespuesta->especieRegistro = $_POST["especieRegistro"];
-//     $objRespuesta->ctrGuardarEspecie();
-// }
-
-// if(isset($_POST["especieRegistro"])){
-//     $objRespuesta = new ctrGuardarDatosAnimal();
-//     $objRespuesta->razaRegistro = $_POST["razaRegistro"];
-//     $objRespuesta->ctrGuardarRaza();
-// }
-
-
-
 if(isset($_POST["nombreAnimal"],$_FILES["imagenAnimal"],$_POST["SexoAnimal"],$_POST["EdadAnimal"],$_POST["selectTiempo"],$_POST["especieRegistro"],$_POST["razaRegistro"],$_POST["descripcionRegistro"])){
-    $objRespuesta = new ctrGuardarDatosAnimal();
-    $objRespuesta->nombreAnimal = $_POST["nombreAnimal"];
-    $objRespuesta->imagenAnimal = $_FILES["imagenAnimal"];
-    $objRespuesta->SexoAnimal = $_POST["SexoAnimal"];
-    $objRespuesta->EdadAnimal = $_POST["EdadAnimal"];
-    $objRespuesta->selectTiempo = $_POST["selectTiempo"];
-    $objRespuesta->especieRegistro = $_POST["especieRegistro"];
-    $objRespuesta->razaRegistro = $_POST["razaRegistro"];
-    $objRespuesta->descripcionRegistro = $_POST["descripcionRegistro"];
-    $objRespuesta->ctrGuardarAnimal();
+$objRespuesta = new ctrGuardarDatosAnimal();
+$objRespuesta->nombreAnimal = $_POST["nombreAnimal"];
+$objRespuesta->imagenAnimal = file_get_contents($_FILES["imagenAnimal"]['tmp_name']);
+$objRespuesta->SexoAnimal = $_POST["SexoAnimal"];
+$objRespuesta->EdadAnimal = $_POST["EdadAnimal"];
+$objRespuesta->selectTiempo = $_POST["selectTiempo"];
+$objRespuesta->especieRegistro = $_POST["especieRegistro"];
+$objRespuesta->razaRegistro = $_POST["razaRegistro"];
+$objRespuesta->descripcionRegistro = $_POST["descripcionRegistro"];
+$objRespuesta->ctrGuardarAnimal();
 }
 
 ?>
