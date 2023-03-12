@@ -11,11 +11,11 @@ $(function(){
         $("#contenedorDarAdopcion").hide();
         $("#contenedorAdopta").fadeIn(1000);
     }
-
-    // $("#btnRegistrarAnimal").on("click", function(){
-    //     listarAnimal()
-    // })
-
+    
+    $("#contenedorAdopta").on("focus", function() {
+        alert("ds") 
+    })
+    
     listarAnimal();
 
     function listarAnimal(){
@@ -103,7 +103,10 @@ $(function(){
         alert(correo);
     })
 
+    //GUARDAR DATOS ANIMAL
 
+    
+       
 
 
 })

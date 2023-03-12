@@ -333,7 +333,7 @@
                     <div class="card-body">
                         <div class="mb-3 mt-3">
                             <label for="form-label" class="form-label">FOTO:</label>
-                            <input class="form-control" type="file" name="imagenAnimal">
+                            <input class="form-control" type="file" name="imagenAnmal">
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="text" class="form-label">Nombre:</label>

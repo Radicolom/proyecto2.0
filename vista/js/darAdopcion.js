@@ -186,11 +186,15 @@ $(function(){
     }
 
     //GUARDAR DATOS ANIMAL
-    
+
     $(document).ready(function() {
         $('#imagenAnimal').on('change', function() {
             imagenAnimal = this.files[0];
           
+            if (imagenAnimal === "") {
+                alert("Debe seleccionar una imagen");
+            }
+
             if (imagenAnimal.type !== "image/jpeg") {
                 Swal.fire({
                     icon: 'warning',
@@ -198,6 +202,7 @@ $(function(){
                     showConfirmButton: false,
                     timer: 2500
                 })
+                $("#preview").hide();
                 $("#imagenAnimal").val("");
                 return;
             }else{
@@ -208,16 +213,17 @@ $(function(){
                         showConfirmButton: false,
                         timer: 2500
                     })
+                    $("#preview").hide();
                     $("#imagenAnimal").val("");
                     return;
-                }else{
+                }else{  
                     var urlImagen = URL.createObjectURL(imagenAnimal);
                     $('#preview').attr('src', urlImagen).show();
                 }
             }
         });
       });
-
+    
     $("#btnRegistrarAnimal").on("click", function(){        
         guardarAnimal();
     })
@@ -257,7 +263,7 @@ $(function(){
             } else {
 
             $("#nombreAnimal").val("");
-            $("#imagenAnimal").val("")
+            $("#imagenAnimal").val("");
             $("#selectSexo").val("");
             $("#selectEdadAnimal").val("");
             $("#selectTiempo").val("");
