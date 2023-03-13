@@ -260,7 +260,7 @@
     <div class="mt-5 container" id="contenedorDarAdopcion" style="display: none;">
         <br>
         <div class="mt-5 row">
-            <div class="col" id="listaDarAdopcion" style="display: none;">
+            <div class="col-sm-5" id="listaDarAdopcion" style="display: none;">
                 <div class="card text-white" style="width: 400px; background-color:#b46743a1;" >
                     <div class="card-body">
                         <center>
@@ -332,7 +332,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-sm-7">
                 <div class="row" id="darAdopcionListas">
                     <!-- ARCHIVO -->
                 </div>
@@ -512,4 +512,9 @@
     
    
 </body>
+
+<!-- prueva@cc.co
+123456 -->
+
+
 </html>

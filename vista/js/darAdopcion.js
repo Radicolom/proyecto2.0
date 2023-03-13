@@ -18,6 +18,7 @@ $(function(){
         $("#contenedorDatosDarAdopcionAnimal").hide();
         $("#contenedorDarAdopcion").fadeIn(1000);
         $("#listaDarAdopcion").fadeIn(1000);
+        
         window.listarAnimal();
     }
     
