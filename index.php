@@ -339,8 +339,8 @@
             </div>
         </div>
     </div>
-    <!-- style="display: none;" -->
-    <div class="mt-5 container" id="contenedorDatosDarAdopcionAnimal" >
+    
+    <div class="mt-5 container" id="contenedorDatosDarAdopcionAnimal" style="display: none;">
         <br>
         <div class="card text-white" style="background-color:#b46743a1;">
             <div class="mt-5 row">

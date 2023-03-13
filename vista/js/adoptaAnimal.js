@@ -8,6 +8,7 @@ $(function(){
         $("#contenedorInicio").hide();
         $("#contenedorDarAdopcion").hide();
         $("#contenedorDatosAnimal").hide();
+        $("#contenedorDatosDarAdopcionAnimal").hide();
         $("#contenedorAdopta").fadeIn(1000);
     }
 

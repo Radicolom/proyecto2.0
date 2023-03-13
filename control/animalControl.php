@@ -127,13 +127,14 @@ if(isset($_POST["listarSexo"]) == "ok"){
 class ctrGuardarDatosAnimal{
 
     public function ctrGuardarAnimal(){
-        $objRespuesta=mdlGuardarAnimal::mdlGuardarAnimal($this->nombreAnimal, $this->imagenAnimal, $this->SexoAnimal, $this->EdadAnimal, $this->selectTiempo, $this->especieRegistro, $this->razaRegistro, $this->descripcionRegistro);
+        $objRespuesta=mdlGuardarAnimal::mdlGuardarAnimal($this->animalIdUsuario,$this->nombreAnimal, $this->imagenAnimal, $this->SexoAnimal, $this->EdadAnimal, $this->selectTiempo, $this->especieRegistro, $this->razaRegistro, $this->descripcionRegistro);
         echo json_encode($objRespuesta);
     }
 }
 
-if(isset($_POST["nombreAnimal"],$_FILES["imagenAnimal"],$_POST["SexoAnimal"],$_POST["EdadAnimal"],$_POST["selectTiempo"],$_POST["especieRegistro"],$_POST["razaRegistro"],$_POST["descripcionRegistro"])){
+if(isset($_POST["idPertenese"],$_POST["nombreAnimal"],$_FILES["imagenAnimal"],$_POST["SexoAnimal"],$_POST["EdadAnimal"],$_POST["selectTiempo"],$_POST["especieRegistro"],$_POST["razaRegistro"],$_POST["descripcionRegistro"])){
 $objRespuesta = new ctrGuardarDatosAnimal();
+$objRespuesta->animalIdUsuario = $_POST["idPertenese"];
 $objRespuesta->nombreAnimal = $_POST["nombreAnimal"];
 $objRespuesta->imagenAnimal = file_get_contents($_FILES["imagenAnimal"]['tmp_name']);
 $objRespuesta->SexoAnimal = $_POST["SexoAnimal"];

@@ -60,22 +60,18 @@ $(function(){
 
     function INICIARSE_BTNS(){
         if(ingress === false){
-            $("#contenedorInicio").hide();
-            $("#contenedorAdopta").hide();
-            $("#contenedorDarAdopcion").hide();
-            $("#contenedorFormularioRegistro").hide();
             $("#contenedorDatosUsuario").hide();
-            $("#contenedorDatosAnimal").hide();
             $("#contenedorFormulariosUsuarios").fadeIn(1000);
             $("#contenedorFormularioIngreso").fadeIn(1000);
         }else{
-            $("#contenedorInicio").hide();
-            $("#contenedorAdopta").hide();
-            $("#contenedorDarAdopcion").hide();
-            $("#contenedorFormularioRegistro").hide();
-            $("#contenedorDatosAnimal").hide();
             $("#contenedorFormulariosUsuarios").fadeIn(1000);
         }
+        $("#contenedorInicio").hide();
+        $("#contenedorAdopta").hide();
+        $("#contenedorDarAdopcion").hide();
+        $("#contenedorFormularioRegistro").hide();
+        $("#contenedorDatosAnimal").hide();
+        $("#contenedorDatosDarAdopcionAnimal").hide();
     }
 
     function REGISTRARSE_BTNS(){
@@ -157,18 +153,18 @@ $(function(){
     $("#btnSelectDarAdopcion2").on("click", spam_Dar_Adopcion_BTNS)
 
     function spam_Dar_Adopcion_BTNS(){
-        // if(ingress === false){
-        //     Swal.fire({
-        //         title: 'Para dar en adopcion a tu mascota debes estar registrado',
-        //         allowOutsideClick: false,
-        //         allowEscapeKey: false,
-        //         confirmButtonColor: "#5c340bb6",
-        //         confirmButtonText: 'Ok 🏡'
-        //     }).then((result) => {
-        //         if (result.isConfirmed) {
-        //             INICIARSE_BTNS();
-        //         }
-        //     })
-        // }
+        if(ingress === false){
+            Swal.fire({
+                title: 'Para dar en adopcion a tu mascota debes estar registrado',
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                confirmButtonColor: "#5c340bb6",
+                confirmButtonText: 'Ok 🏡'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    INICIARSE_BTNS();
+                }
+            })
+        }
     }
 })

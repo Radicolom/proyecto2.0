@@ -15,6 +15,7 @@ $(function(){
         $("#contenedorAdopta").hide();
         $("#contenedorDarAdopcion").hide();
         $("#contenedorDatosAnimal").hide();
+        $("#contenedorDatosDarAdopcionAnimal").hide();
         $("#contenedorInicio").fadeIn(1000);
     }
  

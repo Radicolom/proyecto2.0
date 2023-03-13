@@ -15,6 +15,7 @@ $(function(){
         $("#contenedorAdopta").hide();
         $("#contenedorInicio").hide();
         $("#contenedorDatosAnimal").hide();
+        $("#contenedorDatosDarAdopcionAnimal").hide();
         $("#contenedorDarAdopcion").fadeIn(1000);
         $("#listaDarAdopcion").fadeIn(1000);
         window.listarAnimal();
@@ -228,6 +229,7 @@ $(function(){
 
     function guardarAnimal(){
 
+        var idPertenese = $("#btnRegistrarAnimal").val();
         var nombreRegistro = $("#nombreAnimal").val();
         var imagenAnimalRegistro = $("#imagenAnimal")[0].files[0];
         var sexoRegistro = $("#selectSexo").val();
@@ -238,6 +240,7 @@ $(function(){
         var descripcionRegistro = $("#descripcionRegistrar").val();
     
         var objData =new FormData();
+        objData.append("idPertenese",idPertenese);
         objData.append("nombreAnimal",nombreRegistro);
         objData.append("imagenAnimal",imagenAnimalRegistro);
         objData.append("SexoAnimal",sexoRegistro);
@@ -269,13 +272,16 @@ $(function(){
             $("#razaRegistro").val("");
             $("#descripcionRegistrar").val("");
         
-            Toast.fire({
-            icon: 'success',
-            title: 'Ha iniciado sesión correctamente'
+            Swal.fire({
+                icon: 'success',
+                title: 'Tu trabajo ha sido guardado',
+                showConfirmButton: false,
+                timer: 1500
             })
 
-            }
+            window.listarAnimal();
 
+            }
         })
     }
 
@@ -294,8 +300,8 @@ $(function(){
         var razaDatos = $(this).attr("raza");
         var descripcionDatos = $(this).attr("descripcion");
 
-        $("#contenedorAdopta").hide();
-        $("#contenedorDatosAnimal").fadeIn(1000);
+        $("#contenedorDarAdopcion").hide();
+        $("#contenedorDatosDarAdopcionAnimal").fadeIn(1000);
 
         $("#nombreAnimalDatos").val(nombreAnimalDatos);
         $("#sexoAnimalDatos").val(sexoAnimalDatos);
@@ -303,11 +309,6 @@ $(function(){
         $("#especieDatos").val(especieDatos);
         $("#razaDatos").val(razaDatos);
         $("#descripcionDatos").val(descripcionDatos);
-
-        $("#nombreUsuarioDatos").val(nombreUsuarioDatos);
-        $("#correoUsuarioDatos").val(correoDatos);
-        $("#direccionUsuarioDatos").val(direccionDatos);
-        $("#telefonoUsuarioDatos").val(tellDatos);
 
     })  
     
