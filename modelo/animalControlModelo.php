@@ -48,10 +48,10 @@ class mdlAnimal{
         $ListarAnimal=[];
         try{
             $objConexion = conexion::conectar();
-            $objRespuesta = $objConexion->prepare("SELECT animal.idAnimal, animal.imagenAnimal, animal.nombreAnimal, animal.descripcion, especie.nombreEspecie, 
-            raza.nombreRaza, numeros.numero, tiempo.nombreTiempo, sexo.nombreSexo
+            $objRespuesta = $objConexion->prepare("SELECT animal.idAnimal, animal.imagenAnimal, animal.nombreAnimal, animal.descripcion, animal.animal_Id_Usuario, especie.nombreEspecie, 
+            raza.nombreRaza, numeros.numero, tiempo.nombreTiempo, sexo.nombreSexo, usua.nombre, usua.apellido, usua.correo, usua.tell, usua.direccion
             FROM animal 
-            INNER JOIN usua 
+            INNER JOIN usua ON animal.animal_Id_Usuario = usua.idUsuario
             INNER JOIN sexo ON animal.sexo_Id_sexAnimal = sexo.idSexo 
             INNER JOIN especie ON animal.especie_Id_Animal = especie.idEspecie 
             INNER JOIN raza ON animal.raza = raza.idRaza 

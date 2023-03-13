@@ -22,6 +22,7 @@ $(function(){
   
     $("#cerrarSecionBtn").on("click",function(){
         ingress = false
+        $("#btnRegistrarAnimal").val("0")
         $("#carousel").fadeIn(1000);
         INICIARSE_BTNS()
     })
@@ -64,6 +65,7 @@ $(function(){
             $("#contenedorDarAdopcion").hide();
             $("#contenedorFormularioRegistro").hide();
             $("#contenedorDatosUsuario").hide();
+            $("#contenedorDatosAnimal").hide();
             $("#contenedorFormulariosUsuarios").fadeIn(1000);
             $("#contenedorFormularioIngreso").fadeIn(1000);
         }else{
@@ -71,6 +73,7 @@ $(function(){
             $("#contenedorAdopta").hide();
             $("#contenedorDarAdopcion").hide();
             $("#contenedorFormularioRegistro").hide();
+            $("#contenedorDatosAnimal").hide();
             $("#contenedorFormulariosUsuarios").fadeIn(1000);
         }
     }
@@ -135,6 +138,8 @@ $(function(){
                 respuesta.forEach(listaAnimal);
 
                 function listaAnimal(item, index) {
+
+                    $("#btnRegistrarAnimal").val(item.idUsuario)
                     $("#nombreUsuario").val(item.nombre);
                     $("#apellidoUsuario").val(item.apellido);
                     $("#correoUsuario").val(item.correo);
@@ -142,7 +147,6 @@ $(function(){
                     $("#telefonoUsuario").val(item.tell);
                 }
             }
-
         })
         return true;
     }
@@ -153,10 +157,18 @@ $(function(){
     $("#btnSelectDarAdopcion2").on("click", spam_Dar_Adopcion_BTNS)
 
     function spam_Dar_Adopcion_BTNS(){
-        if(ingress === false){
-            Swal.fire({
-               
-            })
-        }
+        // if(ingress === false){
+        //     Swal.fire({
+        //         title: 'Para dar en adopcion a tu mascota debes estar registrado',
+        //         allowOutsideClick: false,
+        //         allowEscapeKey: false,
+        //         confirmButtonColor: "#5c340bb6",
+        //         confirmButtonText: 'Ok 🏡'
+        //     }).then((result) => {
+        //         if (result.isConfirmed) {
+        //             INICIARSE_BTNS();
+        //         }
+        //     })
+        // }
     }
 })

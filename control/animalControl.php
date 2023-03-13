@@ -44,13 +44,20 @@ class ctrAnimal{
             $respuesta[] = array(
                 'imagen' => $imagen,
                 'idAnimal' => $animal['idAnimal'],
-                'nombre' => $animal['nombreAnimal'],
+                'nombreAnimal' => $animal['nombreAnimal'],
                 'descripcion' => $animal['descripcion'],
                 'especie' => $animal['nombreEspecie'],
                 'raza' => $animal['nombreRaza'],
                 'numero' => $animal['numero'],
                 'tiempo' => $animal['nombreTiempo'],
-                'sexo' => $animal['nombreSexo']
+                'sexo' => $animal['nombreSexo'],
+                'animal_Id_Usuario' => $animal['animal_Id_Usuario'],
+                'nombre' => $animal['nombre'],
+                'apellido' => $animal['apellido'],
+                'correo' => $animal['correo'],
+                'tell' => $animal['tell'],
+                'direccion' => $animal['direccion']
+                
             );
         }
         // Enviar la respuesta al frontend en formato JSON

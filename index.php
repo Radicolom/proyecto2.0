@@ -178,85 +178,79 @@
     </div>
 
     <div class="mt-5 container" id="contenedorDatosAnimal" style="display: none;">
-        <div class="col">
+        <br>
+        <div class="mt-5 row">
             <center>
-                <h1>ANIMAL</h1>
-            </center>        
-            <div class="card text-white" style="width: 400px; background-color:#b46743a1;" >
-                <div class="card-body">
-                    <center>
-                        <img id="fotoAnimal" src="#" alt="Vista previa de la foto" class="rounded-circle" style="width: 170px; height: 170px;">
-                    </center>
-                    <div class="mb-3 mt-3">
-                        <label for="text" class="form-label">Nombre:</label>
-                        <input type="text" class="form-control" id="nombreAnimalDatos" placeholder="Escriba el nombre" name="nombre">
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                    <div class="mb-3 mt-3">
-                        <label for="text" class="form-label">Sexo:</label>
-                        <input type="text" class="form-control" id="sexoAnimalDatos" placeholder="Escriba el nombre" name="nombre">
-                    </div>
+                <h1>🐶 DATOS DEL ANIMAL 🐯</h1>
+            </center>
+            <br>
+            <div class="col">       
+                <div class="card text-white" style="width: 400px; background-color:#b46743a1;">
+                    <div class="card-body">
+                        <center>
+                            <label for="text" class="form-label">Foto:</label>
+                            <br>
+                            <img id="fotoAnimal" src="#" alt="Vista previa de la foto" class="rounded-circle" style="width: 170px; height: 170px;">
+                        </center>
+                        <div class="mb-3 mt-3">
+                            <label for="text" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nombreAnimalDatos" name="nombreAnimalDatos" disabled>
                         </div>
-                        <div class="col">
-                            <div class="mb-3 mt-3">
-                                <label for="text" class="form-label">Edad:</label>
-                                <input type="text" class="form-control" id="edadAnimalDatos" placeholder="Escriba el nombre" name="nombre">
+                        <div class="row">
+                            <div class="col">
+                        <div class="mb-3 mt-3">
+                            <label for="text" class="form-label">Sexo:</label>
+                            <input type="text" class="form-control" id="sexoAnimalDatos" name="sexoAnimalDatos" disabled>
+                        </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3 mt-3">
+                                    <label for="text" class="form-label">Edad:</label>
+                                    <input type="text" class="form-control" id="edadAnimalDatos" name="edadAnimalDatos" disabled>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="mb-3 mt-3">
-                                <label for="text" class="form-label">Especie:</label>
-                                <input type="text" class="form-control" id="especieDatos" placeholder="Escriba el nombre" name="nombre">
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3 mt-3">
+                                    <label for="text" class="form-label">Especie:</label>
+                                    <input type="text" class="form-control" id="especieDatos" name="especieDatos" disabled>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3 mt-3">
+                                    <label for="text" class="form-label">Raza:</label>
+                                    <input type="text" class="form-control" id="razaDatos" placeholder="Indefinida" name="razaDatos" disabled>
+                                </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="mb-3 mt-3">
-                                <label for="text" class="form-label">Raza:</label>
-                                <input type="text" class="form-control" id="razaDatos" placeholder="Escriba el nombre" name="nombre">
-                            </div>
-                        </div>
+                        <label for="comment">Descripcion:</label>
+                        <textarea class="form-control" rows="5" name="descripcionDatos" id="descripcionDatos" disabled></textarea>
                     </div>
-                    <label for="comment">Descripcion:</label>
-                    <textarea class="form-control" rows="5" name="text" id="descripcionDatos"></textarea>
-                    
-                    <button type="button" class="btn btn-primary" id="btnRegistrarAnimal">Registrar peludito🙈</button>
                 </div>
             </div>
-        </div>
-        <div class="col">
-            <center>
-                <h1>USUARIO</h1>
-            </center>        
-            <div class="card text-white" style="margin: auto; width: 400px; background-color:#b46743a1;">
-                <div class="card-body">
-                    <div class="mb-3 mt-3">
-                            <label for="text" class="form-label">Nombre:</label>
-                            <input type="text" class="form-control" id="nombreUsuario" placeholder="Escriba su nombre" name="nombre" disabled>
+            <div class="col">      
+                <div class="card text-white" style="margin: auto; width: 400px; background-color:#b46743a1;">
+                    <div class="card-body">
+                        <center>
+                            <h1>PERSONA ENCARGADA</h1>
+                        </center>  
                         <div class="mb-3 mt-3">
-                            <label for="text" class="form-label">Apellido:</label>
-                            <input type="text" class="form-control" id="apellidoUsuario" placeholder="Escriba su apellido" name="nombre" disabled>
+                            <label for="text" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nombreUsuarioDatos" placeholder="Escriba su nombre" name="nombre" disabled>
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="email" class="form-label">Correo:</label>
-                            <input type="email" class="form-control" id="correoUsuario" placeholder="Escriba un correo" name="nombre" disabled>
+                            <input type="email" class="form-control" id="correoUsuarioDatos" placeholder="Escriba un correo" name="nombre" disabled>
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="text" class="form-label">Direccion:</label>
-                            <input type="text" class="form-control" id="direccionUsuario" placeholder="Escriba direccion" name="nombre" disabled>
+                            <input type="text" class="form-control" id="direccionUsuarioDatos" placeholder="Escriba direccion" name="nombre" disabled>
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="number" class="form-label">Telefono:</label>
-                            <input type="nymber" class="form-control" id="telefonoUsuario" placeholder="Escriba un numero de telefono" name="nombre" disabled>
+                            <input type="nymber" class="form-control" id="telefonoUsuarioDatos" placeholder="Escriba un numero de telefono" name="nombre" disabled>
                         </div>
-                        <!-- <div class="mb-3 mt-3">
-                            <label for="pasword" class="form-label">Contraseña:</label>
-                            <input type="pasword" class="form-control" id="nombre" placeholder="Escriba la contraseña" name="nombre">
-                        </div> -->
-                        <button  type="button" id="cerrarSecionBtn" Style="color:aliceblue;" class="btn">Cerrar secion</button>
-
                     </div>
                 </div>
             </div>
@@ -265,76 +259,145 @@
 
     <div class="mt-5 container" id="contenedorDarAdopcion" style="display: none;">
         <br>
-        <br>
-        <div class="card text-white" style="width: 400px; background-color:#b46743a1;" >
-            <div class="card-body">
-                <center>
-                    <img id="preview" src="#" alt="Vista previa de la foto" class="rounded-circle" style="width: 170px; height: 170px; display: none; ">
-                </center>
-                <div class="mb-3 mt-3">
-                    <label for="text" class="form-label">Nombre:</label>
-                    <input type="text" class="form-control" id="nombreAnimal" placeholder="Escriba el nombre" name="nombre">
-                </div>
-                <div class="mb-3 mt-3">
-                    <label for="imagenAnimal" class="form-label">Foto:</label>
-                    <input type="file" class="form-control" id="imagenAnimal" name="imagenAnimal" accept="image/jpeg" size="65536">
-                </div>
-                <div class="row">
-                    <div class="col">
+        <div class="mt-5 row">
+            <div class="col" id="listaDarAdopcion" style="display: none;">
+                <div class="card text-white" style="width: 400px; background-color:#b46743a1;" >
+                    <div class="card-body">
+                        <center>
+                            <img id="preview" src="#" alt="Vista previa de la foto" class="rounded-circle" style="width: 170px; height: 170px; display: none; ">
+                        </center>
                         <div class="mb-3 mt-3">
-                            <label for="text" class="form-label">Sexo:</label>
-                            <select class="form-select"  id="selectSexo">
-                                <!-- ARCHIVO -->
-                            </select>    
+                            <label for="text" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nombreAnimal" placeholder="Escriba el nombre" name="nombre">
                         </div>
-                    </div>
-                    <div class="col">
                         <div class="mb-3 mt-3">
-                            <label for="text" class="form-label">Edad:</label>
-                            <select class="form-select" id="selectEdadAnimal">
-                                <!-- ARCHIVO -->
-                            </select>     
+                            <label for="imagenAnimal" class="form-label">Foto:</label>
+                            <input type="file" class="form-control" id="imagenAnimal" name="imagenAnimal" accept="image/jpeg" size="65536">
                         </div>
-                    </div>
-                    <div class="col">
-                        <div class="mb-3 mt-3">
-                            <label for="text" class="form-label">Tiempo:</label>
-                            <select class="form-select" id="selectTiempo">
-                                <!-- ARCHIVO -->
-                            </select>     
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3 mt-3">
+                                    <label for="text" class="form-label">Sexo:</label>
+                                    <select class="form-select"  id="selectSexo">
+                                        <!-- ARCHIVO -->
+                                    </select>    
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3 mt-3">
+                                    <label for="text" class="form-label">Edad:</label>
+                                    <select class="form-select" id="selectEdadAnimal">
+                                        <!-- ARCHIVO -->
+                                    </select>     
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3 mt-3">
+                                    <label for="text" class="form-label">Tiempo:</label>
+                                    <select class="form-select" id="selectTiempo">
+                                        <!-- ARCHIVO -->
+                                    </select>     
+                                </div>
+                            </div>
                         </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3 mt-3">
+                                    <label for="text" class="form-label">Especie:</label>
+                                    <input type="text" list="listaRegistroEspecie" name="browser" class="form-control" placeholder="Escriba la especie" id="especieRegistro">
+                                    <datalist id="listaRegistroEspecie">
+                                        <!-- ARCHIVO -->
+                                    </datalist>    
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3 mt-3">
+                                    <label for="text" class="form-label">Raza:</label>
+                                    <input type="text" list="listaRegistroRaza" name="browser" class="form-control" placeholder="Escriba la raza" id="razaRegistro">
+                                    <datalist id="listaRegistroRaza">
+                                        <!-- ARCHIVO -->
+                                    </datalist>        
+                                </div>
+                            </div>
+                        </div>
+                        <label for="comment">Description:</label>
+                        <textarea class="form-control" rows="5" name="text" id="descripcionRegistrar"></textarea>
+                        
+                        <div class="form-check mb-3">
+                            <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                            </label>
+                        </div>
+                        <button type="button" class="btn btn-primary" id="btnRegistrarAnimal" value="0">Registrar peludito🙈</button>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="mb-3 mt-3">
-                            <label for="email" class="form-label">Especie:</label>
-                            <input type="text" list="listaRegistroEspecie" name="browser" class="form-control" placeholder="Escriba la especie" id="especieRegistro">
-                            <datalist id="listaRegistroEspecie">
-                                <!-- ARCHIVO -->
-                            </datalist>    
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="mb-3 mt-3">
-                            <label for="email" class="form-label">Raza:</label>
-                            <input type="text" list="listaRegistroRaza" name="browser" class="form-control" placeholder="Escriba la raza" id="razaRegistro">
-                            <datalist id="listaRegistroRaza">
-                                <!-- ARCHIVO -->
-                            </datalist>        
-                        </div>
-                    </div>
-                </div>
-                <label for="comment">Description:</label>
-                <textarea class="form-control" rows="5" name="text" id="descripcionRegistrar"></textarea>
-                
-                <div class="form-check mb-3">
-                    <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" name="remember"> Remember me
-                    </label>
-                </div>
-                <button type="button" class="btn btn-primary" id="btnRegistrarAnimal">Registrar peludito🙈</button>
             </div>
+            <div class="col">
+                <div class="row" id="darAdopcionListas">
+                    <!-- ARCHIVO -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- style="display: none;" -->
+    <div class="mt-5 container" id="contenedorDatosDarAdopcionAnimal" >
+        <br>
+        <div class="card text-white" style="background-color:#b46743a1;">
+            <div class="mt-5 row">
+                <center>
+                    <h1>🐶 DATOS DEL ANIMAL 🐯</h1>
+                </center>
+                <br>
+                <div class="col">       
+                    <div class="card-body">
+                        <center>
+                            <label for="text" class="form-label">Foto:</label>
+                            <br>
+                            <img id="fotoActualizarAnimal" src="#" alt="Vista previa de la foto" class="rounded-circle" style="width: 170px; height: 170px;">
+                        </center>
+                        <div class="mb-3 mt-3">
+                            <label for="imagenAnimal" class="form-label">Foto:</label>
+                            <input type="file" class="form-control" id="actualizarImagenAnimal" name="imagenAnimal" accept="image/jpeg" size="65536">
+                        </div>
+                    </div>
+                </div>
+                <div class="col">      
+                    <div class="mb-3 mt-3">
+                        <label for="text" class="form-label">Nombre:</label>
+                        <input type="text" class="form-control" id="actualizarNombreAnimalDatos" name="nombreAnimalDatos">
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                    <div class="mb-3 mt-3">
+                        <label for="text" class="form-label">Sexo:</label>
+                        <input type="text" class="form-control" id="actualizarSexoAnimalDatos" name="sexoAnimalDatos">
+                    </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3 mt-3">
+                                <label for="text" class="form-label">Edad:</label>
+                                <input type="text" class="form-control" id="actualizarEdadAnimalDatos" name="edadAnimalDatos">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3 mt-3">
+                                <label for="text" class="form-label">Especie:</label>
+                                <input type="text" class="form-control" id="actualizarEspecieDatos" name="especieDatos">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3 mt-3">
+                                <label for="text" class="form-label">Raza:</label>
+                                <input type="text" class="form-control" id="actualizarRazaDatos" placeholder="Indefinida" name="razaDatos">
+                            </div>
+                        </div>
+                    </div>
+                    <label for="comment">Descripcion:</label>
+                    <textarea class="form-control" rows="5" name="actualizarDescripcionDatos" id="descripcionDatos"></textarea>
+                </div>
+            </div>             
         </div>
     </div>
 
@@ -406,9 +469,9 @@
             <div class="col">
                 <br>
                 <div id="carousel" class="carousel_slide-imagen" data-bs-ride="carousel">
-                   <div id="contenedorFormulariosUsuariosFotos" class="carousel-inner">
+                    <div id="contenedorFormulariosUsuariosFotos" class="carousel-inner">
                         <!-- ARCHIVO -->
-                   </div>          
+                    </div>          
                 </div>          
             </div>          
             <div class="col" id="contenedorFormularioRegistro" style="display: none;">
@@ -418,33 +481,29 @@
                 <div class="card text-white" style="margin: auto; width: 400px; background-color:#b46743a1;" >
                     <div class="card-body">
                         <div class="mb-3 mt-3">
-                            <label for="form-label" class="form-label">FOTO:</label>
-                            <input class="form-control" type="file" name="imagenAnmal">
-                        </div>
-                        <div class="mb-3 mt-3">
                             <label for="text" class="form-label">Nombre:</label>
                             <input type="text" class="form-control" id="nombre" placeholder="Escriba su nombre" name="nombre">
                         <div class="mb-3 mt-3">
                             <label for="text" class="form-label">Apellido:</label>
-                            <input type="text" class="form-control" id="nombre" placeholder="Escriba su apellido" name="nombre">
+                            <input type="text" class="form-control" id="apellido" placeholder="Escriba su apellido" name="nombre">
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="text" class="form-label">Direccion:</label>
-                            <input type="text" class="form-control" id="nombre" placeholder="Escriba direccion" name="nombre">
+                            <input type="text" class="form-control" id="direccion" placeholder="Escriba su direccion" name="nombre">
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="number" class="form-label">Telefono:</label>
-                            <input type="nymber" class="form-control" id="nombre" placeholder="Escriba un numero de telefono" name="nombre">
+                            <input type="nymber" class="form-control" id="telefono" placeholder="Escriba un numero de telefono" name="nombre">
                         </div>
                         <div class="mb-3 mt-3">
-                            <label for="email" class="form-label">Correo:</label>
-                            <input type="email" class="form-control" id="nombre" placeholder="Escriba un correo" name="nombre">
+                            <label for="text" class="form-label">Correo:</label>
+                            <input type="email" class="form-control" id="correo" placeholder="Escriba un correo" name="nombre">
                         </div>
                         <div class="mb-3 mt-3">
-                            <label for="pasword" class="form-label">Contraseña:</label>
-                            <input type="pasword" class="form-control" id="nombre" placeholder="Escriba la contraseña" name="nombre">
+                            <label for="text" class="form-label">Contraseña:</label>
+                            <input type="password" class="form-control" id="contraseña" placeholder="Escriba la contraseña" name="nombre">
                         </div>             
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Registrar</button>
                     </div>
                 </div>
             </div>
