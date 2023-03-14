@@ -70,7 +70,7 @@ $(function(){
                 FotosFormulario.innerHTML +=
                 '<div class="carousel-item active"><img style="width: 100px; height: 300px; margin: auto;" src="data:image/jpg;base64,' +
                 item.imagen +
-                '" alt="Mi foto" class=" d-block w-100 rounded-circle img-thumbnail"></div>';
+                '" alt="Mi foto" class="d-block w-100 rounded-circle img-thumbnail"></div>';
 
                 listaAnimal.innerHTML +=
                 '<div class="col"><button id="btnAnimal" type="button" class="btn" idEspecie=' + item.idAnimal + 
