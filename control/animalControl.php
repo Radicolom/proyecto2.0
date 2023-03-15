@@ -1,17 +1,19 @@
 <?php
 include_once "../modelo/animalControlModelo.php";
 
+$iniciadoSesion = true;
 // USUARIO
 
 class ctrUsuario{
-
     public $objRespuesta;
 
     public function ctrValidarUsuario(){
-        $objRespuesta=mdlUsuario::mdlValidarUsuario($this->correoUsuario,$this->passwordUsuario);
+        $objRespuesta = mdlUsuario::mdlValidarUsuario($this->correoUsuario,$this->passwordUsuario);
+        if($objRespuesta){
+            $GLOBALS["iniciadoSesion"] = false;
+        }
         echo json_encode($objRespuesta);
     }
-
 }
 
 if(isset($_POST["correoIngreso"],$_POST["passwordIngreso"])){
@@ -38,9 +40,7 @@ class ctrAnimal{
         $respuesta = array();
 
         foreach ($objRespuesta as $animal) {
-            // Convertir la imagen a base64
             $imagen = base64_encode($animal['imagenAnimal']);
-            // Agregar la imagen y los demás datos a la respuesta
             $respuesta[] = array(
                 'imagen' => $imagen,
                 'idAnimal' => $animal['idAnimal'],
@@ -60,20 +60,29 @@ class ctrAnimal{
                 
             );
         }
-        // Enviar la respuesta al frontend en formato JSON
         echo json_encode($respuesta);
     }
 
+    public function ctrInicio(){
+        $objRespuesta = $GLOBALS["iniciadoSesion"];
+
+        echo json_encode($objRespuesta);
+    }
 }
 
-if(isset($_POST["listarBusquedaAnimal"]) == "ok"){
+    if(isset($_POST["listarBusquedaAnimal"]) && $_POST["listarBusquedaAnimal"] == "ok"){
     $objAnimal = new ctrAnimal();
     $objAnimal->ctrListarBusquedaAnimal();
 }
 
-if(isset($_POST["listarAnimal"]) == "ok"){
+if(isset($_POST["listarAnimal"]) && $_POST["listarAnimal"] == "ok"){
     $objAnimal = new ctrAnimal();
     $objAnimal->ctrListarAnimal();
+}
+
+if(isset($_POST["verificarIni"]) && $_POST["verificarIni"] == "ok"){
+    $objAnimal = new ctrAnimal();
+    $objAnimal->ctrInicio();
 }
 
 
@@ -103,12 +112,12 @@ class ctrDatosAnimal{
 
 }
 
-if(isset($_POST["listarTiempo"]) == "ok"){
+if(isset($_POST["listarTiempo"]) && $_POST["listarTiempo"] == "ok"){
     $objAnimal = new ctrDatosAnimal();
     $objAnimal->ctrListarTiempo();
 }
 
-if(isset($_POST["listarEdadAnimal"]) == "ok"){
+if(isset($_POST["listarEdadAnimal"]) && $_POST["listarEdadAnimal"] == "ok"){
     $objAnimal = new ctrDatosAnimal();
     $objAnimal->ctrListarEdadAnimal();
 }

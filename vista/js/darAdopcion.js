@@ -1,4 +1,40 @@
 $(function(){
+    
+    verificarInicio();
+
+    function verificarInicio(){
+         
+        var objData =new FormData();
+
+        objData.append("verificarIni","ok");
+        $.ajax({
+        url: "control/animalControl.php",
+        type: "post",
+        dataType: "json",
+        data: objData,
+        cache: false,
+        contentType: false,
+        processData: false
+        }).done(function(respuesta){
+            if(respuesta.mensaje === "no"){
+                Swal.fire({
+                    title: 'Para dar en adopcion a tu mascota debes estar registrado',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                    confirmButtonColor: "#5c340bb6",
+                    confirmButtonText: 'Ok 🏡'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "iniciarSes";
+                    }
+                })
+            }
+        })
+    }
+
+
+
+
 
     var imagenAnimal; 
 
@@ -19,9 +55,10 @@ $(function(){
         $("#contenedorDarAdopcion").fadeIn(1000);
         $("#listaDarAdopcion").fadeIn(1000);
         
-        window.listarAnimal();
     }
     
+    // window.listarAnimal();
+
     function listarTiempo(){
         document.getElementById("selectTiempo").innerHTML = "";
 

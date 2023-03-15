@@ -1,24 +1,13 @@
 $(function(){
 
-    $("#btnSelectAdopta").on("click", ADOPCION_BTNS)
-    $("#btnAdoptar").on("click", ADOPCION_BTNS)
-
-    function ADOPCION_BTNS(){
-        $("#contenedorFormulariosUsuarios").hide();
-        $("#contenedorInicio").hide();
-        $("#contenedorDarAdopcion").hide();
-        $("#contenedorDatosAnimal").hide();
-        $("#contenedorDatosDarAdopcionAnimal").hide();
-        $("#contenedorAdopta").fadeIn(1000);
-    }
-
     listarAnimal();
-
     function listarAnimal(){
 
         document.getElementById("adopcionListas").innerHTML = "";
-        document.getElementById("contenedorFormulariosUsuariosFotos").innerHTML = "";
-        document.getElementById("darAdopcionListas").innerHTML = "";
+
+        // document.getElementById("contenedorFormulariosUsuariosFotos").innerHTML = "";
+
+        // document.getElementById("darAdopcionListas").innerHTML = "";
 
         var objData =new FormData();
         objData.append("listarAnimal","ok");
@@ -32,45 +21,47 @@ $(function(){
             processData: false
         }).done(function(respuesta){
 
-            var idValidacion = $("#btnRegistrarAnimal").val();
-            var comparar = "";
+            // var idValidacion = $("#btnRegistrarAnimal").val();
+            // var comparar = "";
 
-            respuesta.forEach(compararacion);
 
-            function compararacion(item, index){
-                comparar = item.animal_Id_Usuario;
-            }
+            // respuesta.forEach(compararacion);
+
+            // function compararacion(item, index){
+            //     comparar = item.animal_Id_Usuario;
+            // }
 
             respuesta.forEach(listaAnimal);
 
             function listaAnimal(item, index) {
                                 
                 const listaAnimal = document.getElementById("adopcionListas");
-                const FotosFormulario = document.getElementById("contenedorFormulariosUsuariosFotos");
-                const FotosDarAdopcion = document.getElementById("darAdopcionListas");
+                // const FotosFormulario = document.getElementById("contenedorFormulariosUsuariosFotos");
+                // const FotosDarAdopcion = document.getElementById("darAdopcionListas");
 
-                if(idValidacion == comparar){
-                    FotosDarAdopcion.innerHTML +=
-                    '<div class="col"><button id="btnDarAnimal" type="button" class="btn" idEspecie=' + item.idAnimal + 
-                    ' imagenAnimal='+ item.imagen + 
-                    ' nombreAnimal=' + item.nombreAnimal + 
-                    ' sexoAnimal=' + item.sexo + 
-                    ' edadAnimal="' + item.numero + 
-                    ' tipoEdad=' + item.tiempo + 
-                    '" especie="' + item.especie + 
-                    '" raza="' + item.raza + 
-                    '" descripcion="' + item.descripcion + 
-                    '><div class="card" style="width: 150px; background-color:#ffc273;"><br><img style="width: 100px; height: 100px; margin: auto;" src="data:image/jpg;base64,' +
-                    item.imagen +
-                    '" alt="Mi foto"><div class="card-body"><h4 class="card-title">NOMBRE:</h4><h4 class="card-title">' +
-                    item.nombreAnimal +
-                    '</h4></div></div></button></div>';
-                }
+                // if(idValidacion == comparar){
 
-                FotosFormulario.innerHTML +=
-                '<div class="carousel-item active"><img style="width: 100px; height: 300px; margin: auto;" src="data:image/jpg;base64,' +
-                item.imagen +
-                '" alt="Mi foto" class="d-block w-100 rounded-circle img-thumbnail"></div>';
+                //     FotosDarAdopcion.innerHTML +=
+                //     '<div class="col"><button id="btnDarAnimal" type="button" class="btn" idEspecie=' + item.idAnimal + 
+                //     ' imagenAnimal='+ item.imagen + 
+                //     ' nombreAnimal=' + item.nombreAnimal + 
+                //     ' sexoAnimal=' + item.sexo + 
+                //     ' edadAnimal="' + item.numero + 
+                //     ' tipoEdad=' + item.tiempo + 
+                //     '" especie="' + item.especie + 
+                //     '" raza="' + item.raza + 
+                //     '" descripcion="' + item.descripcion + 
+                //     '><div class="card" style="width: 150px; background-color:#ffc273;"><br><img style="width: 100px; height: 100px; margin: auto;" src="data:image/jpg;base64,' +
+                //     item.imagen +
+                //     '" alt="Mi foto"><div class="card-body"><h4 class="card-title">NOMBRE:</h4><h4 class="card-title">' +
+                //     item.nombreAnimal +
+                //     '</h4></div></div></button></div>';
+                // }
+
+                // FotosFormulario.innerHTML +=
+                // '<div class="carousel-item active"><img style="width: 100px; height: 300px; margin: auto;" src="data:image/jpg;base64,' +
+                // item.imagen +
+                // '" alt="Mi foto" class="d-block w-100 rounded-circle img-thumbnail"></div>';
 
                 listaAnimal.innerHTML +=
                 '<div class="col"><button id="btnAnimal" type="button" class="btn" idEspecie=' + item.idAnimal + 

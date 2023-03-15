@@ -1,27 +1,10 @@
-$(function(){
-
-    var ingress = false;
-
-    Swal.fire({
-        imageUrl: 'https://media.giphy.com/media/Cdkk6wFFqisTe/giphy.gif',
-        imageHeight: 250,
-        imageAlt: 'Foto',
-        title: 'Para dar en adopcion a tu mascota debes estar registrado',
-        showDenyButton: true,
-        showCloseButton: true,
-        // confirmButtonColor: red,
-        confirmButtonText: 'Ok 🏡',
-        denyButtonText: `Registrate ya`,
-    }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
-        } else if (result.isDenied) {
-            INICIARSE_BTNS()
-        }
-    })
+$(function(){  
   
+    var ingress = false;
+    
     $("#cerrarSecionBtn").on("click",function(){
         ingress = false
+        alert(ingress)
         $("#btnRegistrarAnimal").val("0")
         $("#carousel").fadeIn(1000);
         INICIARSE_BTNS()
@@ -143,28 +126,29 @@ $(function(){
                     $("#telefonoUsuario").val(item.tell);
                 }
             }
+
         })
         return true;
     }
 
     // ALERTA DARADOPCION
 
-    $("#btnSelectDarAdopcion").on("click", spam_Dar_Adopcion_BTNS)
-    $("#btnSelectDarAdopcion2").on("click", spam_Dar_Adopcion_BTNS)
+    // $("#btnSelectDarAdopcion").on("click", spam_Dar_Adopcion_BTNS)
+    // $("#btnSelectDarAdopcion2").on("click", spam_Dar_Adopcion_BTNS)
 
-    function spam_Dar_Adopcion_BTNS(){
-        if(ingress === false){
-            Swal.fire({
-                title: 'Para dar en adopcion a tu mascota debes estar registrado',
-                allowOutsideClick: false,
-                allowEscapeKey: false,
-                confirmButtonColor: "#5c340bb6",
-                confirmButtonText: 'Ok 🏡'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    INICIARSE_BTNS();
-                }
-            })
-        }
-    }
+    // function spam_Dar_Adopcion_BTNS(){
+    //     if(ingress === false){
+    //         Swal.fire({
+    //             title: 'Para dar en adopcion a tu mascota debes estar registrado',
+    //             allowOutsideClick: false,
+    //             allowEscapeKey: false,
+    //             confirmButtonColor: "#5c340bb6",
+    //             confirmButtonText: 'Ok 🏡'
+    //         }).then((result) => {
+    //             if (result.isConfirmed) {
+    //                 INICIARSE_BTNS();
+    //             }
+    //         })
+    //     }
+    // }
 })
