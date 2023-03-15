@@ -1,3 +1,5 @@
+<script src='vista/js/adoptaAnimal.js'></script>
+
 <div class="mt-5 container" id="contenedorAdopta">
     <br>
     <br>

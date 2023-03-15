@@ -32,10 +32,6 @@
 
     <link rel='stylesheet' type="text/css" media="screen" href='vista/css/main.css'>
     
-    <script src='vista/js/ingreso.js'></script>
-
-    <script src='vista/js/adoptaAnimal.js'></script>
-
- 
+    <script src='vista/js/main.js'></script> 
 </head>
 <body>

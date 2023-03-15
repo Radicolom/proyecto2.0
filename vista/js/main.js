@@ -1,21 +1,46 @@
 $(function(){
 
-    Swal.fire({
-        imageUrl: 'https://media.giphy.com/media/Cdkk6wFFqisTe/giphy.gif',
-        imageHeight: 250,
-        imageAlt: 'Foto',
-        title: 'Para dar en adopcion a tu mascota debes estar registrado',
-        showDenyButton: true,
-        showCloseButton: true,
-        // confirmButtonColor: red,
-        confirmButtonText: 'Ok 🏡',
-        denyButtonText: `Registrate ya`,
-    }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
-        } else if (result.isDenied) {
-            window.location.href = "iniciarSes";
-        }
-    })
- 
+    verificarInicio();
+
+    function verificarInicio(){         
+        var objData =new FormData();
+        objData.append("verificarIni","ok");
+        $.ajax({
+        url: "control/inicioControl.php",
+        type: "post",
+        dataType: "json",
+        data: objData,
+        cache: false,
+        contentType: false,
+        processData: false
+        }).done(function(respuesta){
+            if(respuesta !== true){
+                $("#btnSelectSalir1").hide();
+                $("#btnSelectIniciarSesion").fadeIn(1);   
+            }else{
+                $("#btnSelectIniciarSesion").hide();
+                $("#btnSelectSalir1").fadeIn(1); 
+            }
+        })
+    }
+
+    $("#btnSelectSalir1").on("click", usuario_Salir)
+
+    function usuario_Salir(){
+        var objData =new FormData();
+        objData.append("usuarioSalir", "ok");
+        $.ajax({
+            url: "control/inicioControl.php",
+            type: "post",
+            dataType: "json",
+            data: objData,
+            cache: false,
+            contentType: false,
+            processData: false
+        }).done(function(respuesta){
+            if(respuesta === "ok"){
+                window.location.href = "inicio";
+            }
+        })
+    }
 })

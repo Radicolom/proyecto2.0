@@ -1,30 +1,8 @@
 <?php
 include_once "../modelo/animalControlModelo.php";
 
-$iniciadoSesion = true;
-// USUARIO
-
-class ctrUsuario{
-    public $objRespuesta;
-
-    public function ctrValidarUsuario(){
-        $objRespuesta = mdlUsuario::mdlValidarUsuario($this->correoUsuario,$this->passwordUsuario);
-        if($objRespuesta){
-            $GLOBALS["iniciadoSesion"] = false;
-        }
-        echo json_encode($objRespuesta);
-    }
-}
-
-if(isset($_POST["correoIngreso"],$_POST["passwordIngreso"])){
-    $objUsuario = new ctrUsuario();
-    $objUsuario->correoUsuario = $_POST["correoIngreso"];
-    $objUsuario->passwordUsuario = $_POST["passwordIngreso"];
-    $objUsuario->ctrValidarUsuario();
-}
-
-
-// ANIMAL 
+session_start();
+$comparar = $_SESSION["iniciadoSesion"];
 
 class ctrAnimal{
 
@@ -56,33 +34,21 @@ class ctrAnimal{
                 'apellido' => $animal['apellido'],
                 'correo' => $animal['correo'],
                 'tell' => $animal['tell'],
-                'direccion' => $animal['direccion']
-                
+                'direccion' => $animal['direccion']  
             );
         }
         echo json_encode($respuesta);
     }
-
-    public function ctrInicio(){
-        $objRespuesta = $GLOBALS["iniciadoSesion"];
-
-        echo json_encode($objRespuesta);
-    }
 }
 
-    if(isset($_POST["listarBusquedaAnimal"]) && $_POST["listarBusquedaAnimal"] == "ok"){
-    $objAnimal = new ctrAnimal();
-    $objAnimal->ctrListarBusquedaAnimal();
+if(isset($_POST["listarBusquedaAnimal"]) && $_POST["listarBusquedaAnimal"] == "ok"){
+$objAnimal = new ctrAnimal();
+$objAnimal->ctrListarBusquedaAnimal();
 }
 
 if(isset($_POST["listarAnimal"]) && $_POST["listarAnimal"] == "ok"){
     $objAnimal = new ctrAnimal();
     $objAnimal->ctrListarAnimal();
-}
-
-if(isset($_POST["verificarIni"]) && $_POST["verificarIni"] == "ok"){
-    $objAnimal = new ctrAnimal();
-    $objAnimal->ctrInicio();
 }
 
 
@@ -135,10 +101,48 @@ if(isset($_POST["listarSexo"]) == "ok"){
 
 class ctrGuardarDatosAnimal{
 
+    public $objRespuesta;
+
     public function ctrGuardarAnimal(){
         $objRespuesta=mdlGuardarAnimal::mdlGuardarAnimal($this->animalIdUsuario,$this->nombreAnimal, $this->imagenAnimal, $this->SexoAnimal, $this->EdadAnimal, $this->selectTiempo, $this->especieRegistro, $this->razaRegistro, $this->descripcionRegistro);
         echo json_encode($objRespuesta);
     }
+
+    public function listarAnimalUpp(){
+        if($_SESSION["iniciadoSesion"] !== false){
+            $objRespuesta=mdlAnimal::mdlListarAnimal();
+            $respuesta = array();
+            foreach ($objRespuesta as $animal) {
+                if ($animal['animal_Id_Usuario'] == $_SESSION["usuarioCom"]) {
+                    $imagen = base64_encode($animal['imagenAnimal']);
+                    $respuesta[] = array(
+                        'imagen' => $imagen,
+                        'idAnimal' => $animal['idAnimal'],
+                        'nombreAnimal' => $animal['nombreAnimal'],
+                        'descripcion' => $animal['descripcion'],
+                        'especie' => $animal['nombreEspecie'],
+                        'raza' => $animal['nombreRaza'],
+                        'numero' => $animal['numero'],
+                        'tiempo' => $animal['nombreTiempo'],
+                        'sexo' => $animal['nombreSexo'],
+                        'animal_Id_Usuario' => $animal['animal_Id_Usuario'],
+                        'nombre' => $animal['nombre'],
+                        'apellido' => $animal['apellido'],
+                        'correo' => $animal['correo'],
+                        'tell' => $animal['tell'],
+                        'direccion' => $animal['direccion']  
+                    );
+                }
+
+            }
+            echo json_encode($respuesta);
+        }
+    }
+}
+
+if(isset($_POST["listarAnimalUpp"]) && $_POST["listarAnimalUpp"] == "ok"){
+    $objAnimal = new ctrGuardarDatosAnimal();
+    $objAnimal->listarAnimalUpp();
 }
 
 if(isset($_POST["idPertenese"],$_POST["nombreAnimal"],$_FILES["imagenAnimal"],$_POST["SexoAnimal"],$_POST["EdadAnimal"],$_POST["selectTiempo"],$_POST["especieRegistro"],$_POST["razaRegistro"],$_POST["descripcionRegistro"])){

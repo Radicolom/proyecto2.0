@@ -1,3 +1,6 @@
+<script src='vista/js/ingreso.js'></script>
+
+
 <div class="mt-5 container" id="contenedorFormulariosUsuarios">
     <div class="row p-5">
         <div class="col" id="contenedorFormularioIngreso">
@@ -28,7 +31,7 @@
                 </div>
             </div>
         </div>
-        <div class="col" id="contenedorDatosUsuario">
+        <div class="col" id="contenedorDatosUsuario" style="display: none;">
             <center>
                 <h1>USUARIO</h1>
             </center>        
@@ -68,10 +71,10 @@
             <div id="carousel" class="carousel slide" data-bs-ride="carousel">
                 <div id="contenedorFormulariosUsuariosFotos" class="carousel-inner">
                     <!-- ARCHIVO -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon"></span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
                         <span class="carousel-control-next-icon"></span>
                     </button>
                 </div>          

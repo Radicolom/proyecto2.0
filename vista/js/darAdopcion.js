@@ -1,14 +1,15 @@
 $(function(){
     
+    actualizarAnimal();
     verificarInicio();
+    listarTiempo();
 
     function verificarInicio(){
          
         var objData =new FormData();
-
         objData.append("verificarIni","ok");
         $.ajax({
-        url: "control/animalControl.php",
+        url: "control/inicioControl.php",
         type: "post",
         dataType: "json",
         data: objData,
@@ -16,7 +17,7 @@ $(function(){
         contentType: false,
         processData: false
         }).done(function(respuesta){
-            if(respuesta.mensaje === "no"){
+            if(respuesta === false){
                 Swal.fire({
                     title: 'Para dar en adopcion a tu mascota debes estar registrado',
                     allowOutsideClick: false,
@@ -28,37 +29,67 @@ $(function(){
                         window.location.href = "iniciarSes";
                     }
                 })
+            }else{
+                actualizarAnimal();
+            }
+        })
+    }
+
+    function actualizarAnimal(){
+        var objData =new FormData();
+        objData.append("listarAnimalUpp","ok");
+        $.ajax({
+            url: "control/animalControl.php",
+            type: "post",
+            dataType: "json",
+            data: objData,
+            cache: false,
+            contentType: false,
+            processData: false
+        }).done(function(respuesta){
+            document.getElementById("darAdopcionListas").innerHTML = "";
+            respuesta.forEach(listaAnimal);
+            function listaAnimal(item, index) {                                
+                const FotosDarAdopcion = document.getElementById("darAdopcionListas");
+
+                    FotosDarAdopcion.innerHTML +=
+                    '<div class="col"><button id="btnDarAnimal" type="button" class="btn" idEspecie=' + item.idAnimal + 
+                    ' imagenAnimal='+ item.imagen + 
+                    ' nombreAnimal=' + item.nombreAnimal + 
+                    ' sexoAnimal=' + item.sexo + 
+                    ' edadAnimal="' + item.numero + 
+                    ' tipoEdad=' + item.tiempo + 
+                    '" especie="' + item.especie + 
+                    '" raza="' + item.raza + 
+                    '" descripcion="' + item.descripcion + 
+                    '><div class="card" style="width: 150px; background-color:#ffc273;"><br><img style="width: 100px; height: 100px; margin: auto;" src="data:image/jpg;base64,' +
+                    item.imagen +
+                    '" alt="Mi foto"><div class="card-body"><h4 class="card-title">NOMBRE:</h4><h4 class="card-title">' +
+                    item.nombreAnimal +
+                    '</h4></div></div></button></div>';
             }
         })
     }
 
 
-
-
-
-    var imagenAnimal; 
-
-    $("#btnSelectDarAdopcion").on("click", Dar_Adopcion_BTNS)
-    $("#btnSelectDarAdopcion2").on("click", Dar_Adopcion_BTNS)
+    // $("#btnSelectDarAdopcion").on("click", Dar_Adopcion_BTNS)
 
     $("#selectTiempo").on("change", function(){
         listarEdadAnimal();
     })
 
-    function Dar_Adopcion_BTNS(){
-        listarTiempo();
-        $("#contenedorFormulariosUsuarios").hide();
-        $("#contenedorAdopta").hide();
-        $("#contenedorInicio").hide();
-        $("#contenedorDatosAnimal").hide();
-        $("#contenedorDatosDarAdopcionAnimal").hide();
-        $("#contenedorDarAdopcion").fadeIn(1000);
-        $("#listaDarAdopcion").fadeIn(1000);
+    // function Dar_Adopcion_BTNS(){
+    //     listarTiempo();
+    //     $("#contenedorFormulariosUsuarios").hide();
+    //     $("#contenedorAdopta").hide();
+    //     $("#contenedorInicio").hide();
+    //     $("#contenedorDatosAnimal").hide();
+    //     $("#contenedorDatosDarAdopcionAnimal").hide();
+    //     $("#contenedorDarAdopcion").fadeIn(1000);
+    //     $("#listaDarAdopcion").fadeIn(1000);
         
-    }
+    // }
     
-    // window.listarAnimal();
-
     function listarTiempo(){
         document.getElementById("selectTiempo").innerHTML = "";
 
@@ -168,8 +199,9 @@ $(function(){
 
     function listarBusquedaAnimal(){
         // BUSQUEDA
-        document.getElementById("listaBusqueda").innerHTML = "";
-        document.getElementById("listaBusquedaAnimalEspecie").innerHTML = "";
+
+        // document.getElementById("listaBusqueda").innerHTML = "";
+        // document.getElementById("listaBusquedaAnimalEspecie").innerHTML = "";
 
         // REGISTRO DATOS ANIMAL
         document.getElementById("listaRegistroEspecie").innerHTML = "";
@@ -197,11 +229,12 @@ $(function(){
             function ListarBusqueda(item,index){
 
                 // BUSQUEDA ANIMAL
-                const busquedaEs = document.getElementById('listaBusqueda');
-                busquedaEs.innerHTML += `<option value="${item.nombreEspecie}">`;
 
-                const busquedaSelec = document.getElementById('listaBusquedaAnimalEspecie');
-                busquedaSelec.innerHTML += `<a class="dropdown-item" id="selecCionarBusquedaEspecie" value="${item.idEspecie}">${item.nombreEspecie}</a>`;
+                // const busquedaEs = document.getElementById('listaBusqueda');
+                // busquedaEs.innerHTML += `<option value="${item.nombreEspecie}">`;
+
+                // const busquedaSelec = document.getElementById('listaBusquedaAnimalEspecie');
+                // busquedaSelec.innerHTML += `<a class="dropdown-item" id="selecCionarBusquedaEspecie" value="${item.idEspecie}">${item.nombreEspecie}</a>`;
 
                 // REGISTRO DATOS ANIMAL
                 
@@ -215,8 +248,9 @@ $(function(){
             function listarRegistross(item,index){
 
                 // BUSQUEDA ANIMAL
-                const busquedaSelec = document.getElementById('listaBusquedaAnimalRaza');
-                busquedaSelec.innerHTML += `<a class="dropdown-item" id="seleccionarBusquedaRaza" value="${item.idRaza}">${item.nombreRaza}</a>`;
+
+                // const busquedaSelec = document.getElementById('listaBusquedaAnimalRaza');
+                // busquedaSelec.innerHTML += `<a class="dropdown-item" id="seleccionarBusquedaRaza" value="${item.idRaza}">${item.nombreRaza}</a>`;
 
                 // REGISTRO DATOS ANIMAL  
                 const datosRazaAnimal = document.getElementById('listaRegistroRaza');
@@ -230,7 +264,7 @@ $(function(){
 
     $(document).ready(function() {
         $('#imagenAnimal').on('change', function() {
-            imagenAnimal = this.files[0];
+            var imagenAnimal = this.files[0];
 
             if (imagenAnimal.type !== "image/jpeg") {
                 Swal.fire({
@@ -258,8 +292,8 @@ $(function(){
                     $('#preview').attr('src', urlImagen).show();
                 }
             }
-        });
-      });
+        })
+    })
     
     $("#btnRegistrarAnimal").on("click", function(){                
         guardarAnimal();
@@ -316,9 +350,7 @@ $(function(){
                 showConfirmButton: false,
                 timer: 1500
             })
-
-            window.listarAnimal();
-
+            listarAnimal();
             }
         })
     }

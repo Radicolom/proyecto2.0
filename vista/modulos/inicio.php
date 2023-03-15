@@ -1,8 +1,6 @@
-<script src='vista/js/main.js'></script>
+<script src='vista/js/inicio.js'></script>
 
-
-
-<div class="mt-5 row" id="contenedorInicio">
+<div class="mt-5 row">
     <div id="imagenFondoInicio">
         <div class="row p-5">
         </div>
@@ -17,18 +15,18 @@
             <br>
             <div class="row">
                 <div class="col sm-1">
-                    <a href="adopta" id="btnAdoptar" class="btn-1 btn-lg">
+                    <button type="button" id="btnAdoptar" class="btn-1 btn-lg">
                         <h4> 
                         🐶
                         Adoptar 🐈 </h4>
-                    </a>
+                    </button>
                 </div>
                 <div class="col sm-1">
-                    <a href="darAdopcion" id="btnSelectDarAdopcion2" class="btn-1 btn-lg" >
+                    <button type="button" id="btnSelectDarAdopcion2" class="btn-1 btn-lg" >
                         <h4> 
                         🦴
                         Dar en adopcion</h4>
-                    </a>
+                    </button>
                 </div>
                 <div class="col sm-10">
                 </div>

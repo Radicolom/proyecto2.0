@@ -1,6 +1,7 @@
 $(function(){  
   
     var ingress = false;
+    fotosAnimal();
     
     $("#cerrarSecionBtn").on("click",function(){
         ingress = false
@@ -70,12 +71,11 @@ $(function(){
             
         var correo = $("#emailIngreso").val();
         var password = $("#pwdIngreso").val();
-
         var objData =new FormData();
         objData.append("correoIngreso",correo);
         objData.append("passwordIngreso",password);
         $.ajax({
-            url: "control/animalControl.php",
+            url: "control/inicioControl.php",
             type: "post",
             dataType: "json",
             data: objData,
@@ -83,7 +83,6 @@ $(function(){
             contentType: false,
             processData: false
         }).done(function(respuesta){
-
             if (respuesta == "") {
                 Swal.fire({
                     icon: 'error',
@@ -130,6 +129,60 @@ $(function(){
         })
         return true;
     }
+
+    function fotosAnimal(){
+
+        document.getElementById("contenedorFormulariosUsuariosFotos").innerHTML = "";
+
+        var objData =new FormData();
+        objData.append("listarAnimal","ok");
+        $.ajax({
+            url: "control/animalControl.php",
+            type: "post",
+            dataType: "json",
+            data: objData,
+            cache: false,
+            contentType: false,
+            processData: false
+        }).done(function(respuesta){
+            var cont = 0;
+            respuesta.forEach(listaAnimal);
+            function listaAnimal(item, index) {     
+                         
+                const FotosFormulario = document.getElementById("contenedorFormulariosUsuariosFotos");
+
+                if(cont<1){
+                    cont ++ ;
+                    FotosFormulario.innerHTML +=
+                    '<div class="carousel-item active"><img style="width: 100px; height: 300px; margin: auto;" src="data:image/jpg;base64,' +
+                    item.imagen +
+                    '" alt="' + item.nombre + '" class="d-block w-100 rounded-circle img-thumbnail"></div>';
+                }else{
+                    FotosFormulario.innerHTML +=
+                    '<div class="carousel-item"><img style="width: 100px; height: 300px; margin: auto;" src="data:image/jpg;base64,' +
+                    item.imagen +
+                    '" alt="' + item.nombre + '" class="d-block w-100 rounded-circle img-thumbnail"></div>';
+                }
+                
+            }
+        })
+    }
+
+
+    
+        //     if(ingress === false){
+        //         Swal.fire({
+        //             title: 'Para dar en adopcion a tu mascota debes estar registrado',
+        //             allowOutsideClick: false,
+        //             allowEscapeKey: false,
+        //             confirmButtonColor: "#5c340bb6",
+        //             confirmButtonText: 'Ok 🏡'
+        //         }).then((result) => {
+        //             if (result.isConfirmed) {
+        //                 INICIARSE_BTNS();
+        //             }
+        //         })
+        //     }
 
     // ALERTA DARADOPCION
 
